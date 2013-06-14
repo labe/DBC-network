@@ -3,6 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string     :access_key
       t.references :account_type
+      t.boolean    :approved
       t.string     :avatar
       t.string     :email
       t.string     :first_name
