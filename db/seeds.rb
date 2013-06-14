@@ -26,7 +26,7 @@ Cohort.create(:name => "Squirrels")
               :location => "Chicago", 
               :last_login => DateTime.new(2001,2,3),
               :last_name => Faker::Name.last_name,
-              :password_digest => "password",
+              :password => "password",
               :phone => Faker::PhoneNumber.phone_number,
               :status => "active")
 end
@@ -39,7 +39,7 @@ end
               :location => "San Francisco", 
               :last_login => DateTime.new(2001,2,3),
               :last_name => Faker::Name.last_name,
-              :password_digest => "password",
+              :password => "password",
               :status => "active")
 end
 

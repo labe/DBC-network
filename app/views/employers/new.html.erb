@@ -1,0 +1,13 @@
+<%= image_tag "devbootcamp.png", :size => "206x97" %>
+<span>Employer Signup</span>
+<%= form_for :user, :url => users_path, :method => "post" do |f| %>
+<%= f.text_field :first_name, :placeholder => "First Name" %>
+<%= f.text_field :last_name, :placeholder => "Last Name" %>
+  <%= f.text_field :email, :placeholder => "Email" %>
+  <%= f.password_field :password, :placeholder => "Password" %>
+  <%= f.hidden_field :account_type_id, :value => 2 %>
+  <%= f.collection_select :company_id, Company.all, :id, :name %>  
+  <%= f.submit "Login" %>
+<% end %>
+
+<%= button_to "Add my company", new_company_path, :method => 'get' %>

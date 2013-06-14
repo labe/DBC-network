@@ -5,12 +5,24 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(:first_name => params[:user][:first_name],
+                     :last_name => params[:user][:last_name],
+                     :email => params[:user][:email],
+                     :password => params[:user][:password],
+                     :account_type_id => params[:user][:account_type_id])
     if @user.save
-      session[:user_id] = @user.id 
-      redirect_to user_path(@user), :notice => "Signed Up!"
+      if params[:user][:company_id]
+        employer = Employer.new(:user_id => @user.id,
+                     :company_id => params[:user][:company_id])
+        employer.save
+      elsif params[:user][:cohort_id]
+        student = Student.new(:user_id => @user.id,
+                     :cohort_id => params[:user][:cohort_id])
+        student.save
+      end
+      redirect_to thank_you_path, :notice => "Submitted! We'll get back to you soon."
     else
-      flash.now.alert = "Username and/or Email already Exist"
+      flash.now.alert = "This email already exists."
       render "new"
     end
   end
