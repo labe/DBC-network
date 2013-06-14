@@ -3,7 +3,7 @@ class CreateInterests < ActiveRecord::Migration
     create_table :interests do |t|
       t.references :employer
       t.references :student
-      t.string :who_initiated
+      t.references :who_initiated
       t.string :approved
 
       t.timestamps
