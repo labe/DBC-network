@@ -10,9 +10,13 @@ Alumni::Application.routes.draw do
 
   root :to => 'users#home'
 
+  match   "students/home" => "student#home", :as => "student_home"
+  match   "employers/home" => "employer#home", :as => "employer_home"
+
   get   "log_out"     => "sessions#destroy"
   get   "log_in"      => "sessions#new"
   get   "sign_up"     => "users#new"
+  get   "thank_you"   => "users#thankyou"
   post  "log_in"      => "sessions#create"
 
   # The priority is based upon order of creation:

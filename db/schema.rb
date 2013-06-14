@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(:version => 20130613223833) do
     t.string   "logo"
     t.string   "location"
     t.string   "status"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "initial_email_contact"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
   create_table "employers", :force => true do |t|
@@ -48,10 +49,10 @@ ActiveRecord::Schema.define(:version => 20130613223833) do
   create_table "interests", :force => true do |t|
     t.integer  "employer_id"
     t.integer  "student_id"
-    t.string   "who_initiated"
+    t.integer  "who_initiated_id"
     t.string   "approved"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   add_index "interests", ["employer_id"], :name => "index_interests_on_employer_id"
@@ -70,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20130613223833) do
   create_table "users", :force => true do |t|
     t.string   "access_key"
     t.integer  "account_type_id"
+    t.boolean  "approved"
     t.string   "avatar"
     t.string   "email"
     t.string   "first_name"
