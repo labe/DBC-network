@@ -1,14 +1,12 @@
 class CreateInterests < ActiveRecord::Migration
   def change
     create_table :interests do |t|
-      t.references :employer
-      t.references :student
-      t.references :who_initiated
-      t.string :approved
-
+      t.integer :pitcher_id
+      t.integer :catcher_id
+      t.boolean :approved
       t.timestamps
     end
-    add_index :interests, :employer_id
-    add_index :interests, :student_id
+    add_index :interests, :pitcher_id
+    add_index :interests, :catcher_id
   end
 end

@@ -6,9 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-AccountType.create(:name => "student")
-AccountType.create(:name => "employer")
 Company.create(:website => Faker::Internet.url,
                :name => Faker::Company.name,
                :location => "Chicago",
@@ -16,8 +13,8 @@ Company.create(:website => Faker::Internet.url,
 Cohort.create(:name => "Squirrels") 
 
 10.times do
-  User.create(:access_key => "password",
-              :account_type_id => 1,
+  User.create(:groupable_id => 1,
+              :groupable_type => "Cohort",
               :email => Faker::Internet.email,
               :first_name => Faker::Name.first_name,
               :github_handle => "fakegithubaccount",
@@ -32,8 +29,8 @@ Cohort.create(:name => "Squirrels")
 end
 
 10.times do
-  User.create(:access_key => "password",
-              :account_type_id => 2,
+  User.create(:groupable_id => 1,
+              :groupable_type => "Company",
               :email => Faker::Internet.email,
               :first_name => Faker::Name.first_name,
               :location => "San Francisco", 
@@ -43,18 +40,9 @@ end
               :status => "active")
 end
 
-10.times do 
-  Employer.create(:company_id => 1, :user_id => rand(11..20))
-end
-
-10.times do 
-  Student.create(:cohort_id => 1, :user_id => rand(1..10))
-end
-
 20.times do
   employer_number = rand(11..20)
   student_number = rand(1..10)
-  Interest.create(:employer_id => employer_number,
-              :student_id => student_number,
-              :who_initiated_id => [employer_number,student_number].sample)
+  Interest.create(:pitcher_id => employer_number,
+                  :catcher_id => student_number)
 end

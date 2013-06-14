@@ -5,7 +5,7 @@
 <%= f.text_field :last_name, :placeholder => "Last Name" %>
   <%= f.text_field :email, :placeholder => "Email" %>
   <%= f.password_field :password, :placeholder => "Password" %>
-  <%= f.hidden_field :account_type_id, :value => 1 %>
-  <%= f.collection_select :cohort_id, Cohort.all, :id, :name %>  
-  <%= f.submit "Login" %>
+  <%= f.hidden_field :groupable_type, :value => "Cohort" %>
+  <%= f.collection_select :groupable_id, Cohort.all, :id, :name %>  
+  <%= f.submit "Signup" %>
 <% end %>
