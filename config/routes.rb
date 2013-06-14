@@ -5,6 +5,7 @@ Alumni::Application.routes.draw do
   resources :sessions
   resources :students
   resources :employers
+  resources :admins
   resources :interests
   resources :cohorts
 
@@ -17,8 +18,9 @@ Alumni::Application.routes.draw do
   get   "log_in"      => "sessions#new"
   get   "sign_up"     => "users#new"
   get   "thank_you"   => "users#thankyou"
-  get   "admin"       => "users#admin"
+  get   "admin"       => "admins#index"
   post  "log_in"      => "sessions#create"
+  post  "activation"  => "admins#activation"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -29,21 +29,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.Find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def destroy
-    @user = User.Find(params[:id])
+    @user = User.find(params[:id])
     @user.destroy
-  end
-
-  def admin
-    @students = User.where(:groupable_type => "Cohort")
-    @active_students = User.where(:groupable_type => "Cohort", :status => "active")
-    @employers = User.where(:groupable_type => "Company")
-    @companies = Company.all
-    @cohorts = Cohort.all
-    @interests = Interest.all
   end
 
   private

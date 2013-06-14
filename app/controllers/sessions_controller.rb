@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         elsif @user.groupable_type == "Company"
           redirect_to employer_home_path, :notice => "Logged In!"
         elsif @user.groupable_type == "Admin"
-          redirect_to admin_path
+          redirect_to admins_path
         end
       elsif @user.activated == false
         flash.now.alert = "Sorry. Your account has been denied."

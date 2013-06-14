@@ -10,8 +10,16 @@ Activated
 <% elsif student.activated == false %>
 Denied
 <% elsif student.activated == nil %>
-<%= button_to "Activate", user_path, :method => 'put' %>
-<%= button_to "Deny", user_path, :method => 'put' %>
+    <%= form_for student, :url => activation_path, :method => 'post' do |f| %>
+        <%= f.hidden_field :activated, :value => true %>
+        <%= f.hidden_field :student_id, :value => student.id %>
+        <%= f.submit "Activate", :class => "link" %>
+    <% end %>
+    <%= form_for student, :url => activation_path, :method => 'post' do |f| %>
+        <%= f.hidden_field :activated, :value => false %>
+        <%= f.hidden_field :student_id, :value => student.id %>
+        <%= f.submit "Deny", :class => "link" %>
+    <% end %>
 <% end %>
 
 Email: <%= student.email %>
