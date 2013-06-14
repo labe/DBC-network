@@ -13,12 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130613223833) do
 
-  create_table "account_types", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "cohorts", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -36,42 +30,19 @@ ActiveRecord::Schema.define(:version => 20130613223833) do
     t.datetime "updated_at",            :null => false
   end
 
-  create_table "employers", :force => true do |t|
-    t.integer  "company_id"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "employers", ["company_id"], :name => "index_employers_on_company_id"
-  add_index "employers", ["user_id"], :name => "index_employers_on_user_id"
-
   create_table "interests", :force => true do |t|
-    t.integer  "employer_id"
-    t.integer  "student_id"
-    t.integer  "who_initiated_id"
-    t.string   "approved"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
-
-  add_index "interests", ["employer_id"], :name => "index_interests_on_employer_id"
-  add_index "interests", ["student_id"], :name => "index_interests_on_student_id"
-
-  create_table "students", :force => true do |t|
-    t.integer  "cohort_id"
-    t.integer  "user_id"
+    t.integer  "pitcher_id"
+    t.integer  "catcher_id"
+    t.boolean  "approved"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "students", ["cohort_id"], :name => "index_students_on_cohort_id"
-  add_index "students", ["user_id"], :name => "index_students_on_user_id"
+  add_index "interests", ["catcher_id"], :name => "index_interests_on_catcher_id"
+  add_index "interests", ["pitcher_id"], :name => "index_interests_on_pitcher_id"
 
   create_table "users", :force => true do |t|
-    t.string   "access_key"
-    t.integer  "account_type_id"
-    t.boolean  "approved"
+    t.boolean  "activated"
     t.string   "avatar"
     t.string   "email"
     t.string   "first_name"
@@ -84,6 +55,8 @@ ActiveRecord::Schema.define(:version => 20130613223833) do
     t.string   "password_digest"
     t.string   "phone"
     t.string   "status"
+    t.string   "groupable_type"
+    t.integer  "groupable_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

@@ -1,9 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.string     :access_key
-      t.references :account_type
-      t.boolean    :approved
+      t.boolean    :activated
       t.string     :avatar
       t.string     :email
       t.string     :first_name
@@ -16,6 +14,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string     :password_digest
       t.string     :phone
       t.string     :status
+      t.string     :groupable_type
+      t.integer    :groupable_id
       t.timestamps
     end
   end

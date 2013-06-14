@@ -6,17 +6,17 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by_email(params[:email])
     if @user && @user.authenticate(params[:password])
-      if @user.approved == true
+      if @user.activated == true
         session[:user_id] = @user.id
-        if @user.account_type_id == 1
+        if @user.groupable_type == "Cohort"
           redirect_to student_home_path, :notice => "Logged In!"
-        elsif @user.account_type_id == 2
+        elsif @user.groupable_type == "Company"
           redirect_to employer_home_path, :notice => "Logged In!"
         end
-      elsif @user.approved == false
+      elsif @user.activated == false
         flash.now.alert = "Sorry. Your account has been denied."
         render "new"
-      elsif @user.approved == nil
+      elsif @user.activated == nil
         flash.now.alert = "Hold your horses, your account is pending approval."
         render "new"
       end

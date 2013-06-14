@@ -5,8 +5,8 @@
 <%= f.text_field :last_name, :placeholder => "Last Name" %>
   <%= f.text_field :email, :placeholder => "Email" %>
   <%= f.password_field :password, :placeholder => "Password" %>
-  <%= f.hidden_field :account_type_id, :value => 2 %>
-  <%= f.collection_select :company_id, Company.all, :id, :name %>  
+  <%= f.hidden_field :groupable_type, :value => "Company" %>
+  <%= f.collection_select :groupable_id, Company.all, :id, :name %>  
   <%= f.submit "Login" %>
 <% end %>
 

@@ -9,17 +9,9 @@ class UsersController < ApplicationController
                      :last_name => params[:user][:last_name],
                      :email => params[:user][:email],
                      :password => params[:user][:password],
-                     :account_type_id => params[:user][:account_type_id])
+                     :groupable_type => params[:user][:groupable_type],
+                     :groupable_id => params[:user][:groupable_id])
     if @user.save
-      if params[:user][:company_id]
-        employer = Employer.new(:user_id => @user.id,
-                     :company_id => params[:user][:company_id])
-        employer.save
-      elsif params[:user][:cohort_id]
-        student = Student.new(:user_id => @user.id,
-                     :cohort_id => params[:user][:cohort_id])
-        student.save
-      end
       redirect_to thank_you_path, :notice => "Submitted! We'll get back to you soon."
     else
       flash.now.alert = "This email already exists."
@@ -35,12 +27,22 @@ class UsersController < ApplicationController
     @user = user.find(params[:id])
     end
 
-    def update
+  def update
       @user = User.Find(params[:id])
   end
 
-    def destroy
-      @user = User.Find(params[:id])
-      @user.destroy
+  def destroy
+    @user = User.Find(params[:id])
+    @user.destroy
+  end
+
+  private
+    def find_votable
+      params.each do |name, value|
+        if name =~ /(.+)_id$/
+          return $1.classify.constantize.find(value)
+        end
+      end
+      nil
     end
 end
