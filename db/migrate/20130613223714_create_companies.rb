@@ -6,6 +6,7 @@ class CreateCompanies < ActiveRecord::Migration
       t.string :logo
       t.string :location
       t.string :status
+      t.string :initial_email_contact
 
       t.timestamps
     end

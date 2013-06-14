@@ -1,0 +1,7 @@
+<%= image_tag "devbootcamp.png", :size => "206x97" %>
+<span>Request A Company Profile</span>
+<%= form_tag("/companies", :method => "post") do %>
+  <%= text_field_tag :name, nil, :placeholder => "Company Name" %>
+  <%= text_field_tag :website, nil, :placeholder => "Company Website" %>
+  <%= submit_tag("Request") %>
+<% end %>
