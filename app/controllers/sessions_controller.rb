@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def new
   end
-  
+
 
   def create
     @user = User.find_by_email(params[:email])
@@ -12,6 +12,8 @@ class SessionsController < ApplicationController
           redirect_to student_home_path, :notice => "Logged In!"
         elsif @user.groupable_type == "Company"
           redirect_to employer_home_path, :notice => "Logged In!"
+        elsif @user.groupable_type == "Admin"
+          redirect_to admin_path
         end
       elsif @user.activated == false
         flash.now.alert = "Sorry. Your account has been denied."

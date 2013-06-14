@@ -7,7 +7,7 @@
   <%= f.password_field :password, :placeholder => "Password" %>
   <%= f.hidden_field :groupable_type, :value => "Company" %>
   <%= f.collection_select :groupable_id, Company.all, :id, :name %>  
-  <%= f.submit "Login" %>
+  <%= f.submit "Signup" %>
 <% end %>
 
 <%= button_to "Add my company", new_company_path, :method => 'get' %>
