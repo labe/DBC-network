@@ -1,0 +1,70 @@
+<% if current_user.groupable_type == "Admin" %>
+Students:<br>
+<% @students.each do |student| %>
+Name: <%= student.first_name %> <%= student.last_name %>
+Last login: <%= student.last_login %>
+Activated?
+
+<% if student.activated == true %>
+Activated
+<% elsif student.activated == false %>
+Denied
+<% elsif student.activated == nil %>
+<%= button_to "Activate", user_path, :method => 'put' %>
+<%= button_to "Deny", user_path, :method => 'put' %>
+<% end %>
+
+Email: <%= student.email %>
+Status: <%= student.status %>
+Part of: <%= student.groupable.name %>
+<br><br><br>
+<% end %>
+
+<br><br><br>
+
+Employers:<br>
+<% @employers.each do |employer| %>
+Name: <%= employer.first_name %> <%= employer.last_name %>
+Last login: <%= employer.last_login %>
+Activated? <%= employer.activated %>
+Email: <%= employer.email %>
+Status: <%= employer.status %>
+Part of: <%= employer.groupable.name %>
+<br><br><br>
+<% end %>
+
+<br><br><br>
+
+Interests:<br>
+<% @interests.each do |interest| %>
+Who showed interest? <%= interest.pitcher.first_name %> <%= interest.pitcher.last_name %>
+Who accepted interest? <%= interest.catcher.first_name %> <%= interest.catcher.last_name %>
+Approved? <%= interest.approved %>
+<br><br><br>
+<% end %>
+
+<br><br><br>
+
+Companies:<br>
+<% @companies.each do |company| %>
+Name: <%= company.name %>
+Website: <%= company.website %>
+Logo: <%= company.logo %>
+Location: <%= company.location %>
+Status: <%= company.status %>
+Initial contact: <%= company.initial_email_contact %>
+<br><br><br>
+<% end %>
+
+<br><br><br>
+
+
+Cohorts:<br>
+<% @cohorts.each do |cohort| %>
+Name: <%= cohort.name %>
+<br><br><br>
+<% end %>
+
+<% else %>
+
+<% end %>
