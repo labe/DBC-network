@@ -12,6 +12,7 @@ class UsersController < ApplicationController
                      :groupable_type => params[:user][:groupable_type],
                      :groupable_id => params[:user][:groupable_id])
     if @user.save
+      UserMailer.pending_email(@user).deliver
       redirect_to thank_you_path, :notice => "Submitted! We'll get back to you soon."
     else
       flash.now.alert = "This email already exists."
@@ -20,15 +21,15 @@ class UsersController < ApplicationController
   end
 
   def show
-      @user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def edit
     @user = user.find(params[:id])
-    end
+  end
 
   def update
-      @user = User.Find(params[:id])
+    @user = User.Find(params[:id])
   end
 
   def destroy
@@ -37,12 +38,12 @@ class UsersController < ApplicationController
   end
 
   private
-    def find_votable
-      params.each do |name, value|
-        if name =~ /(.+)_id$/
-          return $1.classify.constantize.find(value)
-        end
+  def find_votable
+    params.each do |name, value|
+      if name =~ /(.+)_id$/
+        return $1.classify.constantize.find(value)
       end
-      nil
     end
+    nil
+  end
 end
