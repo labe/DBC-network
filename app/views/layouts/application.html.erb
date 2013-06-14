@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<%= render "layouts/navbar" %>
+<%= render "layouts/content_nav" %>
+
+<div class="error_flash">
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+</div>
 <%= yield %>
 
 </body>

@@ -1,4 +1,20 @@
 Alumni::Application.routes.draw do
+
+  resources :companies
+  resources :users
+  resources :sessions
+  resources :students
+  resources :employers
+  resources :interests
+  resources :cohorts
+
+  root :to => 'users#home'
+
+  get   "log_out"     => "sessions#destroy"
+  get   "log_in"      => "sessions#new"
+  get   "sign_up"     => "users#new"
+  post  "log_in"      => "sessions#create"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
