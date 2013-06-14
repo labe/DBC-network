@@ -1,1 +1,43 @@
-home.html.erb
+<h1 id="employer_home">Employer Home Home</h1>
+
+
+<div id="student_filters">
+  <button class="clear">Clear Filters</button><br><br>
+  <h2>People Filters</h2>
+  <div id="filters"> 
+    <h3>Filters</h3>
+    <button class="filters" id="location_filter"></button><br><br>
+    <% end %>
+  </div>
+  <div id="location_filters">
+    <h3>Skills</h3>
+    <% @skills.each do |skill| %>
+      <button class="filters" id="<%= skill.id %>_skill"><%= skill.name %></button><br><br>
+    <% end %>
+  </div>
+   <div id="project_skills">
+    <h3>Skills</h3>
+    <% @skills.each do |skill| %>
+      <button class="filters" id="<%= skill.id %>_skill"><%= skill.name %></button><br><br>
+    <% end %>
+  </div>
+</div>
+
+<div id="students">
+  <h2>Students</h2>
+  <ul id="all_students">
+    <% @students.each do |student| %>
+      
+      <li id="<%=user.id%>"
+          data-location="<%= student.location %>"
+          data-cohort="<%= student.groupable.name %>"
+          data-status="<%= student.status %>"
+          data-last-login="<%= student.last_login %>"
+      >
+        <div class="user-div">
+          <%= student.last_name %>, <%= student.first_name %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
