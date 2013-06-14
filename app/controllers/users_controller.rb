@@ -37,6 +37,15 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
+  def admin
+    @students = User.where(:groupable_type => "Cohort")
+    @active_students = User.where(:groupable_type => "Cohort", :status => "active")
+    @employers = User.where(:groupable_type => "Company")
+    @companies = Company.all
+    @cohorts = Cohort.all
+    @interests = Interest.all
+  end
+
   private
   def find_votable
     params.each do |name, value|
