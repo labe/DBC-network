@@ -4,14 +4,25 @@ class SessionsController < ApplicationController
   
 
   def create
-      @user = User.find_by_email(params[:user][:email])
-      if @user && @user.authenticate(params[:user][:password])
-        
+    @user = User.find_by_email(params[:email])
+    if @user && @user.authenticate(params[:password])
+      if @user.approved == true
         session[:user_id] = @user.id
-        redirect_to users_path(@user), :notice => "Logged in!"
-    else
-        flash.now.alert = "Invalid email or password"
+        if @user.account_type_id == 1
+          redirect_to student_home_path, :notice => "Logged In!"
+        elsif @user.account_type_id == 2
+          redirect_to employer_home_path, :notice => "Logged In!"
+        end
+      elsif @user.approved == false
+        flash.now.alert = "Sorry. Your account has been denied."
         render "new"
+      elsif @user.approved == nil
+        flash.now.alert = "Hold your horses, your account is pending approval."
+        render "new"
+      end
+    else
+      flash.now.alert = "Invalid email or password"
+      render "new"
     end
   end
 
