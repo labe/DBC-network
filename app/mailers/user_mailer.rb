@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-	default from: "DBConnect@gmail.com"
+	default from: "DBCfinalproject@gmail.com"
 
 
 	def student_welcome_email(user)
