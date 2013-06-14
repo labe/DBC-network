@@ -17,6 +17,7 @@ Alumni::Application.routes.draw do
   get   "log_in"      => "sessions#new"
   get   "sign_up"     => "users#new"
   get   "thank_you"   => "users#thankyou"
+  get   "admin"       => "users#admin"
   post  "log_in"      => "sessions#create"
 
   # The priority is based upon order of creation:
