@@ -1,0 +1,18 @@
+tr:nth-of-type(odd){
+  background-color:white;
+}
+
+.selected_repos{
+	float:left;
+	width: 25%;
+	text-align: center;
+	border: solid thin black;
+	margin:5px;
+}
+
+.all_repos{
+	margin:5px;
+	float:left;
+	text-align: center;
+	border: solid thin black;
+}

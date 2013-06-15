@@ -7,3 +7,19 @@
 <% elsif @user.status == "inactive" %>
   <span>This user is inactive.</span>
 <% end %>
+
+
+	<table id="github_list_showing" class="selected_repos">
+		<tr>
+			<td>Drag your top 5 repos that you are proud of for employers to see on your profile.</td>
+		</tr>
+	</table>
+
+
+<table class="all_repos">
+	<% @repos.each do |repo| %>
+	<tr>
+		<td><%= repo[0] %></td>
+	</tr>
+	<%end%>
+</table>

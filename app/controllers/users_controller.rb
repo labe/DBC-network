@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-
+  
   def create
     @user = User.new(:first_name => params[:user][:first_name],
                      :last_name => params[:user][:last_name],
@@ -22,6 +22,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    github = Github.new(@user)
+    @repos = github.zip_repo_url_names
   end
 
   def edit
