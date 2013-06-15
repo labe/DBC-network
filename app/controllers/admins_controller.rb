@@ -1,8 +1,9 @@
 class AdminsController < ApplicationController
     def activation
-        user = User.find(params[:user][:student_id])
+        user = User.find(params[:user][:id])
         user.activated = params[:user][:activated]
         user.save
+
         UserMailer.student_welcome_email(user).deliver if user.activated == true
         redirect_to :back
     end

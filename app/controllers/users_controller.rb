@@ -37,6 +37,13 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
+  def status
+    @user = User.find(params[:user][:id])
+    @user.status = params[:user][:status]
+    @user.save
+    redirect_to :back
+  end
+
   private
   def find_votable
     params.each do |name, value|

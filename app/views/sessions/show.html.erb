@@ -1,0 +1,26 @@
+  <% if @user.groupable.class.to_s == "Cohort" %>
+    <%= render partial: 'users/student_profile', locals: { user: @user } %>
+  <% elsif @user.groupable.class.to_s == "Company"%>
+    <%= render partial: 'users/employer_profile', locals: { user: @user } %>
+  <% end %>
+<%= @user.status %>
+
+<% if @user.status == 'active' %>
+Your profile is viewable by employers
+  <%= form_for @user, :url => status_path, :method => 'post' do |f| %>
+      <%= f.hidden_field :status, :value => "inactive" %>
+      <%= f.hidden_field :id, :value => @user.id %>
+      <%= f.submit "Hide My Profile", :class => "link" %>
+  <% end %>
+<% elsif @user.status == 'inactive' %>
+Your profile is hidden from employers
+  <%= form_for @user, :url => status_path, :method => 'post' do |f| %>
+      <%= f.hidden_field :status, :value => "active" %>
+      <%= f.hidden_field :id, :value => @user.id %>
+      <%= f.submit "Show My Profile", :class => "link" %>
+  <% end %>
+<% end %>
+
+
+
+
