@@ -23,6 +23,8 @@ end
 
 gem 'jquery-rails'
 gem 'annotate'
+gem 'httparty'
+gem 'gravatar_image_tag'
 
 group :development, :test do
   gem 'rspec-rails'

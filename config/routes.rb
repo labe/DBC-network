@@ -22,6 +22,7 @@ Alumni::Application.routes.draw do
   get   "profile"     => "sessions#show"
   post  "log_in"      => "sessions#create"
   post  "activation"  => "admins#activation"
+  post  "deny"        => "admins#deny"
   post  "status"      => "users#status"
 
   # The priority is based upon order of creation:
