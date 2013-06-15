@@ -1,0 +1,6 @@
+<div>
+  <h3>Locations</h3>
+  <% @users.group('location').select('location').where("location IS NOT NULL").each do |user| %>
+    <button class="filters" id="<%= user.location %>"><%= user.location %></button><br><br>
+  <% end %>
+</div>
