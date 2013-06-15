@@ -1,11 +1,15 @@
-test = []
-
+test = [];
 $(document).ready(function(){
 $( ".all_repos tr" ).draggable({helper: 'clone'});
 $( "#github_list_showing" ).droppable({
   drop: function(event,ui) {
-    $(this).append(ui.draggable);
+  if($(this).find('tr').length >= 6){
+          $(this).draggable({ disabled: true });
+          $(this).parent().prepend("Sorry Brah Only 5 Top Repos Allowed");
+        }
+    else { $(this).append(ui.draggable);
     test.push($(this).find('td:last').text());
+  }
   }
 });
 $(".git_save").submit(function(e){
