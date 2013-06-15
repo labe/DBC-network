@@ -3,12 +3,18 @@ Students:<br>
 <% @students.each do |student| %>
 Name: <%= student.first_name %> <%= student.last_name %>
 Last login: <%= student.last_login %>
-Activated?
-
+Email: <%= student.email %>
+Status: <%= student.status %>
+Part of: <%= student.groupable.name %>
 <% if student.activated == true %>
-Activated
+ALREADY ACTIVATED
 <% elsif student.activated == false %>
-Denied
+ALREADY DENIED
+<%= form_for student, :url => activation_path, :method => 'post' do |f| %>
+        <%= f.hidden_field :activated, :value => true %>
+        <%= f.hidden_field :student_id, :value => student.id %>
+        <%= f.submit "Activate instead", :class => "link" %>
+    <% end %>
 <% elsif student.activated == nil %>
     <%= form_for student, :url => activation_path, :method => 'post' do |f| %>
         <%= f.hidden_field :activated, :value => true %>
@@ -22,9 +28,6 @@ Denied
     <% end %>
 <% end %>
 
-Email: <%= student.email %>
-Status: <%= student.status %>
-Part of: <%= student.groupable.name %>
 <br><br><br>
 <% end %>
 
@@ -34,10 +37,30 @@ Employers:<br>
 <% @employers.each do |employer| %>
 Name: <%= employer.first_name %> <%= employer.last_name %>
 Last login: <%= employer.last_login %>
-Activated? <%= employer.activated %>
 Email: <%= employer.email %>
 Status: <%= employer.status %>
 Part of: <%= employer.groupable.name %>
+<% if employer.activated == true %>
+ALREADY ACTIVATED
+<% elsif employer.activated == false %>
+ALREADY DENIED
+<%= form_for employer, :url => activation_path, :method => 'post' do |f| %>
+        <%= f.hidden_field :activated, :value => true %>
+        <%= f.hidden_field :employer_id, :value => employer.id %>
+        <%= f.submit "Activate instead", :class => "link" %>
+    <% end %>
+<% elsif employer.activated == nil %>
+    <%= form_for employer, :url => activation_path, :method => 'post' do |f| %>
+        <%= f.hidden_field :activated, :value => true %>
+        <%= f.hidden_field :employer_id, :value => employer.id %>
+        <%= f.submit "Activate", :class => "link" %>
+    <% end %>
+    <%= form_for employer, :url => activation_path, :method => 'post' do |f| %>
+        <%= f.hidden_field :activated, :value => false %>
+        <%= f.hidden_field :employer_id, :value => employer.id %>
+        <%= f.submit "Deny", :class => "link" %>
+    <% end %>
+<% end %>
 <br><br><br>
 <% end %>
 

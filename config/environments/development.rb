@@ -35,6 +35,12 @@ Alumni::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  # Add the fonts path
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
+  # Precompile additional assets
+  config.assets.precompile += %w( .svg .eot .woff .ttf .otf )
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
