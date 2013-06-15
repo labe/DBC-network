@@ -75,3 +75,8 @@ a {
   right:40px;
 }
 
+.admin_user_element {
+  border-top:1px dotted grey;
+  border-bottom: 1px dotted grey;
+  height:100px;
+}
