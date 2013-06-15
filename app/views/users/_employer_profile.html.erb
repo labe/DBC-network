@@ -1,4 +1,5 @@
-<%= user.avatar %><br>
+<%= user.avatar %>
+<%= gravatar_image_tag user.email %><br>
 Name: <%= user.first_name %> <%= user.last_name %><br>
 Phone Number: <%= user.phone %><br>
 Cohort: <%= user.groupable.name if user.groupable %><br>

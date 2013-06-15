@@ -1,0 +1,21 @@
+<% if user.activated == true %>
+  ACTIVATED
+<% elsif user.activated == false %>
+  DENIED
+  <%= form_for user, :url => activation_path, :method => 'post' do |f| %>
+    <%= f.hidden_field :activated, :value => true %>
+    <%= f.hidden_field :id, :value => user.id %>
+    <%= f.submit "Changed my mind. Activate", :class => "link" %>
+  <% end %>
+<% elsif user.activated == nil %>
+  <%= form_for user, :url => activation_path, :method => 'post' do |f| %>
+    <%= f.hidden_field :activated, :value => true %>
+    <%= f.hidden_field :id, :value => user.id %>
+    <%= f.submit "Activate", :class => "link" %>
+  <% end %>
+  <%= form_for user, :url => deny_path, :method => 'post' do |f| %>
+    <%= f.hidden_field :activated, :value => false %>
+    <%= f.hidden_field :id, :value => user.id %>
+    <%= f.submit "Deny", :class => "link" %>
+  <% end %>
+<% end %>
