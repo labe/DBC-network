@@ -13,7 +13,7 @@
  */
 
 html {
-  font-family: 'GothamBold';
+
   font-size: 20px;
 }
 
@@ -32,6 +32,7 @@ a {
 }
 
 #user_nav {
+  font-family: 'GothamBold';
   top:0;
   position: fixed;
   background-color: #D8D8D8;
@@ -63,6 +64,9 @@ a {
 
 .nav_choices a {
   color: rgba(0, 0, 0, 0.5);
+}
+.nav_choices a:hover {
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .nav_profile {
