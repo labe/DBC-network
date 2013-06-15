@@ -1,6 +1,6 @@
 Students:<br>
 <% @students.each do |student| %>
-  Name: <%= student.first_name %> <%= student.last_name %>
+  Name: <%= best_in_place student, :first_name %> <%= best_in_place student, :last_name %>
   User id: <%= student.id %>
   Last login: <%= student.last_login %>
   Email: <%= student.email %>

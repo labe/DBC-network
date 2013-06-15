@@ -23,6 +23,8 @@ end
 
 gem 'jquery-rails'
 gem 'annotate'
+gem 'httparty'
+gem 'gravatar_image_tag'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -52,3 +54,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
 gem 'debugger'
+
+gem 'best_in_place'
