@@ -1,6 +1,8 @@
-<h1 id="students_home">Students Home</h1>
-
-<% @employers = User.where(:groupable_type => 'Company') %>
+<% if @groupable == "Cohort" %>
+  <h1 id="user_home">Employer Home</h1>
+<% elsif @groupable == "Company" %>
+  <h1 id="user_home">Student Home</h1>
+<% end %>
 
 <div>
   <button class="clear" >Clear Filters</button>
@@ -8,11 +10,12 @@
   <br>
   <br>
   
-  <h2>Employer Filters</h2>
+  <h2>Filters</h2>
 
   <%= render "location_filters" %>
   <%= render "groupable_filters" %>
 </div>
 
 <%= render "user_list" %>
+
 

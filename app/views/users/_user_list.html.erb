@@ -10,7 +10,7 @@
           data-last-login="<%= user.last_login %>"
       >
         <div class="user-div">
-          <%= user.last_name %>, <%= user.first_name %>
+          <%= link_to "#{user.last_name}, #{user.first_name}", user_path(user.id) %> 
         </div>
       </li>
     <% end %>

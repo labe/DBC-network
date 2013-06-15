@@ -1,5 +1,16 @@
 class UsersController < ApplicationController
 
+  def index
+    if current_user.groupable_type == "Cohort"
+      @users = User.where(:groupable_type => "Company")
+    elsif current_user.groupable_type == "Company"
+      @users = User.where(:groupable_type => "Cohort")
+    else
+      @users = User.all
+    end   
+      @groupable = @users.first.groupable_type   
+  end
+  
   def new
     @user = User.new
   end
