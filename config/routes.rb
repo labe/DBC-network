@@ -9,10 +9,7 @@ Alumni::Application.routes.draw do
   resources :interests
   resources :cohorts
 
-  root :to => 'users#home'
-
-  match   "students/home" => "student#home", :as => "student_home"
-  match   "employers/home" => "employer#home", :as => "employer_home"
+  root :to => 'homes#index'
 
   get   "log_out"     => "sessions#destroy"
   get   "log_in"      => "sessions#new"

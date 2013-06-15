@@ -13,9 +13,10 @@ class SessionsController < ApplicationController
       if @user.activated == true
         session[:user_id] = @user.id
         if @user.groupable_type == "Cohort"
-          redirect_to student_home_path, :notice => "Logged In!"
+          redirect_to users_path, :notice => "Logged In!"
         elsif @user.groupable_type == "Company"
-          redirect_to employer_home_path, :notice => "Logged In!"
+          redirect_to users_path, :notice => "Logged In!"
+          @users = User.where(:groupable_type => "Company")
         elsif @user.groupable_type == "Admin"
           redirect_to admins_path
         end
