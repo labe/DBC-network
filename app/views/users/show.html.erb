@@ -1,7 +1,7 @@
 <% if @user.status == "active" %>
-  <% if @user.groupable.class.to_s == "Cohort" %>
+  <% if @user.groupable_type == "Cohort" %>
     <%= render partial: 'users/student_profile', locals: { user: @user } %>
-  <% elsif @user.groupable.class.to_s == "Company"%>
+  <% elsif @user.groupable_type == "Company" %>
     <%= render partial: 'users/employer_profile', locals: { user: @user } %>
   <% end %>
 <% elsif @user.status == "inactive" %>

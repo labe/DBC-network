@@ -1,5 +1,6 @@
 <%= user.avatar %><br>
+<%= gravatar_image_tag user.email %><br>
 Name: <%= user.first_name %> <%= user.last_name %><br>
-Company: <%= user.groupable.name %><br>
+Cohort: <%= user.groupable.name %><br>
 Email: <%= user.email %><br>
 
