@@ -1,5 +1,6 @@
 <div id="user_nav">
-  <%= image_tag "devbootcamp.png", :size => "120x57", :class => "main-logo" %>
+  <%= link_to(image_tag("devbootcamp.png", :size => "120x57", :class => "main-logo"), root_path, :class => "logo-link") %>
+
   <ul class="nav_choices">
     <%= link_to "#" do %>
     <li>Activity</li>
@@ -10,14 +11,21 @@
     <%= link_to "#" do %>
     <li>Students</li>
     <% end %>
+    <% if current_user && current_user.groupable_type == "Admin" %>
+      <%= link_to "/admin" do %>
+      <li>Admin</li>
+      <% end %>
+    <% end %>
   </ul>
 
 
   <% if current_user %>
-    <span class="email">Logged in as <%= link_to current_user.email, user_path(current_user) %></span>
+  <div class="nav_profile">
+    <span class="email"><%= link_to current_user.email, user_path(current_user) %></span>
     <%= link_to "Log out", log_out_path %>
   <% else %>
     <%= link_to "Sign up", sign_up_path %>
     <%= link_to "Log in", log_in_path %>
   <% end %>
+  </div>
 </div>
