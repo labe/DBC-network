@@ -13,8 +13,4 @@ class Cohort < ActiveRecord::Base
 
   has_many :users, :as => :groupable
 
-  searchable do
-    text :name
-  end
-
 end
