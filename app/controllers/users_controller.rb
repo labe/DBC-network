@@ -2,13 +2,14 @@ class UsersController < ApplicationController
 
   def index
     if current_user.groupable_type == "Cohort"
-      @users = User.where(:groupable_type => "Company")
+      @users = User.where("location IS NOT NULL")
+      @groupable = "Student"
     elsif current_user.groupable_type == "Company"
       @users = User.where(:groupable_type => "Cohort")
+      @groupable = "Employer"
     else
       @users = User.all
-    end   
-      @groupable = @users.first.groupable_type   
+    end     
   end
   
   def new
