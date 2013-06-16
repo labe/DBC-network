@@ -44,10 +44,23 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if current_user.id != @user.id 
+      redirect_to users_path
+    end
+    if @user.groupable_type == "Cohort" && @user.github_handle
+      github = Github.new(@user)
+      @repos = github.zip_repo_url_names
+      p @repos
+    else
+      @repos = []
+    end
   end
 
   def update
+    params[:user].delete(:password_confirmation)
     @user = User.find(params[:id])
+    @user.update_attributes(params[:user])
+    redirect_to :back
   end
 
   def destroy

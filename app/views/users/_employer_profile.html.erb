@@ -1,8 +1,4 @@
 <%= gravatar_image_tag user.email %><br>
 Name: <%= user.first_name %> <%= user.last_name %><br>
-Phone Number: <%= user.phone %><br>
-Cohort: <%= user.groupable.name if user.groupable %><br>
+Company: <%= user.groupable.name %><br>
 Email: <%= user.email %><br>
-Graduation Year: <%= user.graduation_date %><br>
-Bio: <%= user.intro %><br>
-Location: <%= user.location %><br>

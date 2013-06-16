@@ -1,0 +1,9 @@
+<% if @user.status == "active" %>
+  <% if @user.groupable_type == "Cohort" %>
+    <%= render partial: 'users/student_edit_profile', locals: { user: @user } %>
+  <% elsif @user.groupable_type == "Company" %>
+    <%= render partial: 'users/employer_edit_profile', locals: { user: @user } %>
+  <% end %>
+<% elsif @user.status == "inactive" %>
+  <span>This user is inactive.</span>
+<% end %>
