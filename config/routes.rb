@@ -8,6 +8,7 @@ Alumni::Application.routes.draw do
   resources :admins
   resources :interests
   resources :cohorts
+  resources :administrations
 
   root :to => 'homes#index'
 
