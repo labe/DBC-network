@@ -1,5 +1,19 @@
+p{
+	font-size: 12px;
+}
+td{
+	font-size: 12px;
+}
 tr:nth-of-type(odd){
   background-color:white;
+}
+
+input{
+	font-size: 12px;
+}
+
+#edit_intro_btn{
+	float:left;
 }
 
 .selected_repos{
@@ -15,6 +29,49 @@ tr:nth-of-type(odd){
 	float:left;
 	text-align: center;
 	border: solid thin black;
+}
+
+.edit{
+	margin:none;
+	float:right;
+}
+
+.edit_btns{
+	float:left;
+}
+#user_edit_buttons{
+	float:left;
+}
+
+#user_edit_buttons button{
+	margin:3px;
+}
+
+.edit p{
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+.btn{
+	border-radius: 25px;
+	font-size: 14px;
+}
+
+button.edit{
+	float:left;
+	box-shadow: none;
+	font-size: 10px;
+}
+/*user_profile stuff */
+#profile_gravatar{
+	margin:auto;
+	width:250px;
+	text-align: center;
+	float:left;
+}
+
+#user_info{
+	float:left;
 }
 
 .admin_table {
