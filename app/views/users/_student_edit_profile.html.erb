@@ -1,0 +1,52 @@
+<div id="profile_gravatar">
+<p><%= user.first_name %> <%= user.last_name %></p>
+<p><%= user.location %></p>
+<p><%= gravatar_image_tag user.email %></p>
+<p><%= user.groupable.name if user.groupable %></p>
+<p>Graduated: <%= user.graduation_date %></p>
+</div>
+
+<div class="edit_btns" id="user_edit_buttons">
+<button class="btn edit" id="phone_edit">Edit</button><br>
+<button class="btn edit" id="email_edit">Edit</button><br>
+<button class="btn edit" id="intro_edit">Edit</button><br>
+</div>
+
+<div id="user_info">
+<p>Phone Number: <%= user.phone %></p>
+<p>Email: <%= user.email %></p>
+<p>Bio: <%= user.intro %></p>
+<%= form_for(@user, :html => { :id => "intro_change_form" }) do |f| %>
+<p> intro:<%= f.text_area :intro, :size => "15x10", placeholder: "Write a short intro for employers and alumnis to see." %></p>
+<button class='btn' id="edit_intro_btn">Submit<% f.submit %></button>
+<%end%>
+</div>
+
+<div>
+  <table id="github_list_showing" class="selected_repos">
+    <tr>
+      <td>Drag your top 5 repos that you are proud of for employers to see on your profile.</td>
+    </tr>
+  </table>
+</div>
+<% if @repos %>
+<table class="all_repos">
+  <% @repos.each do |repo| %>
+  <tr>
+    <td><%= repo[0] %></td>
+  </tr>
+  <%end%>
+</table>
+<% end %>
+
+<div>
+<%= form_for(@user, :html => { :class => "edit" }) do |f| %>
+<p>Github Handle: </p><%= f.text_field :github_handle, placeholder: "Github Handle" %>
+<p>Email:</p><%= f.email_field :email, placeholder: "Email" %>
+<p>Phone:</p> <%= f.text_field :phone, placeholder: "Phone" %>
+<p>Location: </p><%= f.text_field :location, placeholder: "Location" %>
+<p>Old Password: </p><%= f.password_field :password_confirmation, placeholder: "Old Password" %> 
+<p>New Password:</p><%= f.password_field :password, placeholder: "New Password" %><br>
+<button class="btn"><% f.submit %> Update Profile &raquo;</button>
+<% end %>
+</div>
