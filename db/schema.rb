@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130613223833) do
+ActiveRecord::Schema.define(:version => 20130616010135) do
+
+  create_table "answers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.string   "text"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "cohorts", :force => true do |t|
     t.string   "name"
@@ -30,6 +38,13 @@ ActiveRecord::Schema.define(:version => 20130613223833) do
     t.datetime "updated_at",            :null => false
   end
 
+  create_table "git_hub_selections", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "interests", :force => true do |t|
     t.integer  "pitcher_id"
     t.integer  "catcher_id"
@@ -41,20 +56,30 @@ ActiveRecord::Schema.define(:version => 20130613223833) do
   add_index "interests", ["catcher_id"], :name => "index_interests_on_catcher_id"
   add_index "interests", ["pitcher_id"], :name => "index_interests_on_pitcher_id"
 
+  create_table "questions", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.boolean  "activated"
-    t.string   "avatar"
     t.string   "email"
+    t.string   "facebook_url"
     t.string   "first_name"
     t.string   "github_handle"
     t.string   "graduation_date"
     t.text     "intro"
     t.datetime "last_login"
     t.string   "last_name"
+    t.string   "linkedin_url"
     t.string   "location"
     t.string   "password_digest"
     t.string   "phone"
     t.string   "status"
+    t.string   "tumblr_url"
+    t.string   "twitter_url"
     t.string   "groupable_type"
     t.integer  "groupable_id"
     t.datetime "created_at",      :null => false

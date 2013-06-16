@@ -16,3 +16,35 @@ tr:nth-of-type(odd){
 	text-align: center;
 	border: solid thin black;
 }
+
+.admin_table {
+	font-family: Sans-Serif;
+	margin: 0 45px;
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;	
+}
+
+.admin_table thead > tr{
+	background-color: #EFEFEF;
+}
+
+.admin_table thead th {
+	font-weight: bold;
+}
+
+.admin_table th {
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px 8px;
+	color: #039;
+}
+
+.admin_table td {
+	padding: 8px;
+	color: #669;
+}
+
+.admin_table input[type="submit"] {
+	
+}
