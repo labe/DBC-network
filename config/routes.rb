@@ -17,6 +17,7 @@ Alumni::Application.routes.draw do
   get   "thank_you"   => "users#thankyou"
   get   "admin"       => "admins#index"
   get   "profile"     => "sessions#show"
+  get   "results"     => "homes#results"
   post  "log_in"      => "sessions#create"
   post  "activation"  => "admins#activation"
   post  "deny"        => "admins#deny"

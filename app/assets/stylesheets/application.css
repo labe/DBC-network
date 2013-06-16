@@ -114,3 +114,9 @@ span {
 .category-title {
   margin-left: 40px;
 }
+
+.nav-search {
+  position: absolute;
+  top: 36px;
+  left: 520px;
+}
