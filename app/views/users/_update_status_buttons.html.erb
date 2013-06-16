@@ -1,3 +1,5 @@
+# Lots of if/else blocks here. The lack of proper intendation makes this
+# difficult to read
 <% if user.status == "active" %>
   <div class="approval_button">
     <%= form_for user, :url => status_path, :method => 'post' do |f| %>

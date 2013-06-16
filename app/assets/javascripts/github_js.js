@@ -1,4 +1,6 @@
 test = [];
+
+# Fix the indentation
 $(document).ready(function(){
 $( ".all_repos tr" ).draggable({helper: 'clone'});
 $( "#github_list_showing" ).droppable({

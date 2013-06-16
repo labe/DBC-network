@@ -1,3 +1,5 @@
+# I spy some hard tabs in this file. They should be replaced with two
+# spaces, to match the rest of your source.
 class UserMailer < ActionMailer::Base
 	default from: "DBCfinalproject@gmail.com"
 

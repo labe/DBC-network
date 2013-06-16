@@ -10,6 +10,7 @@ $(document).ready(function(){
 
   //Adds each clicked filter to selected_filters array and then passes that array into apply filters 
   $('.filters').click(function(event){
+    # In JS you need the () to actually call a method, event.preventDefault();
     event.preventDefault;
     selected_filters.push($(this).attr('id'));
     apply_filters(selected_filters);

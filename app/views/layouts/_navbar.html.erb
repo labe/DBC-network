@@ -2,15 +2,20 @@
   <%= link_to(image_tag("devbootcamp.png", :size => "120x57", :class => "main-logo"), root_path, :class => "logo-link") %>
 
   <ul class="nav_choices">
+    # Lots of poor indentation here, makes this hard to read
     <%= link_to "#" do %>
     <li>Activity</li>
     <% end %>
+    # Why use the do blocks? The link can just wrap the text, no need to wrap the entire <li>. For example:
+    # <li><%= link_to "Companies", "#" %></li>
+    #
     <%= link_to "#" do %>
     <li>Companies</li>
     <% end %>
     <%= link_to "#" do %>
     <li>Students</li>
     <% end %>
+    # Add a .admin? method on User
     <% if current_user && current_user.groupable_type == "Admin" %>
       <%= link_to "/admin" do %>
       <li>Admin</li>

@@ -16,6 +16,10 @@ class UsersController < ApplicationController
   end
   
   def create
+    # Not a bad choice to explicitly include params when creating a new user,
+    # while more lengthy, you could argue this is a more secure approach,
+    # though the protected attributes feature of activerecord provides similar
+    # protection
     @user = User.new(:first_name => params[:user][:first_name],
                      :last_name => params[:user][:last_name],
                      :email => params[:user][:email],
@@ -23,6 +27,8 @@ class UsersController < ApplicationController
                      :groupable_type => params[:user][:groupable_type],
                      :groupable_id => params[:user][:groupable_id])
     if @user.save
+      # Sending emails can be a slow and error prone process. This should be moved to a
+      # background job.
       UserMailer.pending_email(@user).deliver
       redirect_to thank_you_path, :notice => "Submitted! We'll get back to you soon."
     else

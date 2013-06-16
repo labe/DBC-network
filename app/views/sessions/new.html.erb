@@ -1,3 +1,4 @@
+# Don't hardcode the form action! This should be using the Rails _path helpers
 <%= form_tag("/log_in", :method => "post", :class => "login") do %>
   <%= text_field_tag :email, nil, :placeholder => "Email" %>
   <%= password_field_tag :password, nil, :placeholder => "Password" %>

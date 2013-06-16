@@ -1,5 +1,14 @@
+# Nice work on creating a separate class for all the Github access work.
+# Some might make the mistake of including this in one of our ActiveRecord
+# models, like User
 class Github
 
+  # This should be a taken out of the repo ASAP. Your repo is public
+  # and not the world can access these keys potentially do malicious things
+  # with them, using your names.
+  #
+  # API keys and other secret stuff should be stored in config files which aren't
+  # tracked in GIT or using environment variables i.e. ENV['GITHUB_API_KEY']
   API_CLIENT_ID     = '1c6c41f9e816f60f3b50'
   API_CLIENT_SECRET = 'd8c9d91988a81c0f9fb5787f33024980c60414d9'
   
