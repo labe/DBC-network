@@ -19,7 +19,11 @@ class User < ActiveRecord::Base
   has_secure_password
 
   searchable do
-    text :email, :facebook_url, :first_name, :github_handle, :graduation_date, :groupable_type, :last_name, :linkedin_url, :location, :phone, :twitter_url, :tumblr_url
+    text :first_name, :boost => 5
+    text :last_name,  :boost => 5
+    text :email,      :boost => 5
+    text :location,   :boost => 4
+    text :github_handle, :graduation_date, :groupable_type, :phone
   end
 
 end
