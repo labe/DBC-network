@@ -1,8 +1,4 @@
-<% if @groupable == "Cohort" %>
-  <h1 id="user_home">Employer Home</h1>
-<% elsif @groupable == "Company" %>
-  <h1 id="user_home">Student Home</h1>
-<% end %>
+<h1 id="user_home"><%= @groupable %> Home</h1>
 
 <div>
   <button class="clear" >Clear Filters</button>
@@ -11,7 +7,9 @@
   <br>
   
   <h2>Filters</h2>
-
+  <button class="filters" id="students">Students</button>
+  <button class="filters" id="employers">Employers</button>
+  
   <%= render "location_filters" %>
   <%= render "groupable_filters" %>
 </div>
