@@ -2,13 +2,10 @@
   <%= link_to(image_tag("devbootcamp.png", :size => "120x57", :class => "main-logo"), root_path, :class => "logo-link") %>
 
   <ul class="nav_choices">
-    <%= link_to "#" do %>
-    <li>Activity</li>
-    <% end %>
-    <%= link_to "#" do %>
+    <%= link_to "/companies" do %>
     <li>Companies</li>
     <% end %>
-    <%= link_to "#" do %>
+    <%= link_to "/students" do %>
     <li>Students</li>
     <% end %>
     <% if current_user && current_user.groupable_type == "Admin" %>
