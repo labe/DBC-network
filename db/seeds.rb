@@ -1,3 +1,15 @@
+# Create a company
+Company.create(:website => Faker::Internet.url,
+               :name => Faker::Company.name,
+               :location => "Chicago",
+               :status => "active")
+
+# Create a cohort
+Cohort.create(:name => "Squirrels")
+
+# Create a Administration
+Administration.create(:name => "Administration")
+
 
 # Create an admin
   User.create(:activated => true,
@@ -7,7 +19,7 @@
               :github_handle => "henrytwang",
               :graduation_date => "2013",
               :groupable_id => 1,
-              :groupable_type => "Admin",
+              :groupable_type => "Administration",
               :intro => Faker::Lorem.paragraph(sentence_count = 3),
               :last_login => DateTime.new(2013,rand(1..12),rand(1..30)),
               :last_name => "Admin last",
@@ -19,15 +31,6 @@
               :tumblr_url => "www.tumblr.com/student",
               :twitter_url => "www.twitter.com/student")
 
-
-# Create a company
-Company.create(:website => Faker::Internet.url,
-               :name => Faker::Company.name,
-               :location => "Chicago",
-               :status => "active")
-
-# Create a cohort
-Cohort.create(:name => "Squirrels")
 
 #Create 10 active students
 10.times do
