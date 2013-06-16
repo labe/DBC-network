@@ -1,24 +1,32 @@
 <% if user.status == "active" %>
+  <div class="approval_button">
     <%= form_for user, :url => status_path, :method => 'post' do |f| %>
       <%= f.hidden_field :status, :value => "inactive" %>
       <%= f.hidden_field :id, :value => user.id %>
       <%= f.submit "Hide profile", :class => "link" %>
     <% end %>
+  </div>
   <% elsif user.status == "inactive" %>
+  <div class="approval_button">
     <%= form_for user, :url => status_path, :method => 'post' do |f| %>
       <%= f.hidden_field :status, :value => "active" %>
       <%= f.hidden_field :id, :value => user.id %>
       <%= f.submit "Make profile viewable", :class => "link" %>
     <% end %>
+  </div>
   <% elsif user.status == nil %>
+  <div class="approval_button">
     <%= form_for user, :url => status_path, :method => 'post' do |f| %>
       <%= f.hidden_field :status, :value => "active" %>
       <%= f.hidden_field :id, :value => user.id %>
       <%= f.submit "Make profile viewable", :class => "link" %>
     <% end %>
+  </div>
+  <div class="approval_button">
     <%= form_for user, :url => status_path, :method => 'post' do |f| %>
       <%= f.hidden_field :status, :value => "inactive" %>
       <%= f.hidden_field :id, :value => user.id %>
       <%= f.submit "Hide profile", :class => "link" %>
     <% end %>
+  </div>
   <% end %>

@@ -18,12 +18,15 @@ class AdminsController < ApplicationController
 
   def index
     if current_user.groupable_type == "Admin"
+      @users = User.all
       @students = User.where(:groupable_type => "Cohort")
       @active_students = User.where(:groupable_type => "Cohort", :status => "active")
       @employers = User.where(:groupable_type => "Company")
       @companies = Company.all
       @cohorts = Cohort.all
       @interests = Interest.all
+      @questions = Question.all
+      @answers = Answer.all
     else
       redirect_to root_path
     end

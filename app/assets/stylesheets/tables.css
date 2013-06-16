@@ -16,3 +16,35 @@ tr:nth-of-type(odd){
 	text-align: center;
 	border: solid thin black;
 }
+
+#hor-zebra {
+	font-family: Sans-Serif;
+	margin: 0 45px;
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;	
+}
+
+#hor-zebra thead > tr{
+	background-color: #EFEFEF;
+}
+
+#hor-zebra thead th {
+	font-weight: bold;
+}
+
+#hor-zebra th {
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px 8px;
+	color: #039;
+}
+
+#hor-zebra td {
+	padding: 8px;
+	color: #669;
+}
+
+#hor-zebra input[type="submit"] {
+	
+}

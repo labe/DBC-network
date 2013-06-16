@@ -1,6 +1,8 @@
 
 # Create an admin
   User.create(:activated => true,
+              :first_name => "Admin first",
+              :last_name => "Admin last",
               :groupable_type => "Admin",
               :email => "admin@admin.com",
               :password => "password")
@@ -81,4 +83,17 @@ end
               :last_name => Faker::Name.last_name,
               :password => "password",
               :status => "active")
+end
+
+# Create 5 questions for an employer (id = 11)
+5.times do 
+  Question.create(:user_id => 20,
+                  :text => "#{Faker::Lorem.sentence}?")
+end
+
+# Create 5 answers for a student (id =)
+5.times do
+  Answer.create(:user_id => 9,
+                :question_id => 1,
+                :text => Faker::Lorem.sentence)
 end
