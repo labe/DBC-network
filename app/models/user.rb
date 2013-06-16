@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  searchable do
+    text :email, :facebook_url, :first_name, :github_handle, :graduation_date, :groupable_type, :last_name, :linkedin_url, :location, :phone, :twitter_url, :tumblr_url
+  end
+
 end

@@ -17,4 +17,8 @@ class Company < ActiveRecord::Base
 
   has_many :users, :as => :groupable
   
+  searchable do
+    text :location, :name, :website
+  end
+
 end

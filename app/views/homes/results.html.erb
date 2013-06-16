@@ -1,0 +1,18 @@
+<% if @users.size != 0 %>
+  <span>People</span><br><br>
+  <% @users.each do |user| %> 
+  <%= link_to user.first_name, user_path(user) %> <%= link_to user.last_name, user_path(user) %> (<%= user.groupable.name %>)
+  <br><br>
+  <% end %>
+<% end %>
+
+<br><br><br>
+
+<% if @companies.size != 0 %>
+  <span>Companies</span><br><br>
+  <% @companies.each do |company| %> 
+  <%= link_to company.name, company_path(company) %>
+  <% end %>
+<% end %>
+
+
