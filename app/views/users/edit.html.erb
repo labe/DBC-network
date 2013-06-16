@@ -1,17 +1,10 @@
 <% if @user.status == "active" %>
   <% if @user.groupable_type == "Cohort" %>
-    <%= render partial: 'users/student_profile', locals: { user: @user } %>
+    <%= render partial: 'users/student_edit_profile', locals: { user: @user } %>
   <% elsif @user.groupable_type == "Company" %>
-    <%= render partial: 'users/employer_profile', locals: { user: @user } %>
+    <%= render partial: 'users/employer_edit_profile', locals: { user: @user } %>
   <% end %>
 <% elsif @user.status == "inactive" %>
   <span>This user is inactive.</span>
 <% end %>
-
-<table class="all_repos">
-	<% @repos.each do |repo| %>
-	<tr>
-		<td><%= repo[0] %></td>
-	</tr>
-	<%end%>
-</table>
+ 

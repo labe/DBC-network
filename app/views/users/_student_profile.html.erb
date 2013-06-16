@@ -1,17 +1,12 @@
-<%= user.avatar %>
-<%= gravatar_image_tag user.email %><br>
-Name: <%= user.first_name %> <%= user.last_name %><br>
-Phone Number: <%= user.phone %><br>
-Cohort: <%= user.groupable.name if user.groupable %><br>
-Email: <%= user.email %><br>
-Graduation Year: <%= user.graduation_date %><br>
-Bio: <%= user.intro %><br>
-Location: <%= user.location %><br>
-
-<div>
-	<table id="github_list_showing" class="selected_repos">
-		<tr>
-			<td>Drag your top 5 repos that you are proud of for employers to see on your profile.</td>
-		</tr>
-	</table>
+<div id="profile_gravatar">
+<p><%= user.first_name %> <%= user.last_name %></p>
+<p><%= user.location %></p>
+<p><%= gravatar_image_tag user.email %></p>
+<p><%= user.groupable.name if user.groupable %></p>
+<p>Graduated: <%= user.graduation_date %></p>
 </div>
+
+<div id="user_info">
+<p>Phone Number: <%= user.phone %></p>
+<p>Email: <%= user.email %></p>
+<p>Bio: <%= user.intro %></p>

@@ -18,8 +18,9 @@ class Github
     post_body = {:client_id => API_CLIENT_ID,
      :client_secret => API_CLIENT_SECRET,
    }
-   self.class.post endpoint, :body => post_body.to_json
+   response = self.class.post endpoint, :body => post_body.to_json
    @github = self.class.get users
+   debugger
  end
 
  def users_repos
