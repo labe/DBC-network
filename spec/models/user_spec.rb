@@ -5,7 +5,6 @@
 #  id              :integer          not null, primary key
 #  access_key      :string(255)
 #  account_type_id :integer
-#  avatar          :string(255)
 #  email           :string(255)
 #  first_name      :string(255)
 #  github_handle   :string(255)
