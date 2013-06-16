@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         elsif @user.groupable_type == "Company"
           redirect_to users_path, :notice => "Logged In!"
           @users = User.where(:groupable_type => "Company")
-        elsif @user.groupable_type == "Admin"
+        elsif @user.groupable_type == "Administration"
           redirect_to admins_path
         end
       elsif @user.activated == false
