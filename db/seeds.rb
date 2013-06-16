@@ -1,11 +1,23 @@
 
 # Create an admin
   User.create(:activated => true,
-              :first_name => "Admin first",
-              :last_name => "Admin last",
-              :groupable_type => "Admin",
               :email => "admin@admin.com",
-              :password => "password")
+              :facebook_url => "www.facebook.com/student",
+              :first_name => "Admin first",
+              :github_handle => "henrytwang",
+              :graduation_date => "2013",
+              :groupable_id => 1,
+              :groupable_type => "Admin",
+              :intro => Faker::Lorem.paragraph(sentence_count = 3),
+              :last_login => DateTime.new(2013,rand(1..12),rand(1..30)),
+              :last_name => "Admin last",
+              :linkedin_url => "www.linkedin.com/student",
+              :location => "Chicago",
+              :password => "password",
+              :phone => Faker::PhoneNumber.phone_number,
+              :status => "active",
+              :tumblr_url => "www.tumblr.com/student",
+              :twitter_url => "www.twitter.com/student")
 
 
 # Create a company
@@ -91,9 +103,41 @@ end
                   :text => "#{Faker::Lorem.sentence}?")
 end
 
-# Create 5 answers for a student (id =)
-5.times do
+# Create 5 answers for a student (id = 9)
+5.times do |index|
   Answer.create(:user_id => 9,
-                :question_id => 1,
+                :question_id => index + 1,
                 :text => Faker::Lorem.sentence)
 end
+
+# Create Default Student
+User.create(  :activated => true,
+              :email => "student@student.com",
+              :facebook_url => "www.facebook.com/student",
+              :first_name => Faker::Name.first_name,
+              :github_handle => "henrytwang",
+              :graduation_date => "2013",
+              :groupable_id => 1,
+              :groupable_type => "Cohort",
+              :intro => Faker::Lorem.paragraph(sentence_count = 3),
+              :last_login => DateTime.new(2013,rand(1..12),rand(1..30)),
+              :last_name => Faker::Name.last_name,
+              :linkedin_url => "www.linkedin.com/student",
+              :location => "Chicago",
+              :password => "password",
+              :phone => Faker::PhoneNumber.phone_number,
+              :status => "active",
+              :tumblr_url => "www.tumblr.com/student",
+              :twitter_url => "www.twitter.com/student")
+
+# Create Default Employer
+User.create(  :activated => true,
+              :groupable_id => 1,
+              :groupable_type => "Company",
+              :email => "employer@employer.com",
+              :first_name => Faker::Name.first_name,
+              :location => "San Francisco",
+              :last_login => DateTime.new(2013,rand(1..12),rand(1..30)),
+              :last_name => Faker::Name.last_name,
+              :password => "password",
+              :status => "active")

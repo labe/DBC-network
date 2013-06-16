@@ -17,7 +17,7 @@ tr:nth-of-type(odd){
 	border: solid thin black;
 }
 
-#hor-zebra {
+.admin_table {
 	font-family: Sans-Serif;
 	margin: 0 45px;
 	width: 100%;
@@ -25,26 +25,26 @@ tr:nth-of-type(odd){
 	border-collapse: collapse;	
 }
 
-#hor-zebra thead > tr{
+.admin_table thead > tr{
 	background-color: #EFEFEF;
 }
 
-#hor-zebra thead th {
+.admin_table thead th {
 	font-weight: bold;
 }
 
-#hor-zebra th {
+.admin_table th {
 	font-size: 14px;
 	font-weight: normal;
 	padding: 10px 8px;
 	color: #039;
 }
 
-#hor-zebra td {
+.admin_table td {
 	padding: 8px;
 	color: #669;
 }
 
-#hor-zebra input[type="submit"] {
+.admin_table input[type="submit"] {
 	
 }

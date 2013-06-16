@@ -35,6 +35,17 @@ span {
   font-size: 20px;
 }
 
+.login input[type="text"], .login input[type="password"] {
+  height:20px;
+  width:10em;
+  font-size:20px;
+  padding: 10px 15px;
+}
+
+.login input[type="submit"] {
+  height:em;
+}
+
 #user_nav {
   font-family: 'GothamBold';
   top:0;

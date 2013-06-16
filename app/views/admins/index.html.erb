@@ -1,5 +1,5 @@
 <span class="category-title">To-do</span><br>
-<table id="hor-zebra">
+<table class="admin_table">
   <thead>
     <tr>
       <th>Name</th>
@@ -29,7 +29,7 @@
 <br><br><br>
 
 <span class="category-title">Students</span><br>
-<table id="hor-zebra">
+<table class="admin_table">
   <thead>
     <tr>
       <th>Name</th>
@@ -48,8 +48,8 @@
         <th><%= student.last_login.strftime("%m/%d/%Y at %I:%M%p") %></th>
         <th><%= student.email %></th>
         <th><%= student.groupable.name %></th>
-        <th><%= render partial: 'users/update_activation_buttons', locals: { user: student } %></th>
         <th><%= render partial: 'users/update_status_buttons', locals: { user: student } %></th>
+        <th><%= render partial: 'users/update_activation_buttons', locals: { user: student } %></th>
       </tr>
     <% end %>
   </tbody>
@@ -58,7 +58,7 @@
 <br><br><br>
 
 <span class="category-title">Employers</span><br>
-<table id="hor-zebra">
+<table class="admin_table">
   <thead>
     <tr>
       <th>Name</th>
@@ -77,8 +77,8 @@
         <th><%= employer.last_login.strftime("%m/%d/%Y at %I:%M%p") %></th>
         <th><%= employer.email %></th>
         <th><%= employer.groupable.name %></th>
-        <th><%= render partial: 'users/update_activation_buttons', locals: { user: employer } %></th>
         <th><%= render partial: 'users/update_status_buttons', locals: { user: employer } %></th>
+        <th><%= render partial: 'users/update_activation_buttons', locals: { user: employer } %></th>
       </tr>
     <% end %>
   </tbody>
@@ -88,7 +88,7 @@
 <br><br><br>
 
 <span class="category-title">Interests</span><br>
-<table id="hor-zebra">
+<table class="admin_table">
   <thead>
     <tr>
       <th>Who showed interest?</th>
@@ -108,7 +108,7 @@
 <br><br><br>
 
 <span class="category-title">Companies</span><br>
-<table id="hor-zebra">
+<table class="admin_table">
   <thead>
     <tr>
       <th>Name</th>
@@ -136,7 +136,7 @@
 <br><br><br>
 
 <span class="category-title">Cohorts</span><br>
-<table id="hor-zebra">
+<table class="admin_table">
   <thead>
     <tr>
       <th>Name</th>
@@ -154,7 +154,7 @@
 <br><br><br>
 
 <span class="category-title">Questions</span><br>
-<table id="hor-zebra">
+<table class="admin_table">
   <thead>
     <tr>
       <th>Company</th>
