@@ -1,4 +1,4 @@
-<% if @magic == true %>
+<% if @logged_in == true %>
   <%= link_to "New Question", new_user_question_path(current_user) %> <br/><br/>
 <% end %>
 
@@ -7,24 +7,28 @@
   <%= form_for :answers, :url => answers_path do |f| %>
     <% @answers.each do |answer| %>
       <% @answer = answer %>
-      <%= answer.question.text %>
+      <% if answer.question.status == "active" %>
+        <%= answer.question.text %>
+      <% end %>
 
-    <% if @magic == true %> 
+    <% if @logged_in == true %> 
       <%= button_to "Delete", {:controller => :questions,
-          :action => 'destroy', :id => answer.question.id }, :method => :delete %>
+          :action => 'update', :id => answer.question.id }, :method => :post %>
     <% end %>
     
     <br><br>
-      
-    <%= fields_for "answer[]" do |answer| %>
-      <%= answer.label :content, "Answer" %>
-      <%= answer.text_field :text, :rows => 10%>
-      <%= answer.hidden_field :question_id %> 
-      <br><br>
+    <% unless current_user.groupable_type == "Company" %>
+      <%= fields_for "answer[]" do |answer| %>
+        <%= answer.label :content, "Answer" %>
+        <%= answer.text_field :text, :rows => 10%>
+        <%= answer.hidden_field :question_id %> 
+        <br><br>
+      <% end %>
     <% end %>
-    
     <% end %>
+    <% unless current_user.groupable_type == "Company" %>
     <%= f.submit "Submit" %>
+    <% end %>
     
   <% end %>
   
