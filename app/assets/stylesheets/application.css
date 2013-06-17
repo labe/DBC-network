@@ -88,7 +88,7 @@ span {
 .nav_choices {
   position: fixed;
   top: 20px;
-  left: 370px;
+  left: 430px;
   height:100px;
 }
 
@@ -139,6 +139,16 @@ span {
 
 .nav-search {
   position: absolute;
-  top: 38px;
+  top: 34px;
   left: 220px;
+}
+
+.nav-search input[type="text"] {
+  height:24px;
+  width:200px;
+  padding: 0 10px;
+}
+
+.create_users_groupables {
+  padding:45px 45px;
 }

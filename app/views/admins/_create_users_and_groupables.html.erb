@@ -1,0 +1,60 @@
+<div class="create_users_groupables">
+
+<span>Create a Student</span>
+<br>NOTE: This student will automatically be activated and also become viewable by all other users (students and employers)
+<%= form_for :user, :url => create_student_path, :method => "post" do |f| %>
+  <br><%= f.text_field :first_name, :placeholder => "First Name", :required => true %>
+  <br><%= f.text_field :last_name, :placeholder => "Last Name", :required => true %>
+  <br><%= f.text_field :email, :placeholder => "Email", :required => true %>
+  <br><%= f.password_field :password, :placeholder => "Password", :required => true %>
+  <br><%= f.text_field :facebook_url, :placeholder => "Facebook URL" %>
+  <br><%= f.text_field :github_handle, :placeholder => "Github Username" %>
+  <br><%= f.text_field :graduation_date, :placeholder => "Graduation Date" %>
+  <br><%= f.text_area :intro, :placeholder => "Brief Intro", :rows => "4", :cols => "24" %>
+  <br><%= f.text_field :linkedin_url, :placeholder => "LinkedIn URL" %>
+  <br><%= f.text_field :location, :placeholder => "Location" %>
+  <br><%= f.text_field :phone, :placeholder => "Phone Number" %>
+  <br><%= f.text_field :tumblr_url, :placeholder => "Tumblr URL" %>
+  <br><%= f.text_field :twitter_url, :placeholder => "Twitter URL" %>
+  <br><%= f.collection_select :groupable_id, Cohort.all, :id, :name, { :prompt => true, :required => true } %>  
+  <br><br><%= f.submit "Create Student" %>
+<% end %>
+
+<br><br><br>
+
+<span>Create an Employer</span>
+<br>NOTE: This employer will automatically be activated and also become viewable by all other users (students and employers)
+<%= form_for :user, :url => create_employer_path, :method => "post" do |f| %>
+  <br><%= f.text_field :first_name, :placeholder => "First Name", :required => true %>
+  <br><%= f.text_field :last_name, :placeholder => "Last Name", :required => true %>
+  <br><%= f.text_field :email, :placeholder => "Email", :required => true %>
+  <br><%= f.password_field :password, :placeholder => "Password", :required => true %>
+  <br><%= f.text_field :location, :placeholder => "Location" %>
+  <br><%= f.text_field :phone, :placeholder => "Phone Number" %>
+  <br><%= f.collection_select :groupable_id, Company.all, :id, :name, { :prompt => true, :required => true } %>  
+  <br><br><%= f.submit "Create Employer" %>
+<% end %>
+
+<br><br><br>
+
+<span>Create a Company</span>
+<%= form_for :company, :url => create_company_path, :method => "post" do |f| %>
+  <br><%= f.text_field :name, :placeholder => "Company Name", :required => true %>
+  <br><%= f.text_field :website, :placeholder => "Company Website" %>
+  <br><%= f.text_field :location, :placeholder => "Company Location" %>
+  <br><%= f.text_field :initial_email_contact, :placeholder => "Point of Contact (Email)", :required => true %>
+  <br><br><%= f.submit "Create Company" %>
+<% end %>
+
+<br><br><br>
+
+<span>Create a Cohort</span>
+
+<%= form_for :cohort, :url => create_cohort_path, :method => "post" do |f| %>
+  <br><%= f.text_field :name, :placeholder => "Cohort Name", :required => true %>
+  <br><br><%= f.submit "Create Cohort" %>
+<% end %>
+
+<br><br><br>
+
+</div>

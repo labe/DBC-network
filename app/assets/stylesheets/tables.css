@@ -80,6 +80,7 @@ button.edit{
 	width: 100%;
 	text-align: left;
 	border-collapse: collapse;	
+	table-layout: fixed;
 }
 
 .admin_table thead > tr{
