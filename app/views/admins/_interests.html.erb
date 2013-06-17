@@ -1,0 +1,19 @@
+<span class="category-title">Interests</span><br>
+<table class="admin_table">
+  <thead>
+    <tr>
+      <th>Who showed interest?</th>
+      <th>Who received interest?</th>
+      <th>Was the interest accepted?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% interests.each do |interest| %>
+    <tr>
+      <th><%= link_to "#{interest.pitcher.first_name} #{interest.pitcher.last_name}", user_path(interest.pitcher) %></th>
+      <th><%= link_to "#{interest.catcher.first_name} #{interest.catcher.last_name}", user_path(interest.catcher) %></th>
+      <th><%= interest.approved %></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
