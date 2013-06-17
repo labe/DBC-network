@@ -6,11 +6,13 @@ class AnswersController < ApplicationController
   
   def create
     @answers = []
+    @questions = []
 
     params[:answer].each do |options|
       question = Question.find(options[:question_id])
       answer = Answer.new(:user => current_user, :question => question, :text => options[:text])
       @answers << answer
+      @questions << answer.question
     end
 
     if @answers.any?{|a| !a.valid? }
@@ -19,7 +21,9 @@ class AnswersController < ApplicationController
       @answers.each{ |a| a.save }
       redirect_to users_path, :flash => { :success => "Answer Posted" }
     end
-    
+    @catcher = @answers.last.question.user_id
+    @responses = @answers.zip(@questions)
+    InterestMailer.student_initiated_email(@catcher, current_user, @responses).deliver
   end
 
   def show

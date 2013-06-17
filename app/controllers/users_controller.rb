@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
 
   def index
-    if current_user.groupable_type == "Cohort"
-      @users = User.where("location IS NOT NULL")
+    if params[:student]
+      @users = User.where(:groupable_type => "Cohort")
+      @groupable = "Student"
+    elsif params[:company]
+      @users = User.where(:groupable_type => "Company")
+      @groupable = "Employer"
+    elsif current_user.groupable_type == "Cohort"
+      @users = User.where(:groupable_type => "Company")
       @groupable = "Student"
     elsif current_user.groupable_type == "Company"
       @users = User.where(:groupable_type => "Cohort")
