@@ -104,9 +104,9 @@ class UsersController < ApplicationController
   def connect_employers
     @interest = Interest.create(params[:interest])
     @catcher = User.find(@interest.catcher_id)
-    @pitcher = User.find(@interest.pitcher_id)
-    InterestMailer.student_initiated_email(@catcher, @pitcher).deliver
-    redirect_to :back
+    # @pitcher = User.find(@interest.pitcher_id)
+    # InterestMailer.student_initiated_email(@catcher, @pitcher).deliver
+    redirect_to user_questions_path(@catcher)
   end
 
   private

@@ -19,7 +19,7 @@ class AnswersController < ApplicationController
       @answers.each{ |a| a.save }
       redirect_to users_path, :flash => { :success => "Answer Posted" }
     end
-
+    
   end
 
   def show
