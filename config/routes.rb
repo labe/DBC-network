@@ -23,6 +23,9 @@ Alumni::Application.routes.draw do
   post  "activation"  => "admins#activation"
   post  "deny"        => "admins#deny"
   post  "status"      => "users#status"
+  post "connect_students" => "users#connect_students"
+  post "connect_employers" => "users#connect_employers"
+  post '/users/:user_id/edit/github', to: "users#git_list", :as => "user_github"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

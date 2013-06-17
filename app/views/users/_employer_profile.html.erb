@@ -1,4 +1,15 @@
 <%= gravatar_image_tag user.email %><br>
+<% unless current_user.interests.select{|interest| interest.id == user.id }.empty? == false %>
+<% if current_user.groupable_type == 'Cohort' && user.id != current_user.id %>
+<%= form_for @interest , :url => connect_employers_path, :method => 'post' do |f| %>
+<%= f.hidden_field :pitcher_id, :value => current_user.id %>
+<%= f.hidden_field :catcher_id, :value => user.id %>
+<button>Connect<% f.submit %></button>
+<% end -%>
+<% elsif current_user.groupable_type == 'Company'  %>
+<button>Next-Step</button>
+<% end %>
+<%end%>
 Name: <%= user.first_name %> <%= user.last_name %><br>
 Company: <%= user.groupable.name %><br>
 Email: <%= user.email %><br>

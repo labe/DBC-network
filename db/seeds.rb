@@ -133,6 +133,26 @@ User.create(  :activated => true,
               :tumblr_url => "www.tumblr.com/student",
               :twitter_url => "www.twitter.com/student")
 
+#default student 2 
+User.create(  :activated => true,
+              :email => "booneteam@gmail.com",
+              :facebook_url => "www.facebook.com/student2",
+              :first_name => Faker::Name.first_name,
+              :github_handle => "BooneTeam",
+              :graduation_date => "2013",
+              :groupable_id => 1,
+              :groupable_type => "Cohort",
+              :intro => Faker::Lorem.paragraph(sentence_count = 3),
+              :last_login => DateTime.new(2013,rand(1..12),rand(1..30)),
+              :last_name => Faker::Name.last_name,
+              :linkedin_url => "www.linkedin.com/student2",
+              :location => "Chicago",
+              :password => "password",
+              :phone => Faker::PhoneNumber.phone_number,
+              :status => "active",
+              :tumblr_url => "www.tumblr.com/student2",
+              :twitter_url => "www.twitter.com/student2")
+
 # Create Default Employer
 User.create(  :activated => true,
               :groupable_id => 1,

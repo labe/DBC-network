@@ -1,0 +1,89 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>*|MC:SUBJECT|*</title>
+		
+	<style type="text/css">
+		body{
+			background-color:#161f2c;
+		}
+		a,a:link,a:visited{
+			color:#336699;
+			text-decoration:underline;
+			font-weight:normal;
+		}
+		#content-wrap{
+			color:#555555;
+			font-style:normal;
+			font-weight:normal;
+			font-family:Georgia;
+			line-height:110%;
+			background-color:#d32a2a;
+		}
+		#content{
+			margin:25px;
+			background-color:#ffffff;
+			border:1px solid #ccc;
+			padding:20px;
+			text-align:center;
+			font-size:12px;
+		}
+		#main h1{
+			font-weight:bold;
+			color:#063473;
+			font-size:22px;
+		}
+		#disclaimer p{
+			font-size:10px;
+			color:#989898;
+			margin:20px 20px 0;
+		}
+		.goto-meeting-link{
+			font-size:11px;
+			margin-top:20px;
+		}
+		#footer{
+			padding:20px;
+			font-size:10px;
+			color:#eee;
+			line-height:150%;
+			font-family:Verdana;
+			text-align:center;
+		}
+		#footer a{
+			color:#ffffff;
+			text-decoration:underline;
+			font-weight:normal;
+		}
+		#layout{
+			margin:50px auto;
+			text-align:left;
+			border-collapse:collapse;
+		}
+</style></head>
+	<body style="background-color: #161f2c;">
+		<table id="layout" border="0" cellspacing="0" cellpadding="0" width="600" style="margin: 50px auto;text-align: left;border-collapse: collapse;">
+			<tr>
+				<td id="content-wrap" style="color: #555555;font-style: normal;font-weight: normal;font-family: Georgia;line-height: 110%;background-color: #d32a2a;">
+					<div id="content" style="margin: 25px;background-color: #ffffff;border: 1px solid #ccc;padding: 20px;text-align: center;font-size: 12px;">
+						<div id="main"><h1 style="font-weight: bold;color: #063473;font-size: 22px;">
+	Another DBC Alumni Wants to Connect!</h1>
+<%= @pitcher.first_name %> <%= @pitcher.last_name %> sent this request at <%= @time %><br>
+<%= link_to "Login", "http://DBConnect.login" %>  to accept their request and start collaborating!</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td id="footer" style="padding: 20px;font-size: 10px;color: #eee;line-height: 150%;font-family: Verdana;text-align: center;"><p class="footer_links">
+	&nbsp;</p>
+<p id="copyright">
+	Copyright (C) 2013 Dev Bootcamp All rights reserved.</p>
+</td>
+			</tr>
+		</table>
+		<span style="padding: 0px;"></span>
+	</body>
+</html>
