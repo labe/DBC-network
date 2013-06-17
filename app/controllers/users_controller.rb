@@ -18,11 +18,11 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(:first_name => params[:user][:first_name],
-                     :last_name => params[:user][:last_name],
-                     :email => params[:user][:email],
-                     :password => params[:user][:password],
-                     :groupable_type => params[:user][:groupable_type],
-                     :groupable_id => params[:user][:groupable_id])
+     :last_name => params[:user][:last_name],
+     :email => params[:user][:email],
+     :password => params[:user][:password],
+     :groupable_type => params[:user][:groupable_type],
+     :groupable_id => params[:user][:groupable_id])
     if @user.save
       UserMailer.pending_email(@user).deliver
       redirect_to thank_you_path, :notice => "Submitted! We'll get back to you soon."
@@ -80,7 +80,19 @@ class UsersController < ApplicationController
     @interest = Interest.create(params[:interest])
     @catcher = User.find(@interest.catcher_id)
     @pitcher = User.find(@interest.pitcher_id)
-    InterestMailer.s2s_pending_connection(@catcher, @pitcher).deliver
+    if current_user.groupable_type == "Company"
+      InterestMailer.employer_initiated_email(@catcher, @pitcher).deliver
+    else
+      InterestMailer.s2s_pending_connection(@catcher, @pitcher).deliver
+    end
+    redirect_to :back
+  end
+
+  def connect_employers
+    @interest = Interest.create(params[:interest])
+    @catcher = User.find(@interest.catcher_id)
+    @pitcher = User.find(@interest.pitcher_id)
+    InterestMailer.student_initiated_email(@catcher, @pitcher).deliver
     redirect_to :back
   end
 

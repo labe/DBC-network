@@ -3,14 +3,16 @@
 <p><%= user.location %></p>
 <p><%= gravatar_image_tag user.email %></p>
 <% unless current_user.interests.select{|interest| interest.id == user.id }.empty? == false %>
-<% if current_user.groupable_type == 'Cohort' && user.id != current_user.id %>
+<% if user.id != current_user.id %>
 <%= form_for @interest , :url => connect_students_path, :method => 'post' do |f| %>
 <%= f.hidden_field :pitcher_id, :value => current_user.id %>
 <%= f.hidden_field :catcher_id, :value => user.id %>
+<% if current_user.groupable_type == 'Cohort' %> 
 <button>Connect<% f.submit %></button>
-<% end -%>
 <% elsif current_user.groupable_type == 'Company'  %>
-<button>Next-Step</button>
+<button>Next-Step<% f.submit %></button>
+<% end %>
+<% end %>
 <% end %>
 <%end%>
 <p><%= user.groupable.name if user.groupable %></p>
@@ -22,3 +24,16 @@
 <p>Email: <%= user.email %></p>
 <p>Bio: <%= user.intro %></p>
 </div>
+
+<% if current_user.id == user.id %>
+	<div>
+		<ul>
+		<% current_user.interests.each do |interest| %>
+			<li><%= link_to "#{interest.first_name} #{interest.last_name}", user_path(interest.id) %> <% if Interest.where(:pitcher_id => current_user.id, :catcher_id => interest.id ).first.approved == nil %>Pending</li>
+			<% else %>
+				<%= Interest.where(:pitcher_id => current_user.id, :catcher_id => interest.id ).first.approved %></li>
+				<%end%>
+		<% end %>
+</ul>
+	</div>
+<% end %>
