@@ -2,31 +2,56 @@
     <%= value %>
 <% end %>
 
+<div class="admin-nav">
+<ul>
+  <li><%= link_to "To-do", "#to-do" %></li>
+  <li><%= link_to "Students", "#students"%></li>
+  <li><%= link_to "Employers", "#employers"%></li>
+  <li><%= link_to "Interests", "#interests"%></li>
+  <li><%= link_to "Companies", "#companies"%></li>
+  <li><%= link_to "Cohorts", "#cohorts"%></li>
+  <li><%= link_to "Questions", "#questions"%></li>
+  <li><%= link_to "Create Users/Groups", "#create"%></li>
+</ul>
+</div>
+
+<a name="to-do">
+<div class="admin-portion">
 <%= render partial: 'admins/todo', locals: { users: @users } %>
+</div>
 
 <br><br><br>
-
+<a name="students">
+<div class="admin-portion">
 <%= render partial: 'admins/students', locals: { students: @students } %>
-
+</div>
 <br><br><br>
-
+<a name="employers">
+<div class="admin-portion">
 <%= render partial: 'admins/employers', locals: { employers: @employers } %>
-
+</div>
 <br><br><br>
-
+<a name="interests">
+<div class="admin-portion">
 <%= render partial: 'admins/interests', locals: { interests: @interests } %>
-
+</div>
 <br><br><br>
-
+<a name="companies">
+<div class="admin-portion">
 <%= render partial: 'admins/companies', locals: { companies: @companies } %>
-
+</div>
 <br><br><br>
-
+<a name="cohorts">
+<div class="admin-portion">
 <%= render partial: 'admins/cohorts', locals: { cohorts: @cohorts } %>
-
+</div>
 <br><br><br>
-
+<a name="questions">
+<div class="admin-portion">
 <%= render partial: 'admins/questions', locals: { answers: @answers } %>
-
-
+</div>
+<br><br><br>
+<a name="create">
+<div class="admin-portion">
 <%= render partial: 'admins/create_users_and_groupables' %>
+</div>

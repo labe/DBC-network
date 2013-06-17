@@ -30,6 +30,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 span {
   font-family: 'GothamBold';
   font-size: 20px;
@@ -93,7 +97,6 @@ span {
 }
 
 .nav_choices li {
-  list-style: none;
   display: inline;
   margin-right: 50px;
   height: 100px;
@@ -151,4 +154,20 @@ span {
 
 .create_users_groupables {
   padding:45px 45px;
+}
+
+.admin-portion {
+  padding-top:170px;
+}
+
+.admin-nav {
+  position: fixed;
+  top:100px;
+  background-color: grey;
+  width: 100%;
+}
+
+.admin-nav li {
+  display: inline;
+  margin-right:40px;
 }
