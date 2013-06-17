@@ -1,12 +1,12 @@
 class HomesController < ApplicationController
-    def new
-    end
+  def new
+  end
 
-    def index
-      
-    end
+  def index
+    
+  end
 
-    def results
+  def results
     @user_search = User.search do 
       fulltext params[:search]
     end
@@ -14,6 +14,7 @@ class HomesController < ApplicationController
       fulltext params[:search]
     end
     @users = @user_search.results
-    @companies = @company_search.results 
-    end
+    @companies = @company_search.results
+    @all_results = @users + @companies
+  end
 end

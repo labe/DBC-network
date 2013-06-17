@@ -32,7 +32,79 @@ class AdminsController < ApplicationController
     end
   end
 
-  def create_user
+  def create_users
+  end
+
+  def create_student
+    @user = User.new(:activated => true,
+                     :first_name => params[:user][:first_name],
+                     :last_name => params[:user][:last_name],
+                     :email => params[:user][:email],
+                     :password => params[:user][:password],
+                     :groupable_id => params[:user][:groupable_id],
+                     :groupable_type => "Cohort",
+                     :facebook_url => params[:user][:facebook_url],
+                     :github_handle => params[:user][:github_handle],
+                     :graduation_date => params[:user][:graduation_date],
+                     :intro => params[:user][:intro],
+                     :linkedin_url => params[:user][:intro],
+                     :location => params[:user][:location],
+                     :phone => params[:user][:phone],
+                     :status => "active",
+                     :tumblr_url => params[:user][:tumblr_url],
+                     :twitter_url => params[:user][:twitter_url]
+                     )
+    if @user.save
+      flash[:success] = "Student created successfully!"
+    else
+      flash[:error] = "Student was not saved correctly. Please try again."
+    end
+    redirect_to :back
+  end
+
+  def create_employer
+    @user = User.new(:activated => true,
+                     :first_name => params[:user][:first_name],
+                     :last_name => params[:user][:last_name],
+                     :email => params[:user][:email],
+                     :password => params[:user][:password],
+                     :groupable_id => params[:user][:groupable_id],
+                     :groupable_type => "Company",
+                     :location => params[:user][:location],
+                     :password => params[:user][:password],
+                     :phone => params[:user][:phone],
+                     :status => "active",
+                     )
+    if @user.save
+      flash[:success] = "Employer created successfully!"
+    else
+      flash[:error] = "Employer was not saved correctly. Please try again."
+    end
+    redirect_to :back
+  end
+
+  def create_company
+    @company = Company.new(:website => params[:company][:website],
+                           :name => params[:company][:name],
+                           :location => params[:company][:location],
+                           :status => "active",
+                           :initial_email_contact => params[:company][:initial_email_contact])
+    if @company.save
+      flash[:success] = "Company created successfully!"
+    else
+      flash[:error] = "Company was not saved correctly. Please try again."
+    end
+    redirect_to :back
+  end
+
+  def create_cohort
+    @cohort = Cohort.new(:name => params[:cohort][:name])
+    if @cohort.save
+      flash[:success] = "Cohort created successfully!"
+    else
+      flash[:error] = "Cohort was not saved correctly. Please try again."
+    end
+    redirect_to :back
   end
 
 end
