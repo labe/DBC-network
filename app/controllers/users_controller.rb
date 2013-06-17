@@ -35,12 +35,12 @@ class UsersController < ApplicationController
   def show
     @interest = Interest.new
     @user = User.find(params[:id])
-    # if @user.groupable_type == "Cohort" && @user.github_handle
-    #   github = Github.new(@user)
-    #   @repos = github.zip_repo_url_names
-    # else
-    #   @repos = []
-    # end
+    if @user.groupable_type == "Cohort" && @user.github_handle
+      github = Github.new(@user)
+      @repos = github.zip_repo_url_names
+    else
+      @repos = []
+    end
   end
 
   def edit
