@@ -1,0 +1,24 @@
+<span class="category-title">Employers</span><br>
+<table class="admin_table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>User ID</th>
+      <th>Email</th>
+      <th>Company</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% employers.each do |employer| %>
+    <tr>
+        <th><%= link_to "#{employer.first_name} #{employer.last_name}", user_path(employer) %></th>
+        <th><%= employer.id %></th>
+        <th><%= employer.email %></th>
+        <th><%= employer.groupable.name %></th>
+        <th><%= render partial: 'users/update_status_buttons', locals: { user: employer } %></th>
+        <th><%= render partial: 'users/update_activation_buttons', locals: { user: employer } %></th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -2,177 +2,31 @@
     <%= value %>
 <% end %>
 
-<span class="category-title">To-do</span><br>
-<table class="admin_table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>User ID</th>
-      <th>Email</th>
-      <th>Belongs to</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <% if user.activated == nil %>
-      <tr>
-        <th><%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %></th>
-        <th><%= user.id %></th>
-        <th><%= user.email %></th>
-        <th><%= user.groupable.name %></th>
-        <th><%= render partial: 'users/update_activation_buttons', locals: { user: user } %></th>
-      </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
-
+<%= render partial: 'admins/todo', locals: { users: @users } %>
 
 <br><br><br>
 
-<span class="category-title">Students</span><br>
-<table class="admin_table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>User ID</th>
-      <th>Email</th>
-      <th>Cohort</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @students.each do |student| %>
-    <tr>
-        <th><%= link_to "#{student.first_name} #{student.last_name}", user_path(student) %></th>
-        <th><%= student.id %></th>
-        <th><%= student.email %></th>
-        <th><%= student.groupable.name %></th>
-        <th><%= render partial: 'users/update_status_buttons', locals: { user: student } %></th>
-        <th><%= render partial: 'users/update_activation_buttons', locals: { user: student } %></th>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: 'admins/students', locals: { students: @students } %>
 
 <br><br><br>
 
-<span class="category-title">Employers</span><br>
-<table class="admin_table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>User ID</th>
-      <th>Email</th>
-      <th>Company</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @employers.each do |employer| %>
-    <tr>
-        <th><%= link_to "#{employer.first_name} #{employer.last_name}", user_path(employer) %></th>
-        <th><%= employer.id %></th>
-        <th><%= employer.email %></th>
-        <th><%= employer.groupable.name %></th>
-        <th><%= render partial: 'users/update_status_buttons', locals: { user: employer } %></th>
-        <th><%= render partial: 'users/update_activation_buttons', locals: { user: employer } %></th>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<%= render partial: 'admins/employers', locals: { employers: @employers } %>
 
 <br><br><br>
 
-<span class="category-title">Interests</span><br>
-<table class="admin_table">
-  <thead>
-    <tr>
-      <th>Who showed interest?</th>
-      <th>Who received interest?</th>
-      <th>Was the interest accepted?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @interests.each do |interest| %>
-    <tr>
-      <th><%= link_to "#{interest.pitcher.first_name} #{interest.pitcher.last_name}", user_path(interest.pitcher) %></th>
-      <th><%= link_to "#{interest.catcher.first_name} #{interest.catcher.last_name}", user_path(interest.catcher) %></th>
-      <th><%= interest.approved %></th>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: 'admins/interests', locals: { interests: @interests } %>
 
 <br><br><br>
 
-<span class="category-title">Companies</span><br>
-<table class="admin_table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Website</th>
-      <th>Logo</th>
-      <th>Location</th>
-      <th>Initial Contact Email</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @companies.each do |company| %>
-    <tr>
-      <th><%= company.name %></th>
-      <th><%= company.website %></th>
-      <th><%= company.logo %></th>
-      <th><%= company.location %></th>
-      <th><%= company.initial_email_contact %></th>
-      <th><%= company.status %></th>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: 'admins/companies', locals: { companies: @companies } %>
 
 <br><br><br>
 
-<span class="category-title">Cohorts</span><br>
-<table class="admin_table">
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @cohorts.each do |cohort| %>
-    <tr>
-      <th><%= cohort.name %></th>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: 'admins/cohorts', locals: { cohorts: @cohorts } %>
 
 <br><br><br>
 
-<span class="category-title">Questions</span><br>
-<table class="admin_table">
-  <thead>
-    <tr>
-      <th>Company</th>
-      <th>User</th>
-      <th>Question</th>
-      <th>Answer</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @answers.each do |answer| %>
-    <tr>
-      <th><%= answer.question.user.groupable.name %></th>
-      <th><%= answer.user.id %></th>
-      <th><%= answer.question.text %></th>
-      <th><%= answer.text %></th>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: 'admins/questions', locals: { answers: @answers } %>
+
 
 <%= render partial: 'admins/create_users_and_groupables' %>

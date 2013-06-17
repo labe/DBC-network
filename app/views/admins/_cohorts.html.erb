@@ -1,0 +1,15 @@
+<span class="category-title">Cohorts</span><br>
+<table class="admin_table">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% cohorts.each do |cohort| %>
+    <tr>
+      <th><%= cohort.name %></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
