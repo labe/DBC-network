@@ -1,0 +1,31 @@
+<% if @magic == true %>
+  <%= link_to "New Question", new_user_question_path(current_user) %> <br/><br/>
+<% end %>
+
+<% if !@answers.nil? %>
+
+  <%= form_for :answers, :url => answers_path do |f| %>
+    <% @answers.each do |answer| %>
+      <% @answer = answer %>
+      <%= answer.question.text %>
+
+    <% if @magic == true %> 
+      <%= button_to "Delete", {:controller => :questions,
+          :action => 'destroy', :id => answer.question.id }, :method => :delete %>
+    <% end %>
+    
+    <br><br>
+      
+    <%= fields_for "answer[]" do |answer| %>
+      <%= answer.label :content, "Answer" %>
+      <%= answer.text_field :text, :rows => 10%>
+      <%= answer.hidden_field :question_id %> 
+      <br><br>
+    <% end %>
+    
+    <% end %>
+    <%= f.submit "Submit" %>
+    
+  <% end %>
+  
+<% end %>

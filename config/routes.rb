@@ -1,7 +1,6 @@
 Alumni::Application.routes.draw do
 
   resources :companies
-  resources :users
   resources :sessions
   resources :students
   resources :employers
@@ -9,6 +8,14 @@ Alumni::Application.routes.draw do
   resources :interests
   resources :cohorts
   resources :administrations
+
+  resources :users do
+    resources :questions do
+      resources :answers
+    end
+  end
+
+  resources :answers
 
   root :to => 'homes#index'
 
