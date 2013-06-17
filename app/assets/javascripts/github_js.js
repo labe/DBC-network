@@ -12,9 +12,8 @@ $( "#github_list_showing" ).droppable({
   }
   }
 });
-$(".git_save").submit(function(e){
+$("form.git_save").submit(function(e){
   e.preventDefault();
-  debugger;
   $.post("/users/"+this.id+"/edit/github", { selected: test });
 });
 });

@@ -75,6 +75,17 @@ class UsersController < ApplicationController
     @user.save
     redirect_to :back
   end
+
+  def git_list
+    p params
+    @user = User.find(params[:user_id])
+    params[:selected].each do |repo|
+      selection = GitHubSelection.create(:name => repo)
+    p @user.git_hub_selections << selection
+    p @user.save
+   end
+    @user.git_selections
+  end
   
   def connect_students
     @interest = Interest.create(params[:interest])
