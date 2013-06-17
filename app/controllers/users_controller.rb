@@ -96,6 +96,7 @@ class UsersController < ApplicationController
     if current_user.groupable_type == "Company"
       InterestMailer.employer_initiated_email(@catcher, @pitcher).deliver
     else
+      UserMailer.employer_miss_us_email(@catcher).deliver
       InterestMailer.s2s_pending_connection(@catcher, @pitcher).deliver
     end
     redirect_to :back

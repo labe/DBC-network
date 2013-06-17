@@ -6,7 +6,7 @@ class InterestMailer < ActionMailer::Base
     full_time= time.strftime("%A %B %d")
     @time = "#{full_time}"
     @catcher = catcher
-    @pitcher = pitcher.email
+    @pitcher = pitcher
     @url = log_in_path
     mail(:to => catcher.email, :reply_to => pitcher.email, :subject => "Someone's Interested")
   end
