@@ -20,4 +20,10 @@ class UserMailer < ActionMailer::Base
 		mail(:to => user.email, :subject => "Welcome to DBConnect Your Application Is Pending Approval")
 	end
 
+	def denial_email(user)
+		@user = user
+		@url = root_path
+		mail(:to => user.email, :subject => "DBConnect Approval Status")
+	end
+
 end

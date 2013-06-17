@@ -5,7 +5,7 @@ $( "#github_list_showing" ).droppable({
   drop: function(event,ui) {
   if($(this).find('tr').length >= 6){
           $(this).draggable({ disabled: true });
-          $(this).parent().prepend("Sorry Brah Only 5 Top Repos Allowed");
+          $(this).parent().prepend("Sorry Brah Only 5 Top Repos Allowed").css('color','red');
         }
     else { $(this).append(ui.draggable);
     test.push($(this).find('td:last').text());
