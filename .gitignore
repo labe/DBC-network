@@ -21,3 +21,4 @@ pickle-email-*.html
 .project
 /solr/data
 /config/api_keys.txt
+/solr/pids

@@ -41,6 +41,8 @@ class UsersController < ApplicationController
     else
       @repos = []
     end
+    @pitcher_interest = Interest.find_by_pitcher_id_and_catcher_id(current_user.id, @user.id)
+    @catcher_interest = Interest.find_by_pitcher_id_and_catcher_id(@user.id, current_user.id)
   end
 
   def edit
