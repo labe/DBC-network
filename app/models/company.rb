@@ -13,7 +13,7 @@
 #
 
 class Company < ActiveRecord::Base
-  attr_accessible :location, :logo, :name, :status, :website
+  attr_accessible :location, :logo, :name, :status, :website, :initial_email_contact
 
   has_many :users, :as => :groupable
   

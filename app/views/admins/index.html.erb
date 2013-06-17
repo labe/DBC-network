@@ -1,3 +1,7 @@
+<% flash.each do |key, value| %>
+    <%= value %>
+<% end %>
+
 <span class="category-title">To-do</span><br>
 <table class="admin_table">
   <thead>
@@ -40,7 +44,7 @@
   <tbody>
     <% @students.each do |student| %>
     <tr>
-        <th><%= link_to "#{student.first_name} #{student.last_name}", student_path(student) %></th>
+        <th><%= link_to "#{student.first_name} #{student.last_name}", user_path(student) %></th>
         <th><%= student.id %></th>
         <th><%= student.email %></th>
         <th><%= student.groupable.name %></th>
@@ -67,7 +71,7 @@
   <tbody>
     <% @employers.each do |employer| %>
     <tr>
-        <th><%= link_to "#{employer.first_name} #{employer.last_name}", employer_path(employer) %></th>
+        <th><%= link_to "#{employer.first_name} #{employer.last_name}", user_path(employer) %></th>
         <th><%= employer.id %></th>
         <th><%= employer.email %></th>
         <th><%= employer.groupable.name %></th>
@@ -86,14 +90,16 @@
   <thead>
     <tr>
       <th>Who showed interest?</th>
-      <th>Who accepted interest?</th>
+      <th>Who received interest?</th>
+      <th>Was the interest accepted?</th>
     </tr>
   </thead>
   <tbody>
     <% @interests.each do |interest| %>
     <tr>
-      <th><%= interest.pitcher.first_name %> <%= interest.pitcher.last_name %></th>
-      <th><%= interest.catcher.first_name %> <%= interest.catcher.last_name %></th>
+      <th><%= link_to "#{interest.pitcher.first_name} #{interest.pitcher.last_name}", user_path(interest.pitcher) %></th>
+      <th><%= link_to "#{interest.catcher.first_name} #{interest.catcher.last_name}", user_path(interest.catcher) %></th>
+      <th><%= interest.approved %></th>
     </tr>
     <% end %>
   </tbody>
@@ -168,3 +174,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= render partial: 'admins/create_users_and_groupables' %>
