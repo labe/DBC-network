@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
 
   has_many :questions
   has_many :answers
+  
+  accepts_nested_attributes_for :questions, :allow_destroy => true
+  accepts_nested_attributes_for :answers, :allow_destroy => true
+
   has_many :git_hub_selections
 
   validates_uniqueness_of :email
