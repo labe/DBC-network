@@ -10,7 +10,7 @@ class UserMailer < ActionMailer::Base
 
 	def employer_welcome_email(user)
 		@user = user
-		@url  = logi_n_path
+		@url  = log_in_path
 		mail(:to => user.email, :subject => "Welcome to DBConnect")
 	end
 
