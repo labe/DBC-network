@@ -1,5 +1,5 @@
 class InterestMailer < ActionMailer::Base
-  default from: "DBConnect@gmail.com" 
+  default from: "dbcfinalproject@gmail.com" 
 
 
   def student_initiated_email(catcher,pitcher)
@@ -8,6 +8,7 @@ class InterestMailer < ActionMailer::Base
     @time = "#{full_time}"
     @catcher = catcher
     @pitcher = pitcher
+    @url = log_in_path
     mail(:to => catcher.email, :subject => "Someone's Interested")
   end
 
@@ -17,7 +18,7 @@ class InterestMailer < ActionMailer::Base
     @time = "#{full_time}"
     @catcher = catcher
     @pitcher = pitcher
-    @url  = login_path
+    @url  = log_in_path
     mail(:to => catcher.email, :subject => "Someone's Interested")
   end 
 
@@ -27,7 +28,7 @@ class InterestMailer < ActionMailer::Base
     @time = "#{full_time}"
     @catcher = catcher
     @pitcher = pitcher
-    @url = login_path
+    @url = log_in_path
     mail(:to => catcher.email, :subject => "Another DBC Alumni Wants to Connect With You.")
   end
 
