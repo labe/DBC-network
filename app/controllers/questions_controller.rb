@@ -24,7 +24,6 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    params
     @question = Question.new(:text => params[:question][:text],
                               :user_id => current_user.id)
     if @question.save
