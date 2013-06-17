@@ -71,8 +71,8 @@
 					<div id="content" style="margin: 25px;background-color: #ffffff;border: 1px solid #ccc;padding: 20px;text-align: center;font-size: 12px;">
 						<div id="main"><h1 style="font-weight: bold;color: #063473;font-size: 22px;">
 	Another DBC Alumni Wants to Connect!</h1>
-<%= @pitcher.first_name %> <%= @pitcher.last_name %> sent this request at <%= @time %><br>
-<%= link_to "Login", "http://DBConnect.login" %>  to accept their request and start collaborating!</div>
+<%= @pitcher.first_name %> <%= @pitcher.last_name %> @ <%= "#{@pitcher.email}" %> sent this request on <%= @time %><br>
+ Just reply to this message or click the email above to start collaborating!</div>
 					</div>
 				</td>
 			</tr>

@@ -11,6 +11,7 @@ class UserMailer < ActionMailer::Base
 	def employer_welcome_email(user)
 		@user = user
 		@url  = log_in_path
+		@feedback_url = "DBCfinalprojectfeedback.com"
 		mail(:to => user.email, :subject => "Welcome to DBConnect")
 	end
 
@@ -26,4 +27,10 @@ class UserMailer < ActionMailer::Base
 		mail(:to => user.email, :subject => "DBConnect Approval Status")
 	end
 
+  def employer_miss_us_email(user)
+  	@user = user
+  	@urls = root_path
+  	mail(:to => user.email, :subject => "We Miss You!")
+  end
+  
 end
