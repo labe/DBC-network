@@ -8,7 +8,7 @@
     <%= link_to "/students" do %>
     <li>Students</li>
     <% end %>
-    <% if current_user && current_user.groupable_type == "Admin" %>
+    <% if current_user && current_user.groupable_type == "Administration" %>
       <%= link_to "/admin" do %>
       <li>Admin</li>
       <% end %>

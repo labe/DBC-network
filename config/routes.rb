@@ -19,13 +19,14 @@ Alumni::Application.routes.draw do
   get   "admin"       => "admins#index"
   get   "profile"     => "sessions#show"
   get   "results"     => "homes#results"
+  get   "create_user" => "admins#create_user"
   post  "log_in"      => "sessions#create"
   post  "activation"  => "admins#activation"
   post  "deny"        => "admins#deny"
   post  "status"      => "users#status"
-  post "connect_students" => "users#connect_students"
-  post "connect_employers" => "users#connect_employers"
-  post '/users/:user_id/edit/github', to: "users#git_list", :as => "user_github"
+  post  "connect_students" => "users#connect_students"
+  post  "connect_employers" => "users#connect_employers"
+  post  '/users/:user_id/edit/github', to: "users#git_list", :as => "user_github"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -17,7 +17,7 @@ class AdminsController < ApplicationController
   end
 
   def index
-    if current_user.groupable_type == "Admin"
+    if current_user.groupable_type == "Administration"
       @users = User.all
       @students = User.where(:groupable_type => "Cohort")
       @active_students = User.where(:groupable_type => "Cohort", :status => "active")
@@ -31,4 +31,8 @@ class AdminsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def create_user
+  end
+
 end
