@@ -17,7 +17,7 @@ class InterestMailer < ActionMailer::Base
     @time = "#{full_time}"
     @catcher = catcher
     @pitcher = pitcher
-    @url  = "http://DBConnect.com/login"
+    @url  = login_path
     mail(:to => catcher.email, :subject => "Someone's Interested")
   end 
 
@@ -27,7 +27,7 @@ class InterestMailer < ActionMailer::Base
     @time = "#{full_time}"
     @catcher = catcher
     @pitcher = pitcher
-    @url = "http://DBConnect.com/login"
+    @url = login_path
     mail(:to => catcher.email, :subject => "Another DBC Alumni Wants to Connect With You.")
   end
 
