@@ -33,13 +33,14 @@ class UsersController < ApplicationController
   end
 
   def show
+    @interest = Interest.new
     @user = User.find(params[:id])
-    if @user.groupable_type == "Cohort" && @user.github_handle
-      github = Github.new(@user)
-      @repos = github.zip_repo_url_names
-    else
-      @repos = []
-    end
+    # if @user.groupable_type == "Cohort" && @user.github_handle
+    #   github = Github.new(@user)
+    #   @repos = github.zip_repo_url_names
+    # else
+    #   @repos = []
+    # end
   end
 
   def edit
@@ -72,6 +73,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:user][:id])
     @user.status = params[:user][:status]
     @user.save
+    redirect_to :back
+  end
+  
+  def connect_students
+    @interest = Interest.create(params[:interest])
+    @catcher = User.find(@interest.catcher_id)
+    @pitcher = User.find(@interest.pitcher_id)
+    InterestMailer.s2s_pending_connection(@catcher, @pitcher).deliver
     redirect_to :back
   end
 

@@ -2,6 +2,17 @@
 <p><%= user.first_name %> <%= user.last_name %></p>
 <p><%= user.location %></p>
 <p><%= gravatar_image_tag user.email %></p>
+<% unless current_user.interests.select{|interest| interest.id == user.id }.empty? == false %>
+<% if current_user.groupable_type == 'Cohort' && user.id != current_user.id %>
+<%= form_for @interest , :url => connect_students_path, :method => 'post' do |f| %>
+<%= f.hidden_field :pitcher_id, :value => current_user.id %>
+<%= f.hidden_field :catcher_id, :value => user.id %>
+<button>Connect<% f.submit %></button>
+<% end -%>
+<% elsif current_user.groupable_type == 'Company'  %>
+<button>Next-Step</button>
+<% end %>
+<%end%>
 <p><%= user.groupable.name if user.groupable %></p>
 <p>Graduated: <%= user.graduation_date %></p>
 </div>
@@ -10,3 +21,4 @@
 <p>Phone Number: <%= user.phone %></p>
 <p>Email: <%= user.email %></p>
 <p>Bio: <%= user.intro %></p>
+</div>

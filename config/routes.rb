@@ -23,6 +23,7 @@ Alumni::Application.routes.draw do
   post  "activation"  => "admins#activation"
   post  "deny"        => "admins#deny"
   post  "status"      => "users#status"
+  post "connect_students" => "users#connect_students"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
