@@ -1,16 +1,16 @@
 var selected_filters = [];
 
 $(document).ready(function(){
-  
+
   //Clears any of the filters that have been selected
   $('.clear').click(function(event){
     $('.filters').prop('disabled', false);
     $('.user_list li').show();
   });
 
-  //Adds each clicked filter to selected_filters array and then passes that array into apply filters 
+  //Adds each clicked filter to selected_filters array and then passes that array into apply filters
   $('.filters').click(function(event){
-    event.preventDefault;
+    event.preventDefault();
     selected_filters.push($(this).attr('id'));
     apply_filters(selected_filters);
     $(this).prop('disabled', true);

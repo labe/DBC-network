@@ -2,9 +2,9 @@
 <table class="admin_table">
   <thead>
     <tr>
+      <th>Type</th>
       <th>Name</th>
-      <th>User ID</th>
-      <th>Email</th>
+      <th>ID</th>
       <th>Belongs to</th>
     </tr>
   </thead>
@@ -12,11 +12,20 @@
     <% users.each do |user| %>
       <% if user.activated == nil %>
       <tr>
+        <th><%= user.class %></th>
         <th><%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %></th>
         <th><%= user.id %></th>
-        <th><%= user.email %></th>
-        <th><%= user.groupable.name %></th>
         <th><%= render partial: 'users/update_activation_buttons', locals: { user: user } %></th>
+      </tr>
+      <% end %>
+    <% end %>
+    <% companies.each do |company| %>
+      <% if company.activated == nil %>
+      <tr>
+        <th><%= company.class %></th>
+        <th><%= link_to company.name, company_path(company) %></th>
+        <th><%= company.id %></th>
+        <th><%= render partial: 'companies/update_company_activation_buttons', locals: { company: company } %></th>
       </tr>
       <% end %>
     <% end %>

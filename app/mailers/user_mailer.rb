@@ -32,5 +32,5 @@ class UserMailer < ActionMailer::Base
   	@urls = root_path
   	mail(:to => user.email, :subject => "We Miss You!")
   end
-  
+
 end

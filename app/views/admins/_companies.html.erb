@@ -18,7 +18,9 @@
       <th><%= company.logo %></th>
       <th><%= company.location %></th>
       <th><%= company.initial_email_contact %></th>
+      <!-- Switch out for the update_company_status_buttons partial to toggle the company's visibility when needed -->
       <th><%= company.status %></th>
+      <th><%= render partial: 'companies/update_company_activation_buttons', locals: { company: company } %></th>
     </tr>
     <% end %>
   </tbody>
