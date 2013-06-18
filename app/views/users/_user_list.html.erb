@@ -3,9 +3,9 @@
     <% @users.each do |user| %>
 
       <li id="<%=user.id%>"
-          data-location="<%= user.location %>"
-          data-cohort="<%= user.groupable.name %>"
-          data-status="<%= user.status %>"
+          data-location="<%= user.location.gsub(/\s+/, "") %>"
+          data-group="<%= user.groupable.name.gsub(/\s+/, "") %>"
+          data-status="<%= user.status.gsub(/\s+/, "") %>"
           data-last-login="<%= user.last_login %>"
       >
         <div class="user-div">

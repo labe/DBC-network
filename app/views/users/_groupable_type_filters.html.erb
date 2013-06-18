@@ -1,6 +1,6 @@
 <div>
   <h3>Type</h3>
   <% @users.group('groupable_type').select('groupable_type').where("groupable_type IS NOT NULL").each do |user| %>
-    <button class="filters" id="<%= user.groupable_type %>"><%= user.groupable_type %></button><br><br>
+    <button class="group_filters" id="<%= user.groupable.name.gsub(/\s+/, "") %>"><%= user.groupable_type %></button><br><br>
   <% end %>
 </div>
