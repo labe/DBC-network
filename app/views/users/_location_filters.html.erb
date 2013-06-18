@@ -1,6 +1,6 @@
 <div>
   <h3>Locations</h3>
   <% @users.group('location').select('location').where("location IS NOT NULL").each do |user| %>
-    <button class="location_filters" id="<%= user.location.gsub(/\s+/, "") %>"><%= user.location %></button><br><br>
+    <button class="location_filters" id="<%= user.location.gsub(/\s+/, "") %>"><%= user.location %></button>
   <% end %>
 </div>
