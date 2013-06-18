@@ -13,6 +13,7 @@ Administration.create(:name => "Administration")
 
 # Create an admin
   User.create(:activated => true,
+              :company_name => "Admin Company",
               :email => "admin@admin.com",
               :facebook_url => "www.facebook.com/student",
               :first_name => "Admin first",
@@ -36,6 +37,7 @@ Administration.create(:name => "Administration")
 10.times do
   User.create(:groupable_id => 1,
               :groupable_type => "Cohort",
+              :company_name => "Company Name",
               :email => Faker::Internet.email,
               :first_name => Faker::Name.first_name,
               :github_handle => "fakegithubaccount",
@@ -74,6 +76,7 @@ end
 10.times do
   User.create(:groupable_id => 1,
               :groupable_type => "Cohort",
+              :company_name => "Company Name",
               :email => Faker::Internet.email,
               :first_name => Faker::Name.first_name,
               :github_handle => "fakegithubaccount",
@@ -101,7 +104,7 @@ end
 end
 
 # Create 5 questions for an employer (id = 11)
-5.times do 
+5.times do
   Question.create(:user_id => 20,
                   :text => "#{Faker::Lorem.sentence}?")
 end
@@ -115,6 +118,7 @@ end
 
 # Create Default Student
 User.create(  :activated => true,
+              :company_name => "Company Name",
               :email => "student@student.com",
               :facebook_url => "www.facebook.com/student",
               :first_name => Faker::Name.first_name,
@@ -133,8 +137,9 @@ User.create(  :activated => true,
               :tumblr_url => "www.tumblr.com/student",
               :twitter_url => "www.twitter.com/student")
 
-#default student 2 
+#default student 2
 User.create(  :activated => true,
+              :company_name => "Company Name",
               :email => "booneteam@gmail.com",
               :facebook_url => "www.facebook.com/student2",
               :first_name => Faker::Name.first_name,

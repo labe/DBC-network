@@ -2,6 +2,7 @@ class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
       t.boolean    :activated
+      t.string     :company_name
       t.string     :email
       t.string     :facebook_url
       t.string     :first_name
