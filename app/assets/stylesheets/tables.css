@@ -79,8 +79,7 @@ button.edit{
 	margin: 0 45px;
 	width: 100%;
 	text-align: left;
-	border-collapse: collapse;	
-	table-layout: fixed;
+	border-collapse: collapse;
 }
 
 .admin_table thead > tr{
@@ -104,5 +103,5 @@ button.edit{
 }
 
 .admin_table input[type="submit"] {
-	
+
 }

@@ -1,7 +1,8 @@
 <span>Request A Company Profile</span>
-<%= form_tag("/companies", :method => "post") do %>
-  <%= text_field_tag :name, nil, :placeholder => "Company Name" %>
-  <%= text_field_tag :website, nil, :placeholder => "Company Website" %>
-  <%= text_field_tag :initial_email_contact, nil, :placeholder => "Point of Contact (Email)" %>
-  <%= submit_tag("Request") %>
+<%= form_for :companies, :url => companies_path, :method => "post" do |f| %>
+  <%= f.text_field :name, :placeholder => "Company Name", :required => true %>
+  <%= f.text_field :website, :placeholder => "Company Website", :required => true %>
+  <%= f.text_field :location, :placeholder => "Company Location", :required => true %>
+  <%= f.text_field :initial_email_contact, :placeholder => "Point of Contact (Email)", :required => true %>
+  <%= f.submit "Request" %>
 <% end %>

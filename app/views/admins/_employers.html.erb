@@ -6,6 +6,7 @@
       <th>User ID</th>
       <th>Email</th>
       <th>Company</th>
+      <th>Location</th>
       <th>Status</th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
         <th><%= employer.id %></th>
         <th><%= employer.email %></th>
         <th><%= employer.groupable.name %></th>
+        <th><%= employer.location %></th>
         <th><%= render partial: 'users/update_status_buttons', locals: { user: employer } %></th>
         <th><%= render partial: 'users/update_activation_buttons', locals: { user: employer } %></th>
       </tr>

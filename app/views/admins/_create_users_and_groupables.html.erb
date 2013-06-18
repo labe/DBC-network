@@ -16,7 +16,7 @@
   <br><%= f.text_field :phone, :placeholder => "Phone Number" %>
   <br><%= f.text_field :tumblr_url, :placeholder => "Tumblr URL" %>
   <br><%= f.text_field :twitter_url, :placeholder => "Twitter URL" %>
-  <br><%= f.collection_select :groupable_id, Cohort.all, :id, :name, { :prompt => true, :required => true } %>  
+  <br><%= f.collection_select :groupable_id, Cohort.all, :id, :name, { :prompt => true, :required => true } %>
   <br><br><%= f.submit "Create Student" %>
 <% end %>
 
@@ -31,7 +31,7 @@
   <br><%= f.password_field :password, :placeholder => "Password", :required => true %>
   <br><%= f.text_field :location, :placeholder => "Location" %>
   <br><%= f.text_field :phone, :placeholder => "Phone Number" %>
-  <br><%= f.collection_select :groupable_id, Company.all, :id, :name, { :prompt => true, :required => true } %>  
+  <br><%= f.collection_select :groupable_id, Company.all, :id, :name, { :prompt => true, :required => true } %>
   <br><br><%= f.submit "Create Employer" %>
 <% end %>
 

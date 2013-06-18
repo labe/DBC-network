@@ -2,7 +2,7 @@
   <h2><%= @groupable %> List</h2>
   <ul class="user_list">
     <% @users.each do |user| %>
-      
+
       <li id="<%=user.id%>"
           data-location="<%= user.location %>"
           data-cohort="<%= user.groupable.name %>"
@@ -10,7 +10,7 @@
           data-last-login="<%= user.last_login %>"
       >
         <div class="user-div">
-          <%= link_to "#{user.last_name}, #{user.first_name}", user_path(user.id) %> 
+          <%= link_to "#{user.last_name}, #{user.first_name}", user_path(user.id) %>
         </div>
       </li>
     <% end %>

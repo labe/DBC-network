@@ -13,5 +13,6 @@
 Name: <%= user.first_name %> <%= user.last_name %><br>
 Company: <%= user.groupable.name %><br>
 Email: <%= user.email %><br>
+Location: <%= user.location %><br>
 
 <%= link_to "View Questions", "#{user_path(user)}/questions" %>
