@@ -1,6 +1,6 @@
 <div>
   <h3><%= @groupable %> Groups</h3>
   <% @users.group('groupable_type, groupable_id').each do |user| %>
-    <button class="filters" id="<%= user.groupable.name %>"><%= user.groupable.name %></button><br><br>
+    <button class="group_filters" id="<%= user.groupable.name %>"><%= user.groupable.name %></button><br><br>
   <% end %>
 </div>

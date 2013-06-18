@@ -9,6 +9,8 @@ Company.create(:activated => true,
 
 # Create a cohort
 Cohort.create(:name => "Squirrels")
+Cohort.create(:name => "Foxes")
+Cohort.create(:name => "Otters")
 
 # Create a Administration
 Administration.create(:name => "Administration")
@@ -38,7 +40,7 @@ Administration.create(:name => "Administration")
 
 #Create 10 active students
 10.times do
-  User.create(:groupable_id => 1,
+  User.create(:groupable_id => rand(1..3),
               :groupable_type => "Cohort",
               :company_name => Faker::Company.name,
               :email => Faker::Internet.email,
