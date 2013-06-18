@@ -14,8 +14,7 @@
 require 'spec_helper'
 
 describe Interest do
-  	it { should be_instance_of(Interest) }
-  	it { should belong_to(:pitcher) }
-  	it { should belong_to(:catcher) }
-
+  it { should be_instance_of(Interest) }
+  it { should belong_to(:pitcher) }
+  it { should belong_to(:catcher) }
 end

@@ -70,4 +70,4 @@ disconnect_sunspot
 
 	end
 
-	end
+end
