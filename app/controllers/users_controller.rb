@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
 
   def index
-    if current_user.groupable_type == "Cohort"
-      @users = User.where("location IS NOT NULL")
+    if params[:student]
+      @users = User.where(:groupable_type => "Cohort")
+      @groupable = "Student"
+    elsif params[:company]
+      @users = User.where(:groupable_type => "Company")
+      @groupable = "Employer"
+    elsif current_user.groupable_type == "Cohort"
+      @users = User.where(:groupable_type => "Company")
       @groupable = "Student"
     elsif current_user.groupable_type == "Company"
       @users = User.where(:groupable_type => "Cohort")
@@ -104,9 +110,9 @@ class UsersController < ApplicationController
   def connect_employers
     @interest = Interest.create(params[:interest])
     @catcher = User.find(@interest.catcher_id)
-    @pitcher = User.find(@interest.pitcher_id)
-    InterestMailer.student_initiated_email(@catcher, @pitcher).deliver
-    redirect_to :back
+    # @pitcher = User.find(@interest.pitcher_id)
+    # InterestMailer.student_initiated_email(@catcher, @pitcher).deliver
+    redirect_to user_questions_path(@catcher)
   end
 
   private

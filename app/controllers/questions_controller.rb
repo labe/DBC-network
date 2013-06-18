@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
       end
     end
     if current_user.id == params[:user_id].to_i
-      @magic = true
+      @logged_in = true
     end
   end
 
@@ -24,7 +24,6 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    params
     @question = Question.new(:text => params[:question][:text],
                               :user_id => current_user.id)
     if @question.save
@@ -43,6 +42,13 @@ class QuestionsController < ApplicationController
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
+    redirect_to :back
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    @question.status = "inactive"
+    @question.save
     redirect_to :back
   end
 
