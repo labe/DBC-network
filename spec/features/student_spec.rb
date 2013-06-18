@@ -1,70 +1,48 @@
 require 'spec_helper'
-
+require 'sunspot/rails/spec_helper'
 describe "Student" do
 
-before do 
- 		@student = FactoryGirl.create(:student)
- 		@student2 = FactoryGirl.create(:student2)
- 		@company = FactoryGirl.create(:company)
- 		visit root_path
- 		click_button "Log in"
- 		fill_in "email", with: @student.email
- 		fill_in "password", with: @student.password
- 		click_button "Login"
- 	end
+	disconnect_sunspot
 
 	context "while signed in" do
 
 
+  before do 
+    @student = FactoryGirl.create(:user)
+    @student2 = FactoryGirl.create(:user, id: 3, email: "student2@student2.com")
+    @company = FactoryGirl.create(:company)
+    @cohort = FactoryGirl.create(:cohort)
+    @employer = FactoryGirl.create(:user, id: 4, groupable_type: "Company", 
+    groupable_id: @company.id, email: "employer@employer.com")
+    visit root_path
+    fill_in "email", with: @student.email
+    fill_in "password", with: @student.password
+    click_button "Login"
+ 	end
+
 		it "has a profile page" do
-			visit student_path(@student)
-			page.should have_content("#{student.first_name}'s Profile Page")
+			visit user_path(@student)
+			page.should have_content("#{@student.first_name}")
 		end
 
 		it "can view all DBC participants" do
-			visit students_path
-			page.should have_content('All Students')
+			visit users_path
+			page.should have_content('Students')
 		end
 
 		it "can view other DBC student/alumni profiles" do
-			visit student_path(@student2)
-			page.should have_content("#{@student2.first_name}'s Profile Page")
+			visit user_path(@student2)
+			page.should have_content("#{@student2.first_name}")
 		end
 
 		it "can view other DBC student/alumni contact info" do
-			visit student_path(@student2)
-			page.should have_content('contact info')
-		end
-
-		it "can view other DBC student/alumni statuses" do
-			visit student_path(@student2)
-			page.should have_content('active')
-		end
-
-		it "can follow/show_interest in other users" do
-			visit student_path(@student2)
-			click_link("Follow").should change(student.following, :count).by(1)
+			visit user_path(@student2)
+			page.should have_content("#{@student2.email}")
 		end
 
 		it "can contact via email other DBC alumni/students" do
-			visit student_path(@student2)
-			click_link "Contact"
-			current_path.should == student_contact_path
-		end
-
-	end
-
-
-	context "while NOT signed in " do 
-
-		it "should not be able to follow/show_interest in other users" do 
-			visit student_path(student2)
-			current_path.should == root_path
-		end
-
-		it "canNOT contact via email other DBC alumni/students" do
-			visit student_path(student2)
-			current_path.should == root_path
+			visit user_path(@student2)
+			click_button "Connect"
 		end
 
 	end
