@@ -1,0 +1,141 @@
+.splash_title {
+  margin-top: 140px;
+}
+
+.splash_title h1, .splash_title h2 {
+  margin:0 auto;
+  font-family: 'AvenirNext';  
+  text-align: center;
+}
+
+.splash_title h1 {
+  font-size: 65px;
+}
+
+.splash_title h2 {
+  font-size: 30px;
+  color:#6b635b;
+}
+
+.boot_background {
+  position:absolute;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  opacity:.08;
+  margin-top: -150px;
+}
+
+.splash_giant_button {
+    display: inline-block;
+    background: #f5513c;
+    -webkit-box-shadow: 0px 1px 0px 0px #ff8272 inset, 0px 0px 0px 4px #e6e6e6;
+    -moz-box-shadow: 0px 1px 0px 0px #ff8272 inset, 0px 0px 0px 4px #e6e6e6;
+    box-shadow: 0px 1px 0px 0px #ff8272 inset, 0px 0px 0px 4px #e6e6e6;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-transition: all 0s 0;
+    -moz-transition: all 0s 0;
+    -o-transition: all 0s 0;
+    transition: all 0s 0;
+    text-shadow: 0px 1px 1px #9c3528;
+    padding: 6px 30px;
+    border-color: #ec513c;
+    border-width: 1px;
+    border-style: solid;
+    font-family: 'AvenirNext';
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: bold;
+  width: 180px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top:50px;
+}
+.splash_giant_button:hover {
+    background: #ff6551;
+    -webkit-box-shadow: 0px 0px 0px 4px #ffbfab;
+    -moz-box-shadow: 0px 0px 0px 4px #ffbfab;
+    box-shadow: 0px 0px 0px 4px #ffbfab;
+    border-color: #ed5e4b;
+}
+
+.splash_users {
+  margin-top: 200px;
+
+}
+
+.splash_whos_using {
+  margin: 20px auto;
+  width:300px;
+  text-align: center;
+  font-family: 'AvenirNext';
+  font-weight: bold;
+  color: grey;
+  font-size: 12px;
+}
+
+.splash_collection {
+  width: 1050px;
+  margin: 0 auto;
+}
+
+.splash_profiles {
+  position: relative;
+  display: inline;
+  margin: 0 15px;
+}
+
+.splash_profiles li {
+  margin-left: auto;
+  margin-right: auto;
+  width:64px;
+}
+
+.splash_profiles img {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 3px 5px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    0px 3px 5px rgba(50, 50, 50, 0.75);
+  box-shadow:         0px 3px 5px rgba(50, 50, 50, 0.75);
+}
+
+.login_button {
+   position: absolute;
+   right: 10px;
+   top: 10px;
+   background-color: rgba(0,0,0,0);
+   -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+      -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+           box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+   border: solid 1px rgba(184,185,186,1);
+   -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+           border-radius: 5px;
+   height: 30px;
+   margin: 0px 0px 0px 0px;
+   padding: 0px 20px 0px 20px;
+   font-size: 10px;
+   font-family: 'AvenirNext';
+   line-height: 30px;
+   text-align: center;
+   color: rgba(128,130,133,1);
+   font-weight: bold;
+   text-transform: uppercase;
+}
+
+.login_button:active {
+   background-color: rgba(224,224,224,1);
+   -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.08);
+      -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.08);
+           box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.08);
+   -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+           border-radius: 5px;
+   font-family: 'AvenirNext';
+}

@@ -16,4 +16,13 @@ class CompaniesController < ApplicationController
     @company.save
     redirect_to :back
   end
+
+  def index
+    @companies = Company.where(:status => "active")
+    @groupable = "Company"
+  end
+
+  def show
+
+  end
 end
