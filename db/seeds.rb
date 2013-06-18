@@ -37,7 +37,7 @@ Administration.create(:name => "Administration")
 10.times do
   User.create(:groupable_id => 1,
               :groupable_type => "Cohort",
-              :company_name => "Company Name",
+              :company_name => Faker::Company.name,
               :email => Faker::Internet.email,
               :first_name => Faker::Name.first_name,
               :github_handle => "fakegithubaccount",
@@ -76,7 +76,7 @@ end
 10.times do
   User.create(:groupable_id => 1,
               :groupable_type => "Cohort",
-              :company_name => "Company Name",
+              :company_name => Faker::Company.name,
               :email => Faker::Internet.email,
               :first_name => Faker::Name.first_name,
               :github_handle => "fakegithubaccount",
@@ -118,7 +118,7 @@ end
 
 # Create Default Student
 User.create(  :activated => true,
-              :company_name => "Company Name",
+              :company_name => Faker::Company.name,
               :email => "student@student.com",
               :facebook_url => "www.facebook.com/student",
               :first_name => Faker::Name.first_name,
@@ -139,7 +139,7 @@ User.create(  :activated => true,
 
 #default student 2
 User.create(  :activated => true,
-              :company_name => "Company Name",
+              :company_name => Faker::Company.name,
               :email => "booneteam@gmail.com",
               :facebook_url => "www.facebook.com/student2",
               :first_name => Faker::Name.first_name,
