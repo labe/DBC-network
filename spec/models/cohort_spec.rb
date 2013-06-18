@@ -11,5 +11,6 @@
 require 'spec_helper'
 
 describe Cohort do
-  	it { should be_instance_of(Cohort) }
+  it { should be_instance_of(Cohort) }
+  it { should have_many(:users)}
 end
