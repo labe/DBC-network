@@ -241,7 +241,7 @@ span {
   left:5px;
 }
 
-.filters {
+.location_filters, .group_filters {
   border:none;
   display:block;
   font-family: 'AvenirNext';
@@ -285,7 +285,8 @@ span {
 
 .clear {
   float:left;
-  top:140px;
+  top:110px;
+  left:100px;
   position: absolute;
 }
 
