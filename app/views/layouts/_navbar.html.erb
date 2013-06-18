@@ -14,6 +14,7 @@
       <% end %>
     <% end %>
   </ul>
+  <%= image_tag "search-icon.png", :size => "20x20", :class => "search_icon" %>
   <%= form_tag results_path, method: :get, class: "nav-search" do  %>
   <%= text_field_tag :search, params[:search], placeholder: "Search by name or location" %>
   <% end %>
@@ -25,7 +26,7 @@
   <% if current_user %>
 
     <span class="email"><%= link_to current_user.email, user_path(current_user) %></span>
-    <%= link_to "Log out", log_out_path%>
+    <%= link_to "Logout", log_out_path%>
   <% else %>
     <%= link_to "Signup", sign_up_path, :method => :get, :class => "signup" %>
     <%= form_tag("/log_in", :method => "post", :class => "login") do %>

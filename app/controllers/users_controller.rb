@@ -101,8 +101,12 @@ class UsersController < ApplicationController
     @pitcher = User.find(@interest.pitcher_id)
     if current_user.groupable_type == "Company"
       InterestMailer.employer_initiated_email(@catcher, @pitcher).deliver
+      @interest.email_sent_on = DateTime.now
+      @interest.save
     else
       InterestMailer.s2s_pending_connection(@catcher, @pitcher).deliver
+      @interest.email_sent_on = DateTime.now
+      @interest.save
     end
     redirect_to :back
   end
@@ -112,6 +116,8 @@ class UsersController < ApplicationController
     @catcher = User.find(@interest.catcher_id)
     # @pitcher = User.find(@interest.pitcher_id)
     # InterestMailer.student_initiated_email(@catcher, @pitcher).deliver
+    # @interest.email_sent_on = DateTime.now
+    # @interest.save
     redirect_to user_questions_path(@catcher)
   end
 
