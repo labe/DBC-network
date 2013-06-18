@@ -68,10 +68,19 @@ button.edit{
 	width:250px;
 	text-align: center;
 	float:left;
+	margin-top:60px;
+}
+
+#profile_gravatar p {
+	font-size:16px;
 }
 
 #user_info{
 	float:left;
+}
+
+#user_info p {
+	font-size: 14px;
 }
 
 .admin_table {
