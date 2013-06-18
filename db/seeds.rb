@@ -13,6 +13,11 @@ Cohort.create(:name => "Squirrels")
 # Create a Administration
 Administration.create(:name => "Administration")
 
+# Create a Mentorship
+Mentorship.create(:name => "Mentorship")
+
+# Create a Faculty
+Faculty.create(:name => "Faculty")
 
 # Create an admin
   User.create(:activated => true,
@@ -172,3 +177,38 @@ User.create(  :activated => true,
               :last_name => Faker::Name.last_name,
               :password => "password",
               :status => "active")
+
+
+# Create Mentors
+  10.times do
+  User.create(:groupable_id => 1,
+              :groupable_type => "Mentorship",
+              :company_name => Faker::Company.name,
+              :email => Faker::Internet.email,
+              :first_name => Faker::Name.first_name,
+              :intro => Faker::Lorem.paragraph(sentence_count = 3),
+              :location => Faker::Address.city,
+              :last_login => random_date,
+              :last_name => Faker::Name.last_name,
+              :password => "password",
+              :phone => Faker::PhoneNumber.phone_number,
+              :status => "active")
+end
+
+
+# Create Staff
+  10.times do
+  User.create(:groupable_id => 1,
+              :groupable_type => "Faculty",
+              :company_name => "DBC",
+              :email => Faker::Internet.email,
+              :first_name => Faker::Name.first_name,
+              :intro => Faker::Lorem.paragraph(sentence_count = 3),
+              :location => Faker::Address.city,
+              :last_login => random_date,
+              :last_name => Faker::Name.last_name,
+              :password => "password",
+              :phone => Faker::PhoneNumber.phone_number,
+              :status => "active")
+end
+

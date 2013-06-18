@@ -3,7 +3,8 @@ class HomesController < ApplicationController
   end
 
   def index
-    
+    @user_count = User.all.count
+    @company_count = Company.all.count
   end
 
   def results

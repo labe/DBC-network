@@ -1,5 +1,4 @@
 <div>
-  <h2><%= @groupable %> List</h2>
   <ul class="user_list">
     <% @users.each do |user| %>
 
@@ -10,7 +9,11 @@
           data-last-login="<%= user.last_login %>"
       >
         <div class="user-div">
-          <%= link_to "#{user.last_name}, #{user.first_name}", user_path(user.id) %>
+          <%= gravatar_image_tag user.email, :gravatar => { :size => 35 } %>
+          <div class="user-div-text">
+            <%= link_to "#{user.last_name}, #{user.first_name}", user_path(user.id) %> 
+            | <%= user.groupable.name%>
+          </div>
         </div>
       </li>
     <% end %>

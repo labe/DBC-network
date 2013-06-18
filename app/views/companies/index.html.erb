@@ -1,0 +1,36 @@
+<h1 class="user_home"><%= pluralize(@companies.count, "Company") %></h1>
+
+<div class="filter-columns">
+  <button class="clear" >Clear Filters</button>
+  <div class="location-filters">
+    <div>
+  <h3>Locations</h3>
+  <% @companies.group('location').select('location').where("location IS NOT NULL").each do |company| %>
+    <button class="filters" id="<%= company.location %>"><%= company.location %></button>
+  <% end %>
+</div>
+  </div>
+</div>
+  <div class="user-filtered">
+  <div>
+  <ul class="user_list">
+    <% @companies.each do |company| %>
+
+      <li id="<%=company.id%>"
+          data-location="<%= company.location %>"
+          data-status="<%= company.status %>"
+      >
+        <div class="user-div">
+          <%= gravatar_image_tag company.initial_email_contact, :gravatar => { :size => 35 } %>
+          <div class="user-div-text">
+            <%= link_to "#{company.name}", company_path(company.id) %> 
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+  </div>
+
+
