@@ -3,13 +3,17 @@ require 'sunspot/rails/spec_helper'
 
 describe GitHubSelection do
 
-	  disconnect_sunspot
+	disconnect_sunspot
 
-  it { should be_instance_of(GitHubSelection) }
+	before do
+		@student = FactoryGirl.create(:user)
+		@git_hub_selection = FactoryGirl.create(:git_hub_selection)
+		@git_hub_selection.user_id = @student.id
+	end
 
-  before do
-	p  @student = FactoryGirl.create(:user)
-  end
+
+	it { should be_instance_of(GitHubSelection) }
+	it { should belong_to(:user) }
 
 
 end

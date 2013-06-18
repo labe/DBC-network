@@ -1,5 +1,6 @@
 FactoryGirl.define do
 	factory :user do
+		id 1
 		activated  true
 		email  "student@student.com"
 		facebook_url  "www.facebook.com/student"
@@ -19,4 +20,10 @@ FactoryGirl.define do
 		tumblr_url  "www.tumblr.com/student"
 		twitter_url  "www.twitter.com/student"
 	end
+
+	factory :git_hub_selection do
+		name "my_cool_repo"
+		url "www.github.com/BooneTeam/repos"
+	end
+
 end
