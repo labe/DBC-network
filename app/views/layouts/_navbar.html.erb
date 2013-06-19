@@ -1,12 +1,22 @@
-<div id="user_nav">
-  <%= link_to(image_tag("devbootcamp.png", :size => "120x57", :class => "main-logo"), root_path, :class => "logo-link") %>
+<div class="user_nav">
+  <%= link_to(image_tag("devbootcamp.png", :size => "60x29", :class => "main-logo"), users_path, :class => "logo-link") %>
 <% if current_user %>
   <ul class="nav_choices">
-    <%= link_to users_path(:company => "company") do %>
-    <li>Companies</li>
+    <%= link_to companies_path do %>
+    <li>Companies Hiring</li>
     <% end %>
     <%= link_to users_path(:student => "student") do %>
-    <li>Students</li>
+    <li>Alumni For Hire</li>
+    <% end %>
+    <li class="nav-descriptor">DBC Network</li>
+    <%= link_to users_path(:mentor => "mentor") do %>
+    <li>Mentors</li>
+    <% end %>
+    <%= link_to users_path(:alumni => "alumni") do %>
+    <li>All Alumni</li>
+    <% end %>
+    <%= link_to users_path(:staff => "staff") do %>
+    <li>Staff</li>
     <% end %>
     <% if current_user.groupable_type == "Administration" %>
       <%= link_to "/admin" do %>
@@ -14,25 +24,25 @@
       <% end %>
     <% end %>
   </ul>
+  <%= image_tag "search-icon.png", :size => "20x20", :class => "search_icon" %>
   <%= form_tag results_path, method: :get, class: "nav-search" do  %>
   <%= text_field_tag :search, params[:search], placeholder: "Search by name or location" %>
   <% end %>
 <% end %>
+</div>
 
 
 
-  <div class="nav_profile">
+<div class="nav_profile">
   <% if current_user %>
-
-    <span class="email"><%= link_to current_user.email, user_path(current_user) %></span>
-    <%= link_to "Log out", log_out_path%>
+    <span class="email"><%= link_to "Profile", user_path(current_user), :class => "profile_link" %></span>
+    <%= link_to "Logout", log_out_path%>
   <% else %>
     <%= link_to "Signup", sign_up_path, :method => :get, :class => "signup" %>
-    <%= form_tag("/log_in", :method => "post", :class => "login") do %>
-    <%= text_field_tag :email, nil, :placeholder => "Email" %>
-    <%= password_field_tag :password, nil, :placeholder => "Password" %>
-    <%= submit_tag("Login") %>
+    <%= form_tag("/log_in", :method => "post", :class => "inner_login") do %>
+      <%= text_field_tag :email, nil, :placeholder => "Email" %>
+      <%= password_field_tag :password, nil, :placeholder => "Password" %>
+      <%= submit_tag("Login") %>
+    <% end %>
   <% end %>
-  <% end %>
-  </div>
 </div>

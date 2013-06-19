@@ -1,0 +1,27 @@
+<% if company.activated == true %>
+  <%= "   Activated   " %>
+<% elsif company.activated == false %>
+  <%= "   Denied   " %>
+  <div class="approval_button">
+    <%= form_for company, :url => company_activation_path, :method => 'post' do |f| %>
+      <%= f.hidden_field :activated, :value => true %>
+      <%= f.hidden_field :id, :value => company.id %>
+      <%= f.submit "Activate", :class => "link green" %>
+    <% end %>
+  </div>
+<% elsif company.activated == nil %>
+  <div class="approval_button">
+    <%= form_for company, :url => company_activation_path, :method => 'post' do |f| %>
+      <%= f.hidden_field :activated, :value => true %>
+      <%= f.hidden_field :id, :value => company.id %>
+      <%= f.submit "Activate", :class => "link green" %>
+    <% end %>
+  </div>
+  <div class="approval_button">
+    <%= form_for company, :url => company_deny_path, :method => 'post' do |f| %>
+      <%= f.hidden_field :activated, :value => false %>
+      <%= f.hidden_field :id, :value => company.id %>
+      <%= f.submit "Deny", :class => "link red" %>
+    <% end %>
+  </div>
+<% end %>

@@ -2,26 +2,35 @@ class UsersController < ApplicationController
 
   def index
     if params[:student]
-      @users = User.where(:groupable_type => "Cohort")
+      @users = User.where(:groupable_type => "Cohort", :status => "active").order("last_name")
       @groupable = "Student"
     elsif params[:company]
-      @users = User.where(:groupable_type => "Company")
+      @users = User.where(:groupable_type => "Company").order("last_name")
       @groupable = "Employer"
+    elsif params[:alumni]
+      @users = User.where(:groupable_type => "Cohort").order("last_name")
+      @groupable = "Alumni"
+    elsif params[:mentor]
+      @users = User.where(:groupable_type => "Mentorship").order("last_name")
+      @groupable = "Mentor"
+    elsif params[:staff]
+      @users = User.where(:groupable_type => "Faculty").order("last_name")
+      @groupable = "Staff"
     elsif current_user.groupable_type == "Cohort"
-      @users = User.where(:groupable_type => "Company")
+      @users = User.where(:groupable_type => "Company").order("last_name")
       @groupable = "Student"
     elsif current_user.groupable_type == "Company"
-      @users = User.where(:groupable_type => "Cohort")
+      @users = User.where(:groupable_type => "Cohort").order("last_name")
       @groupable = "Employer"
     else
       @users = User.all
-    end     
+    end
   end
-  
+
   def new
     @user = User.new
   end
-  
+
   def create
     @user = User.new(:first_name => params[:user][:first_name],
      :last_name => params[:user][:last_name],
@@ -53,7 +62,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if current_user.id != @user.id 
+    if current_user.id != @user.id
       redirect_to users_path
     end
     if @user.groupable_type == "Cohort" && @user.github_handle
@@ -94,15 +103,19 @@ class UsersController < ApplicationController
    end
     @user.git_selections
   end
-  
+
   def connect_students
     @interest = Interest.create(params[:interest])
     @catcher = User.find(@interest.catcher_id)
     @pitcher = User.find(@interest.pitcher_id)
     if current_user.groupable_type == "Company"
       InterestMailer.employer_initiated_email(@catcher, @pitcher).deliver
+      @interest.email_sent_on = DateTime.now
+      @interest.save
     else
       InterestMailer.s2s_pending_connection(@catcher, @pitcher).deliver
+      @interest.email_sent_on = DateTime.now
+      @interest.save
     end
     redirect_to :back
   end
@@ -112,6 +125,8 @@ class UsersController < ApplicationController
     @catcher = User.find(@interest.catcher_id)
     # @pitcher = User.find(@interest.pitcher_id)
     # InterestMailer.student_initiated_email(@catcher, @pitcher).deliver
+    # @interest.email_sent_on = DateTime.now
+    # @interest.save
     redirect_to user_questions_path(@catcher)
   end
 

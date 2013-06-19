@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-  def activation
+  def user_activation
     user = User.find(params[:user][:id])
     user.activated = params[:user][:activated]
     user.save
@@ -8,10 +8,27 @@ class AdminsController < ApplicationController
     redirect_to :back
   end
 
-  def deny
+  def user_deny
     user = User.find(params[:user][:id])
     user.activated = params[:user][:activated]
     user.save
+    # Send out denied email to this user
+    redirect_to :back
+  end
+
+  def company_activation
+    company = Company.find(params[:company][:id])
+    company.activated = params[:company][:activated]
+    company.save
+
+    # UserMailer.student_welcome_email(user).deliver if company.activated == true
+    redirect_to :back
+  end
+
+  def company_deny
+    company = Company.find(params[:company][:id])
+    company.activated = params[:company][:activated]
+    company.save
     # Send out denied email to this user
     redirect_to :back
   end

@@ -1,0 +1,32 @@
+<% if company.status == "active" %>
+  <div class="approval_button">
+    <%= form_for company, :url => status_path, :method => 'post' do |f| %>
+      <%= f.hidden_field :status, :value => "inactive" %>
+      <%= f.hidden_field :id, :value => company.id %>
+      <%= f.submit "Hide profile", :class => "link" %>
+    <% end %>
+  </div>
+  <% elsif company.status == "inactive" %>
+  <div class="approval_button">
+    <%= form_for company, :url => status_path, :method => 'post' do |f| %>
+      <%= f.hidden_field :status, :value => "active" %>
+      <%= f.hidden_field :id, :value => company.id %>
+      <%= f.submit "Make profile viewable", :class => "link" %>
+    <% end %>
+  </div>
+  <% elsif company.status == nil %>
+  <div class="approval_button">
+    <%= form_for company, :url => status_path, :method => 'post' do |f| %>
+      <%= f.hidden_field :status, :value => "active" %>
+      <%= f.hidden_field :id, :value => company.id %>
+      <%= f.submit "Make profile viewable", :class => "link" %>
+    <% end %>
+  </div>
+  <div class="approval_button">
+    <%= form_for company, :url => status_path, :method => 'post' do |f| %>
+      <%= f.hidden_field :status, :value => "inactive" %>
+      <%= f.hidden_field :id, :value => company.id %>
+      <%= f.submit "Hide profile", :class => "link" %>
+    <% end %>
+  </div>
+  <% end %>

@@ -8,16 +8,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% unless current_page?(root_path)  %>
+  <%= render "layouts/navbar" %>
+  <%= render "layouts/content_nav" %>
+<% end %>
 
-<%= render "layouts/navbar" %>
-<%= render "layouts/content_nav" %>
+<%= yield %>
 
 <div class="error_flash">
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, :id => "flash_#{name}" %>
   <% end %>
 </div>
-<%= yield %>
+
 
 </body>
 </html>

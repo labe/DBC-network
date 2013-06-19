@@ -1,17 +1,16 @@
-<h1 id="user_home"><%= @groupable %></h1>
+<h1 class="user_home"><%= @groupable %>s</h1>
 
-<div>
+<div class="filter-columns">
   <button class="clear" >Clear Filters</button>
-  
-  <br>
-  <br>
-  
-  <h2>Filters</h2>
-  
-  <%= render "location_filters" %>
-  <%= render "groupable_filters" %>
+  <div class="location-filters">
+    <%= render "location_filters" %>
+  </div>
+  <div class="groupable-filters">
+    <%= render "groupable_filters" %>
+  </div>
 </div>
-
-<%= render "user_list" %>
+  <div class="user-filtered">
+  <%= render "user_list" %>
+  </div>
 
 

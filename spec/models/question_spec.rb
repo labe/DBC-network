@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Question do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should be_instance_of(Question) }
+  it { should have_many(:answers) }
+  it { should belong_to(:user) }
 end

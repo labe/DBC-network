@@ -3,7 +3,7 @@
 <% elsif user.activated == false %>
   <%= "   Denied   " %>
   <div class="approval_button">
-    <%= form_for user, :url => activation_path, :method => 'post' do |f| %>
+    <%= form_for user, :url => user_activation_path, :method => 'post' do |f| %>
       <%= f.hidden_field :activated, :value => true %>
       <%= f.hidden_field :id, :value => user.id %>
       <%= f.submit "Activate", :class => "link green" %>
@@ -11,14 +11,14 @@
   </div>
 <% elsif user.activated == nil %>
   <div class="approval_button">
-    <%= form_for user, :url => activation_path, :method => 'post' do |f| %>
+    <%= form_for user, :url => user_activation_path, :method => 'post' do |f| %>
       <%= f.hidden_field :activated, :value => true %>
       <%= f.hidden_field :id, :value => user.id %>
       <%= f.submit "Activate", :class => "link green" %>
     <% end %>
   </div>
   <div class="approval_button">
-    <%= form_for user, :url => deny_path, :method => 'post' do |f| %>
+    <%= form_for user, :url => user_deny_path, :method => 'post' do |f| %>
       <%= f.hidden_field :activated, :value => false %>
       <%= f.hidden_field :id, :value => user.id %>
       <%= f.submit "Deny", :class => "link red" %>

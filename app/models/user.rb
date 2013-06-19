@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :activated, :email, :facebook_url, :first_name, :github_handle, :graduation_date, :groupable_id, :groupable_type, :intro, :last_login, :last_name, :linkedin_url, :location, :password, :phone, :status, :twitter_url, :tumblr_url
+  attr_accessible :activated, :company_name, :email, :facebook_url, :first_name, :github_handle, :graduation_date, :groupable_id, :groupable_type, :intro, :last_login, :last_name, :linkedin_url, :location, :password, :phone, :status, :twitter_url, :tumblr_url
 
   belongs_to :groupable, :polymorphic => true
 
@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :questions
   has_many :answers
-  
+
   accepts_nested_attributes_for :questions, :allow_destroy => true
   accepts_nested_attributes_for :answers, :allow_destroy => true
 
@@ -23,10 +23,11 @@ class User < ActiveRecord::Base
   has_secure_password
 
   searchable do
-    text :first_name, :boost => 5
-    text :last_name,  :boost => 5
-    text :email,      :boost => 5
-    text :location,   :boost => 4
+    text :first_name,   :boost => 5
+    text :last_name,    :boost => 5
+    text :email,        :boost => 5
+    text :location,     :boost => 4
+    text :company_name, :boost => 4
     text :github_handle, :graduation_date, :groupable_type, :phone
   end
 

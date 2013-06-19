@@ -14,9 +14,7 @@
 
 require 'spec_helper'
 
-describe Company do
-
-	it { should be_instance_of(Company) }
-
-
-end
+	describe Company do
+		it { should be_instance_of(Company) }
+		it { should have_many(:users)}
+	end

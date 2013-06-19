@@ -5,6 +5,7 @@
       <th>Name</th>
       <th>User ID</th>
       <th>Email</th>
+      <th>Location</th>
       <th>Cohort</th>
       <th>Status</th>
     </tr>
@@ -15,6 +16,7 @@
         <th><%= link_to "#{student.first_name} #{student.last_name}", user_path(student) %></th>
         <th><%= student.id %></th>
         <th><%= student.email %></th>
+        <th><%= student.location %></th>
         <th><%= student.groupable.name %></th>
         <th><%= render partial: 'users/update_status_buttons', locals: { user: student } %></th>
         <th><%= render partial: 'users/update_activation_buttons', locals: { user: student } %></th>

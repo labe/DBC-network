@@ -17,40 +17,39 @@
 
 <a name="to-do">
 <div class="admin-portion">
-<%= render partial: 'admins/todo', locals: { users: @users } %>
+<%= render partial: 'admins/todo', locals: { users: @users, companies: @companies } %>
 </div>
 
-<br><br><br>
 <a name="students">
 <div class="admin-portion">
 <%= render partial: 'admins/students', locals: { students: @students } %>
 </div>
-<br><br><br>
+
 <a name="employers">
 <div class="admin-portion">
 <%= render partial: 'admins/employers', locals: { employers: @employers } %>
 </div>
-<br><br><br>
+
 <a name="interests">
 <div class="admin-portion">
 <%= render partial: 'admins/interests', locals: { interests: @interests } %>
 </div>
-<br><br><br>
+
 <a name="companies">
 <div class="admin-portion">
 <%= render partial: 'admins/companies', locals: { companies: @companies } %>
 </div>
-<br><br><br>
+
 <a name="cohorts">
 <div class="admin-portion">
 <%= render partial: 'admins/cohorts', locals: { cohorts: @cohorts } %>
 </div>
-<br><br><br>
+
 <a name="questions">
 <div class="admin-portion">
 <%= render partial: 'admins/questions', locals: { answers: @answers } %>
 </div>
-<br><br><br>
+
 <a name="create">
 <div class="admin-portion">
 <%= render partial: 'admins/create_users_and_groupables' %>
