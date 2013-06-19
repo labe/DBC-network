@@ -392,7 +392,13 @@ float: right;
 }
 
 .signup-buttons {
+  position:relative;
   margin: 0 auto;
-  width:200px;
-  margin-top: 300px;
+  width:500px;
+  height:400px;
+  margin-top: 100px;
+}
+
+.signup-buttons a{
+  color:black !important;
 }
