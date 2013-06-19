@@ -2,21 +2,17 @@
 
 <div class="filter-columns">
 
-  <% unless @groupable == "Mentors" || @groupable == "Staff" %>
-    <div class="groupable-filters">
-      <%= render "groupable_filters" %>
-    </div>
-  <% end %>
+  <div class="groupable-filters">
+    <%= render "groupable_filters" %>
+  </div>
 
   <div class="user-filtered">
   <%= render "user_list" %>
   </div>
 
-  <% unless @groupable == "Staff" %>
-    <div class="location-filters">
-      <%= render "location_filters" %>
-    </div>
-  <% end %>
+  <div class="location-filters">
+    <%= render "location_filters" %>
+  </div>
 
 
 </div>
