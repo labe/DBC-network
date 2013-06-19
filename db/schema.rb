@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130616170512) do
+ActiveRecord::Schema.define(:version => 20130619001052) do
 
   create_table "administrations", :force => true do |t|
     t.string   "name"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20130616170512) do
   end
 
   create_table "companies", :force => true do |t|
+    t.boolean  "activated"
     t.string   "website"
     t.string   "name"
     t.string   "logo"
@@ -42,6 +43,28 @@ ActiveRecord::Schema.define(:version => 20130616170512) do
     t.string   "initial_email_contact"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+  end
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "faculties", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "git_hub_selections", :force => true do |t|
@@ -56,12 +79,19 @@ ActiveRecord::Schema.define(:version => 20130616170512) do
     t.integer  "pitcher_id"
     t.integer  "catcher_id"
     t.boolean  "approved"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "email_sent_on"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   add_index "interests", ["catcher_id"], :name => "index_interests_on_catcher_id"
   add_index "interests", ["pitcher_id"], :name => "index_interests_on_pitcher_id"
+
+  create_table "mentorships", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "questions", :force => true do |t|
     t.integer  "user_id"
@@ -73,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20130616170512) do
 
   create_table "users", :force => true do |t|
     t.boolean  "activated"
+    t.string   "company_name"
     t.string   "email"
     t.string   "facebook_url"
     t.string   "first_name"

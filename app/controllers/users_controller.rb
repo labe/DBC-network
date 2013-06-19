@@ -39,7 +39,7 @@ class UsersController < ApplicationController
      :groupable_type => params[:user][:groupable_type],
      :groupable_id => params[:user][:groupable_id])
     if @user.save
-      UserMailer.pending_email(@user).deliver
+      UserMailer.delay.pending_email(@user)
       redirect_to thank_you_path, :notice => "Submitted! We'll get back to you soon."
     else
       flash.now.alert = "This email already exists."
@@ -66,6 +66,7 @@ class UsersController < ApplicationController
       redirect_to users_path
     end
     if @user.groupable_type == "Cohort" && @user.github_handle
+      @current_top_5 = @user.git_hub_selections
       github = Github.new(@user)
       @repos = github.zip_repo_url_names
       p @repos
@@ -97,11 +98,10 @@ class UsersController < ApplicationController
     p params
     @user = User.find(params[:user_id])
     params[:selected].each do |repo|
-      selection = GitHubSelection.create(:name => repo)
-    p @user.git_hub_selections << selection
-    p @user.save
+      selection = GitHubSelection.create(:name => repo[1]['name'], :url => repo[1]['url'])
+      @user.git_hub_selections << selection
+     @user.save
    end
-    @user.git_selections
   end
 
   def connect_students
@@ -109,11 +109,11 @@ class UsersController < ApplicationController
     @catcher = User.find(@interest.catcher_id)
     @pitcher = User.find(@interest.pitcher_id)
     if current_user.groupable_type == "Company"
-      InterestMailer.employer_initiated_email(@catcher, @pitcher).deliver
+      InterestMailer.delay.employer_initiated_email(@catcher, @pitcher)
       @interest.email_sent_on = DateTime.now
       @interest.save
     else
-      InterestMailer.s2s_pending_connection(@catcher, @pitcher).deliver
+      InterestMailer.delay.s2s_pending_connection(@catcher, @pitcher)
       @interest.email_sent_on = DateTime.now
       @interest.save
     end

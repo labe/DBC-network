@@ -58,6 +58,7 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     columnize (0.3.6)
+    daemons (1.1.9)
     database_cleaner (1.0.1)
     debug_inspector (0.0.2)
     debugger (1.6.0)
@@ -66,6 +67,11 @@ GEM
       debugger-ruby_core_source (~> 1.2.1)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.2)
+    delayed_job (3.0.5)
+      activesupport (~> 3.0)
+    delayed_job_active_record (0.4.4)
+      activerecord (>= 2.1.0, < 4)
+      delayed_job (~> 3.0)
     diff-lcs (1.2.4)
     erubis (2.7.0)
     execjs (1.4.0)
@@ -189,8 +195,10 @@ DEPENDENCIES
   binding_of_caller
   capybara
   coffee-rails (~> 3.2.1)
+  daemons
   database_cleaner
   debugger
+  delayed_job_active_record
   factory_girl_rails
   faker
   gravatar_image_tag
