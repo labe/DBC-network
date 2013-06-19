@@ -28,10 +28,6 @@ Install solr:
 add **gem 'delayed_job_active_record'** to your gemfile
 add **gem 'daemons'** to your gemfile
 
-Generate a migration
-
-    rails generate delayed_job:active_record 
-
 Run the migration
 
     rake db:migrate
