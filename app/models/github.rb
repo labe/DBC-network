@@ -1,7 +1,7 @@
 class Github
 
-  API_CLIENT_ID     = ENV['GITHUB_API_ID']
-  API_CLIENT_SECRET = ENV['GITHUB_API_SECRET']
+  API_CLIENT_ID     = '1c6c41f9e816f60f3b50'
+  API_CLIENT_SECRET = 'd8c9d91988a81c0f9fb5787f33024980c60414d9'
   
   def initialize(user)
     @user = user
@@ -9,8 +9,8 @@ class Github
   end
 
   include HTTParty
-  headers "User-Agent" => ENV["GITHUB_USER_AGENT"]
-  basic_auth ENV["GITHUB_AUTH_USER"], ENV["GITHUB_AUTH_PASS"]
+  headers "User-Agent" => "Portfolio Cloud"
+  basic_auth "Booneteam", "Whatsup11"
 
   def create_token
     endpoint = "https://api.github.com/user"
