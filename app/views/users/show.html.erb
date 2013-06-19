@@ -5,5 +5,7 @@
     <%= render partial: 'users/employer_profile', locals: { user: @user } %>
   <% end %>
 <% elsif @user.status == "inactive" %>
-  <span>This user is inactive.</span>
+  <div class="card_layout">
+  <div class="inactive-user">This user is inactive.</div>
+  </div>
 <% end %>

@@ -11,8 +11,7 @@
         <div class="user-div">
           <%= gravatar_image_tag user.email, :gravatar => { :size => 35 } %>
           <div class="user-div-text">
-            <%= link_to "#{user.last_name}, #{user.first_name}", user_path(user.id) %> 
-            | <%= user.groupable.name%>
+            <%= link_to "#{user.last_name}, #{user.first_name}", user_path(user.id) %>
           </div>
         </div>
       </li>
