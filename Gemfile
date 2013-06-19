@@ -25,6 +25,8 @@ gem 'jquery-rails'
 gem 'annotate'
 gem 'httparty'
 gem 'gravatar_image_tag'
+gem 'delayed_job_active_record'
+gem "daemons"
 
 group :development, :test do
   gem 'rspec-rails'

@@ -23,7 +23,7 @@ class AnswersController < ApplicationController
     end
     @catcher = @answers.last.question.user_id
     @responses = @answers.zip(@questions)
-    InterestMailer.student_initiated_email(@catcher, current_user, @responses).deliver
+    InterestMailer.delay.student_initiated_email(@catcher, current_user, @responses)
   end
 
   def show

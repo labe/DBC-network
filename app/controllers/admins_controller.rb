@@ -4,7 +4,7 @@ class AdminsController < ApplicationController
     user.activated = params[:user][:activated]
     user.save
 
-    UserMailer.student_welcome_email(user).deliver if user.activated == true
+    UserMailer.delay.student_welcome_email(user) if user.activated == true
     redirect_to :back
   end
 
@@ -21,7 +21,7 @@ class AdminsController < ApplicationController
     company.activated = params[:company][:activated]
     company.save
 
-    # UserMailer.student_welcome_email(user).deliver if company.activated == true
+    # UserMailer.delay.student_welcome_email(user) if company.activated == true
     redirect_to :back
   end
 
