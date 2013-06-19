@@ -97,7 +97,6 @@ end
 10.times do
   User.create(:groupable_id => rand(1..3),
               :groupable_type => "Cohort",
-              :company_name => Faker::Company.name,
               :email => Faker::Internet.email,
               :first_name => Faker::Name.first_name,
               :github_handle => "fakegithubaccount",
@@ -124,18 +123,6 @@ end
               :status => "active")
 end
 
-# Create 5 questions for an employer (id = 11)
-5.times do
-  Question.create(:user_id => 20,
-                  :text => "#{Faker::Lorem.sentence}?")
-end
-
-# Create 5 answers for a student (id = 9)
-5.times do |index|
-  Answer.create(:user_id => 9,
-                :question_id => index + 1,
-                :text => Faker::Lorem.sentence)
-end
 
 # Create Default Student
 User.create(  :activated => true,
@@ -181,7 +168,7 @@ User.create(  :activated => true,
 
 # Create Default Employer
 User.create(  :activated => true,
-              :groupable_id => rand(1..11),
+              :groupable_id => 1,
               :groupable_type => "Company",
               :email => "employer@employer.com",
               :first_name => Faker::Name.first_name,
@@ -225,3 +212,17 @@ end
               :status => "active")
 end
 
+
+# Create 5 questions for an employer (id = 44)
+5.times do
+  Question.create(:user_id => 44,
+                  :company_id => 1,
+                  :text => "#{Faker::Lorem.sentence}?")
+end
+
+# Create 5 answers for a student (id = 9)
+5.times do |index|
+  Answer.create(:user_id => 9,
+                :question_id => index + 1,
+                :text => Faker::Lorem.sentence)
+end

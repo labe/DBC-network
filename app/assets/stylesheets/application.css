@@ -265,7 +265,12 @@ float: right;
 }
 
 .error_flash {
-  margin-top: 50px;
+  top:60px;
+  right:20px;
+  position:absolute;
+  z-index:999;
+  color:red;
+  opacity:0.5;
 }
 
 .logo-link {
@@ -388,6 +393,7 @@ float: right;
   width:200px;
   text-align: center;
   margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .connections-list {
@@ -401,8 +407,25 @@ float: right;
 }
 
 .signup-buttons {
+  position:relative;
   margin: 0 auto;
-  width:200px;
-  margin-top: 300px;
+  width:500px;
+  height:400px;
+  margin-top: 100px;
+}
+
+.signup-buttons a{
+  color:black !important;
 }
  
+.company-card {
+  margin: 0 auto;
+  width:350px;
+  text-align: center;
+  margin-top: 145px;
+}
+
+.company-card p {
+  font-size: 20px;
+}
+

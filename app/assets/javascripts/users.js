@@ -2,7 +2,6 @@ var location_filters = [];
 var group_filters = [];
 var status_filters = [];
 
-// var unique = $.unique('.user_list li:visible').attr('data');
 
 
 $(document).ready(function(){

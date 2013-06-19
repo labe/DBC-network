@@ -1,7 +1,7 @@
 <div class="nav_background">
   <div class="entire_nav">
     <div class="user_nav">
-      <%= link_to(image_tag("devbootcamp.png", :size => "60x29", :class => "main-logo"), users_path, :class => "logo-link") %>
+      <%= link_to(image_tag("devbootcamp.png", :size => "60x29", :class => "main-logo"), root_path, :class => "logo-link") %>
       <% if current_user %>
         <%= image_tag "search-icon.png", :size => "20x20", :class => "search_icon" %>
         <%= form_tag results_path, method: :get, class: "nav-search" do  %>

@@ -121,13 +121,9 @@ class UsersController < ApplicationController
   end
 
   def connect_employers
-    @interest = Interest.create(params[:interest])
-    @catcher = User.find(@interest.catcher_id)
-    # @pitcher = User.find(@interest.pitcher_id)
-    # InterestMailer.student_initiated_email(@catcher, @pitcher).deliver
-    # @interest.email_sent_on = DateTime.now
-    # @interest.save
-    redirect_to user_questions_path(@catcher)
+    @user_id = current_user.id
+    @company_id = params[:company_contact][:company_id]
+    redirect_to company_questions_path(@company_id)
   end
 
   def connections
