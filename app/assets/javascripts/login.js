@@ -1,6 +1,8 @@
 $(document).ready(function(){
-  $('form.login').hide();
+  $('form.login').css('visibility','hidden');
   $('.login_button').click(function(){
-    $('.login').toggle();
+    $('.login').css({opacity: 0, visibility: "visible"}).animate({opacity: 1}, 200);
+    $('.login_button').hide();
+    $('#target').focus();
   });
 });

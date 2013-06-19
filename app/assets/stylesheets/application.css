@@ -51,22 +51,23 @@ span {
 }
 
 .login input[type="text"], .login input[type="password"] {
-  height:16px;
-  width:7em;
+  height:24px;
+  width:9em;
   font-size:16px;
   font-family:'AvenirNext';
   border:none;
+  padding: 0 10px;
 }
 
 .login input[type="text"]{
   position:absolute;
   top:15px;
-  right:250px;
+  right:180px;
 }
 
 .login input[type="password"]{
   position:absolute;
-  right:120px;
+  right:10px;
   top:15px;
 }
 
@@ -175,6 +176,7 @@ span {
 
 .email {
   margin-right: 20px;
+  margin-left:10px;
 }
 
 .admin_user_element {
@@ -288,7 +290,6 @@ float: right;
   width:450px;
   padding:10px;
   float:left;
-  display:inline-block;
 }
 
 .user_home {
@@ -315,6 +316,7 @@ float: right;
 }
 
 .search_results {
+  margin-top: 50px;
   margin-left: 100px;
 }
 
@@ -349,7 +351,7 @@ float: right;
 }
 
 .connect-button {
-  width:80px;
+  width:270px;
   margin: 0 auto;
   margin-top: 30px;
 }
@@ -357,10 +359,40 @@ float: right;
 .connect-button button {
   width:150px;
   height:50px;
+  margin-left:60px;
 }
 
 .inactive-user {
   width:150px;
   margin: 0 auto;
   margin-top: 160px;
+}
+
+.connections-title {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.connections-person {
+  margin:0 auto;
+  width:200px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.connections-list {
+  margin: 0 auto;
+  margin-top: 30px;
+  width:450px;
+}
+
+.companies-index {
+  margin-left: 390px;
+}
+
+.signup-buttons {
+  margin: 0 auto;
+  width:200px;
+  margin-top: 300px;
 }

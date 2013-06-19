@@ -130,6 +130,10 @@ class UsersController < ApplicationController
     redirect_to user_questions_path(@catcher)
   end
 
+  def connections
+    
+  end
+
   private
   def find_votable
     params.each do |name, value|

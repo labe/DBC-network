@@ -1,12 +1,14 @@
 <div class="boot_background" style="background-image: url(<%= asset_path 'devbootcamp.png' %>); background-position:center;  "></div>
-
+<div>
 <div class="login_button">Login</div>
 
+
 <%= form_tag("/log_in", :method => "post", :class => "login") do %>
-    <%= text_field_tag :email, nil, :placeholder => "Email" %>
+    <%= text_field_tag :email, nil, :placeholder => "Email", :id => "target" %>
     <%= password_field_tag :password, nil, :placeholder => "Password" %>
     <%= submit_tag("Login") %>
     <% end %>
+</div>
 
 <div class="splash_title">
   <h1><%= pluralize(@user_count, 'person') %>. <%= pluralize(@company_count, 'company') %>. </h1>

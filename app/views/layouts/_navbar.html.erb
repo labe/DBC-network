@@ -12,7 +12,7 @@
         <li>Companies Hiring</li>
         <% end %>
         <%= link_to users_path(:student => "student") do %>
-        <li>Alumni For Hire</li>
+        <li>For Hire</li>
         <% end %>
         <%= link_to users_path(:mentor => "mentor") do %>
         <li>Mentors</li>
@@ -33,8 +33,11 @@
 
       <% if current_user %>
     <div class="nav_profile">
+      <%= link_to connections_path do %>
+        ☺
+        <% end %>
         <span class="email"><%= link_to "Profile", user_path(current_user), :class => "profile_link" %></span>
-        <%= link_to "Logout", log_out_path%>
+        <%= link_to "Logout", log_out_path %>
     </div>
       <% else %>
     <div class="login-inputs">  
