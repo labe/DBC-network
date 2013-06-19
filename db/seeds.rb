@@ -1,16 +1,24 @@
-random_date = DateTime.new(2013,rand(1..12),rand(1..27))
+
 
 # Create a company
 Company.create(:activated => true,
                :website => Faker::Internet.url,
                :name => Faker::Company.name,
-               :location => "Chicago",
+               :location => ["Chicago", "San Francisco", "New York", "Austin"].sample,
                :status => "active")
 
+10.times do
+Company.create(:activated => true,
+               :website => Faker::Internet.url,
+               :name => Faker::Company.name,
+               :location => ["Chicago", "San Francisco", "New York", "Austin"].sample,
+               :status => "active")
+end
+
 # Create a cohort
-Cohort.create(:name => "Squirrels")
-Cohort.create(:name => "Foxes")
-Cohort.create(:name => "Otters")
+Cohort.create(:name => "Squirrels 2013")
+Cohort.create(:name => "Foxes 2013")
+Cohort.create(:name => "Otters 2013")
 
 # Create a Administration
 Administration.create(:name => "Administration")
@@ -22,7 +30,7 @@ Mentorship.create(:name => "Mentorship")
 Faculty.create(:name => "Faculty")
 
 # Create an admin
-  User.create(:activated => true,
+User.create(:activated => true,
               :company_name => "Admin Company",
               :email => "admin@admin.com",
               :facebook_url => "www.facebook.com/student",
@@ -32,10 +40,10 @@ Faculty.create(:name => "Faculty")
               :groupable_id => 1,
               :groupable_type => "Administration",
               :intro => Faker::Lorem.paragraph(sentence_count = 3),
-              :last_login => random_date,
+              :last_login => DateTime.new(2013,rand(1..12),rand(1..27)),
               :last_name => "Admin last",
               :linkedin_url => "www.linkedin.com/student",
-              :location => Faker::Address.city,
+              :location => ["Chicago", "San Francisco", "New York", "Austin"].sample,
               :password => "password",
               :phone => Faker::PhoneNumber.phone_number,
               :status => "active",
@@ -53,8 +61,8 @@ Faculty.create(:name => "Faculty")
               :github_handle => "fakegithubaccount",
               :graduation_date => "2013",
               :intro => Faker::Lorem.paragraph(sentence_count = 3),
-              :location => Faker::Address.city,
-              :last_login => random_date,
+              :location => ["Chicago", "San Francisco", "New York", "Austin"].sample,
+              :last_login => DateTime.new(2013,rand(1..12),rand(1..27)),
               :last_name => Faker::Name.last_name,
               :password => "password",
               :phone => Faker::PhoneNumber.phone_number,
@@ -63,12 +71,12 @@ end
 
 # Create 10 active employers
 10.times do
-  User.create(:groupable_id => 1,
+  User.create(:groupable_id => rand(1..11),
               :groupable_type => "Company",
               :email => Faker::Internet.email,
               :first_name => Faker::Name.first_name,
-              :location => Faker::Address.city,
-              :last_login => random_date,
+              :location => ["Chicago", "San Francisco", "New York", "Austin"].sample,
+              :last_login => DateTime.new(2013,rand(1..12),rand(1..27)),
               :last_name => Faker::Name.last_name,
               :password => "password",
               :status => "active")
@@ -84,7 +92,7 @@ end
 
 # Create 10 inactive students
 10.times do
-  User.create(:groupable_id => 1,
+  User.create(:groupable_id => rand(1..3),
               :groupable_type => "Cohort",
               :company_name => Faker::Company.name,
               :email => Faker::Internet.email,
@@ -92,8 +100,8 @@ end
               :github_handle => "fakegithubaccount",
               :graduation_date => "2013",
               :intro => Faker::Lorem.paragraph(sentence_count = 3),
-              :location => Faker::Address.city,
-              :last_login => random_date,
+              :location => ["Chicago", "San Francisco", "New York", "Austin"].sample,
+              :last_login => DateTime.new(2013,rand(1..12),rand(1..27)),
               :last_name => Faker::Name.last_name,
               :password => "password",
               :phone => Faker::PhoneNumber.phone_number,
@@ -102,12 +110,12 @@ end
 
 # Create 10 inactive employers
 10.times do
-  User.create(:groupable_id => 1,
+  User.create(:groupable_id => rand(1..11),
               :groupable_type => "Company",
               :email => Faker::Internet.email,
               :first_name => Faker::Name.first_name,
-              :location => Faker::Address.city,
-              :last_login => random_date,
+              :location => ["Chicago", "San Francisco", "New York", "Austin"].sample,
+              :last_login => DateTime.new(2013,rand(1..12),rand(1..27)),
               :last_name => Faker::Name.last_name,
               :password => "password",
               :status => "active")
@@ -134,13 +142,13 @@ User.create(  :activated => true,
               :first_name => Faker::Name.first_name,
               :github_handle => "henrytwang",
               :graduation_date => "2013",
-              :groupable_id => 1,
+              :groupable_id => rand(1..3),
               :groupable_type => "Cohort",
               :intro => Faker::Lorem.paragraph(sentence_count = 3),
-              :last_login => random_date,
+              :last_login => DateTime.new(2013,rand(1..12),rand(1..27)),
               :last_name => Faker::Name.last_name,
               :linkedin_url => "www.linkedin.com/student",
-              :location => "Chicago",
+              :location => ["Chicago", "San Francisco", "New York", "Austin"].sample,
               :password => "password",
               :phone => Faker::PhoneNumber.phone_number,
               :status => "active",
@@ -155,13 +163,13 @@ User.create(  :activated => true,
               :first_name => Faker::Name.first_name,
               :github_handle => "BooneTeam",
               :graduation_date => "2013",
-              :groupable_id => 1,
+              :groupable_id => rand(1..3),
               :groupable_type => "Cohort",
               :intro => Faker::Lorem.paragraph(sentence_count = 3),
-              :last_login => random_date,
+              :last_login => DateTime.new(2013,rand(1..12),rand(1..27)),
               :last_name => Faker::Name.last_name,
               :linkedin_url => "www.linkedin.com/student2",
-              :location => "Chicago",
+              :location => ["Chicago", "San Francisco", "New York", "Austin"].sample,
               :password => "password",
               :phone => Faker::PhoneNumber.phone_number,
               :status => "active",
@@ -170,12 +178,12 @@ User.create(  :activated => true,
 
 # Create Default Employer
 User.create(  :activated => true,
-              :groupable_id => 1,
+              :groupable_id => rand(1..11),
               :groupable_type => "Company",
               :email => "employer@employer.com",
               :first_name => Faker::Name.first_name,
-              :location => "San Francisco",
-              :last_login => random_date,
+              :location => ["Chicago", "San Francisco", "New York", "Austin"].sample,
+              :last_login => DateTime.new(2013,rand(1..12),rand(1..27)),
               :last_name => Faker::Name.last_name,
               :password => "password",
               :status => "active")
@@ -189,8 +197,8 @@ User.create(  :activated => true,
               :email => Faker::Internet.email,
               :first_name => Faker::Name.first_name,
               :intro => Faker::Lorem.paragraph(sentence_count = 3),
-              :location => Faker::Address.city,
-              :last_login => random_date,
+              :location => ["Chicago", "San Francisco", "New York", "Austin"].sample,
+              :last_login => DateTime.new(2013,rand(1..12),rand(1..27)),
               :last_name => Faker::Name.last_name,
               :password => "password",
               :phone => Faker::PhoneNumber.phone_number,
@@ -206,8 +214,8 @@ end
               :email => Faker::Internet.email,
               :first_name => Faker::Name.first_name,
               :intro => Faker::Lorem.paragraph(sentence_count = 3),
-              :location => Faker::Address.city,
-              :last_login => random_date,
+              :location => ["Chicago", "San Francisco", "New York", "Austin"].sample,
+              :last_login => DateTime.new(2013,rand(1..12),rand(1..27)),
               :last_name => Faker::Name.last_name,
               :password => "password",
               :phone => Faker::PhoneNumber.phone_number,

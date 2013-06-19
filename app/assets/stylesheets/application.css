@@ -51,22 +51,23 @@ span {
 }
 
 .login input[type="text"], .login input[type="password"] {
-  height:16px;
-  width:7em;
+  height:24px;
+  width:9em;
   font-size:16px;
   font-family:'AvenirNext';
   border:none;
+  padding: 0 10px;
 }
 
 .login input[type="text"]{
   position:absolute;
   top:15px;
-  right:250px;
+  right:180px;
 }
 
 .login input[type="password"]{
   position:absolute;
-  right:120px;
+  right:10px;
   top:15px;
 }
 
@@ -75,6 +76,10 @@ span {
   position: absolute;
   right:-999px;
   top:1px;
+}
+
+.inner_login {
+  float: right;
 }
 
 .inner_login input:focus {
@@ -89,24 +94,22 @@ span {
 }
 
 .inner_login input[type="text"]{
-  position:absolute;
   right:310px;
 }
 
 .inner_login input[type="password"]{
-  position:absolute;
   right:180px;
 }
 
 .inner_login input[type="submit"] {
   height:20px;
-  position: absolute;
   right:120px;
 }
 
 .signup {
-  position: absolute;
-  right:30px;
+  position: relative;
+  right: -100px;
+  top:3px;
   width:30px;
 }
 
@@ -114,8 +117,8 @@ span {
   font-size: 16px;
 }
 
-.user_nav {
-  font-family: 'AvenirNext';
+.nav_background {
+  z-index: 1;
   top:0;
   position: fixed;
   background-color: #fff;
@@ -124,7 +127,15 @@ span {
   -webkit-box-shadow: 0px 0px 3px rgba(50, 50, 50, 0.9);
   -moz-box-shadow:    0px 0px 3px rgba(50, 50, 50, 0.9);
   box-shadow:         0px 0px 3px rgba(50, 50, 50, 0.9);
-  z-index: 1;
+}
+
+.entire_nav {
+  width:1300px;
+  margin: 0 auto;
+}
+
+.user_nav {
+  font-family: 'AvenirNext';
 }
 
 .main-logo {
@@ -133,15 +144,17 @@ span {
 }
 
 .nav_choices {
-  position: fixed;
-  top: 3px;
-  left: 430px;
+  position: relative;
+  display:inline;
   height:100px;
+  z-index:3;
+  top:-8px;
+  left:-30px;
 }
 
 .nav_choices li {
   display: inline;
-  margin-right: 50px;
+  margin-right: 40px;
   height: 100px;
 }
 
@@ -155,14 +168,15 @@ span {
 
 .nav_profile {
   font-size: 16px;
-  position: fixed;
-  top:15px;
-  right:40px;
+  position: relative;
+  display: inline;
   z-index: 2;
+  top:-7px;
 }
 
 .email {
   margin-right: 20px;
+  margin-left:10px;
 }
 
 .admin_user_element {
@@ -170,6 +184,15 @@ span {
   border-bottom: 1px dotted grey;
   padding: 20px 20px;
   margin-top: -1px;
+}
+
+.login-inputs {
+  margin-top:-30px;
+  margin-left:-100px;
+}
+
+.signup-link {
+float: right;
 }
 
 .green {
@@ -189,13 +212,13 @@ span {
 }
 
 .nav-search {
-  position: absolute;
-  top: 10px;
-  left: 200px;
+  position: relative;
+  display: inline;
+  top:-10px;
 }
 
 .nav-search input[type="text"] {
-  position: fixed;
+  position: relative;
   height:30px;
   width:200px;
   border:none;
@@ -205,9 +228,9 @@ span {
 }
 
 .search_icon {
-  position: fixed;
-  top:15px;
-  left:176px;
+  position: relative;
+  margin-left: 25px;
+  top: -5px;
 }
 
 .create_users_groupables {
@@ -237,7 +260,7 @@ span {
 }
 
 .logo-link {
-  position:fixed;
+  position:relative;
   left:5px;
 }
 
@@ -251,10 +274,14 @@ span {
 
 .location-filters {
   float:left;
+  display:inline-block;
+  opacity:0.5;
 }
 
 .groupable-filters {
   float:left;
+  display:inline-block;
+  opacity:0.5;
 }
 
 .user-filtered {
@@ -262,7 +289,7 @@ span {
   margin: 0 auto;
   width:450px;
   padding:10px;
-
+  float:left;
 }
 
 .user_home {
@@ -270,8 +297,8 @@ span {
 }
 
 .filter-columns {
-  margin-left:50px;
-  opacity:0.5;
+  margin: 0 auto;
+  width:900px;
 }
 
 .filter-columns button:hover {
@@ -284,13 +311,12 @@ span {
 }
 
 .clear {
-  float:left;
-  top:110px;
-  left:100px;
-  position: absolute;
+  margin-left:50px;
+  margin-bottom: 20px;
 }
 
 .search_results {
+  margin-top: 50px;
   margin-left: 100px;
 }
 
@@ -309,9 +335,64 @@ span {
 }
 
 .card_layout {
+  padding: 20px 0;
   background-color: #FFF;
   width: 700px;
-  height: 400px;
+  height: 360px;
   margin: 0 auto;
   margin-top: 100px;
+  -webkit-box-shadow: 2px 1px 3px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    2px 1px 3px rgba(50, 50, 50, 0.75);
+  box-shadow:         2px 1px 3px rgba(50, 50, 50, 0.75);
+}
+
+.user_intro {
+  width:300px;
+}
+
+.connect-button {
+  width:270px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.connect-button button {
+  width:150px;
+  height:50px;
+  margin-left:60px;
+}
+
+.inactive-user {
+  width:150px;
+  margin: 0 auto;
+  margin-top: 160px;
+}
+
+.connections-title {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.connections-person {
+  margin:0 auto;
+  width:200px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.connections-list {
+  margin: 0 auto;
+  margin-top: 30px;
+  width:450px;
+}
+
+.companies-index {
+  margin-left: 390px;
+}
+
+.signup-buttons {
+  margin: 0 auto;
+  width:200px;
+  margin-top: 300px;
 }

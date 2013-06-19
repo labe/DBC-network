@@ -1,12 +1,15 @@
 <span>Employer Signup</span>
-<%= form_for :user, :url => users_path, :method => "post" do |f| %>
-<%= f.text_field :first_name, :placeholder => "First Name" %>
-<%= f.text_field :last_name, :placeholder => "Last Name" %>
-  <%= f.text_field :email, :placeholder => "Email" %>
-  <%= f.password_field :password, :placeholder => "Password" %>
-  <%= f.hidden_field :groupable_type, :value => "Company" %>
-  <%= f.collection_select :groupable_id, Company.all, :id, :name %>  
-  <%= f.submit "Signup" %>
+<%= form_for :user, :url => create_employer_path, :method => "post" do |f| %>
+  <br><%= f.text_field :first_name, :placeholder => "First Name*", :required => true %>
+  <br><%= f.text_field :last_name, :placeholder => "Last Name*", :required => true %>
+  <br><%= f.text_field :email, :placeholder => "Email*", :required => true %>
+  <br><%= f.password_field :password, :placeholder => "Password*", :required => true %>
+  <br><%= f.text_field :location, :placeholder => "Location (City)*", :required => true %>
+  <br><%= f.text_field :phone, :placeholder => "Phone Number" %>
+  <br><%= f.collection_select :groupable_id, Company.all, :id, :name, { :prompt => true, :required => true } %>
+  <br><%= f.submit "Signup" %>
 <% end %>
-
+<br>
 <%= button_to "Add my company", new_company_path, :method => 'get' %>
+
+

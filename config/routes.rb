@@ -4,6 +4,8 @@ Alumni::Application.routes.draw do
   resources :sessions
   resources :students
   resources :employers
+  resources :mentors
+  resources :staffs
   resources :admins
   resources :interests
   resources :cohorts
@@ -27,6 +29,7 @@ Alumni::Application.routes.draw do
   get   "profile"            => "sessions#show"
   get   "results"            => "homes#results"
   get   "create_user"        => "admins#create_user"
+  get   "connections"        => "users#connections"
   post  "create_student"     => "admins#create_student"
   post  "create_employer"    => "admins#create_employer"
   post  "create_company"     => "admins#create_company"

@@ -1,48 +1,57 @@
-<div class="user_nav">
-  <%= link_to(image_tag("devbootcamp.png", :size => "60x29", :class => "main-logo"), users_path, :class => "logo-link") %>
-<% if current_user %>
-  <ul class="nav_choices">
-    <%= link_to companies_path do %>
-    <li>Companies Hiring</li>
-    <% end %>
-    <%= link_to users_path(:student => "student") do %>
-    <li>Alumni For Hire</li>
-    <% end %>
-    <li class="nav-descriptor">DBC Network</li>
-    <%= link_to users_path(:mentor => "mentor") do %>
-    <li>Mentors</li>
-    <% end %>
-    <%= link_to users_path(:alumni => "alumni") do %>
-    <li>All Alumni</li>
-    <% end %>
-    <%= link_to users_path(:staff => "staff") do %>
-    <li>Staff</li>
-    <% end %>
-    <% if current_user.groupable_type == "Administration" %>
-      <%= link_to "/admin" do %>
-      <li>Admin</li>
+<div class="nav_background">
+  <div class="entire_nav">
+    <div class="user_nav">
+      <%= link_to(image_tag("devbootcamp.png", :size => "60x29", :class => "main-logo"), users_path, :class => "logo-link") %>
+      <% if current_user %>
+        <%= image_tag "search-icon.png", :size => "20x20", :class => "search_icon" %>
+        <%= form_tag results_path, method: :get, class: "nav-search" do  %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search by name or location" %>
       <% end %>
+      <ul class="nav_choices">
+        <%= link_to companies_path do %>
+        <li>Companies Hiring</li>
+        <% end %>
+        <%= link_to users_path(:student => "student") do %>
+        <li>For Hire</li>
+        <% end %>
+        <%= link_to users_path(:mentor => "mentor") do %>
+        <li>Mentors</li>
+        <% end %>
+        <%= link_to users_path(:alumni => "alumni") do %>
+        <li>All Alumni</li>
+        <% end %>
+        <%= link_to users_path(:staff => "staff") do %>
+        <li>Staff</li>
+        <% end %>
+        <% if current_user.groupable_type == "Administration" %>
+          <%= link_to "/admin" do %>
+            <li>Admin</li>
+          <% end %>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-  <%= image_tag "search-icon.png", :size => "20x20", :class => "search_icon" %>
-  <%= form_tag results_path, method: :get, class: "nav-search" do  %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search by name or location" %>
-  <% end %>
-<% end %>
-</div>
 
-
-
-<div class="nav_profile">
-  <% if current_user %>
-    <span class="email"><%= link_to "Profile", user_path(current_user), :class => "profile_link" %></span>
-    <%= link_to "Logout", log_out_path%>
-  <% else %>
-    <%= link_to "Signup", sign_up_path, :method => :get, :class => "signup" %>
-    <%= form_tag("/log_in", :method => "post", :class => "inner_login") do %>
-      <%= text_field_tag :email, nil, :placeholder => "Email" %>
-      <%= password_field_tag :password, nil, :placeholder => "Password" %>
-      <%= submit_tag("Login") %>
+      <% if current_user %>
+    <div class="nav_profile">
+      <%= link_to connections_path do %>
+        ☺
+        <% end %>
+        <span class="email"><%= link_to "Profile", user_path(current_user), :class => "profile_link" %></span>
+        <%= link_to "Logout", log_out_path %>
+    </div>
+      <% else %>
+    <div class="login-inputs">  
+      <%= form_tag("/log_in", :method => "post", :class => "inner_login") do %>
+          <%= text_field_tag :email, nil, :placeholder => "Email" %>
+          <%= password_field_tag :password, nil, :placeholder => "Password" %>
+          <%= submit_tag("Login") %>
+        <% end %>
+      
+    </div>
+    <div class="signup-link">
+      <%= link_to "Signup", sign_up_path, :method => :get, :class => "signup" %>
+    </div>
     <% end %>
-  <% end %>
+    </div>
+  </div>
 </div>

@@ -3,7 +3,30 @@
 	<p><%= user.first_name %> <%= user.last_name %></p>
 	<p><%= user.location %></p>
 	<p><%= gravatar_image_tag user.email %></p>
-	<% if current_user.interests.select{|interest| interest.id == user.id }.empty? %>
+	<p><%= user.groupable.name if user.groupable %></p>
+	<p>Graduated: <%= user.graduation_date %></p>
+	<% if current_user.id == @user.id %>
+	    <p><%= link_to "Edit my profile", edit_user_path(current_user) %></p>
+	<% end %>
+	</div>
+
+	<div id="user_info">
+	<% if user.email %><p>Email: <%= user.email %></p><% end %>
+	<% if user.phone %><p>Phone: <%= user.phone %></p><% end %>
+	<% if user.facebook_url %><p>Facebook: <%= user.facebook_url %></p><% end %>
+	<% if user.github_handle %><p>Github: <%= user.github_handle %></p><% end %>
+	<% if user.linkedin_url %><p>LinkedIn: <%= user.linkedin_url %></p><% end %>
+	<% if user.tumblr_url %><p>Tumblr: <%= user.tumblr_url %></p><% end %>
+	<% if user.twitter_url %><p>Twitter: <%= user.twitter_url %></p><% end %>
+		<div class="user_intro">
+		<% if user.intro %><p>Bio: <%= user.intro %></p><% end %>
+		</div>
+	</div>
+</div>
+
+
+<div class="connect-button">
+<% if current_user.interests.select{|interest| interest.id == user.id }.empty? %>
 		<% if user.id != current_user.id %>
 			<%= form_for @interest , :url => connect_students_path, :method => 'post' do |f| %>
 				<%= f.hidden_field :pitcher_id, :value => current_user.id %>
@@ -23,35 +46,6 @@
 				<%= catcher_interest.created_at.strftime("You two connected on %m/%d/%Y") %>
 			<% end %>
 	<%end%>
-	<p><%= user.groupable.name if user.groupable %></p>
-	<p>Graduated: <%= user.graduation_date %></p>
-	<% if current_user.id == @user.id %>
-	    <p><%= link_to "Edit my profile", edit_user_path(current_user) %></p>
-	<% end %>
-	</div>
-
-	<div id="user_info">
-	<% if user.email %><p>Email: <%= user.email %></p><% end %>
-	<% if user.phone %><p>Phone: <%= user.phone %></p><% end %>
-	<% if user.facebook_url %><p>Facebook: <%= user.facebook_url %></p><% end %>
-	<% if user.github_handle %><p>Github: <%= user.github_handle %></p><% end %>
-	<% if user.linkedin_url %><p>LinkedIn: <%= user.linkedin_url %></p><% end %>
-	<% if user.tumblr_url %><p>Tumblr: <%= user.tumblr_url %></p><% end %>
-	<% if user.twitter_url %><p>Twitter: <%= user.twitter_url %></p><% end %>
-	</div>
 </div>
 
-<div class="user_intro">
-	<% if user.intro %><p>Bio: <%= user.intro %></p><% end %>
-</div>
 
-<% if current_user.id == user.id %>
-	<div>
-		Connections
-		<ul>
-		<% current_user.interests.each do |interest| %>
-			<li><%= link_to "#{interest.first_name} #{interest.last_name}", user_path(interest.id) %>  <%=interest.created_at.strftime("Connected on %m/%d/%Y")%></li>
-		<%end%>
-</ul>
-	</div>
-<% end %>

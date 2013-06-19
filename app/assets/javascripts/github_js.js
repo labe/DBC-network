@@ -8,9 +8,16 @@ $(document).ready(function(){
         $(this).parent().prepend("Sorry Brah Only 5 Top Repos Allowed").css('color','red');
       }
       else { $(this).append(ui.draggable);
-        test.push($(this).find('td:last').text());
+        test.push($(this).find('td:last').data());
       }
     }
+  });
+  $( "#github_list_showing tr" ).draggable({helper: 'clone'});
+  $( ".all_repos" ).droppable({
+    drop: function(event,ui) {
+     $(this).append(ui.draggable);
+        test.pop($(this).find('td:last').data());
+      }
   });
   $("form.git_save").submit(function(e){
     e.preventDefault();
