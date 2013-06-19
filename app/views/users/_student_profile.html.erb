@@ -48,13 +48,4 @@
 	<%end%>
 </div>
 
-<% if current_user.id == user.id %>
-	<div>
-		Connections
-		<ul>
-		<% current_user.interests.each do |interest| %>
-			<li><%= link_to "#{interest.first_name} #{interest.last_name}", user_path(interest.id) %>  <%=interest.created_at.strftime("Connected on %m/%d/%Y")%></li>
-		<%end%>
-</ul>
-	</div>
-<% end %>
+

@@ -16,9 +16,9 @@ Company.create(:activated => true,
 end
 
 # Create a cohort
-Cohort.create(:name => "Squirrels")
-Cohort.create(:name => "Foxes")
-Cohort.create(:name => "Otters")
+Cohort.create(:name => "Squirrels 2013")
+Cohort.create(:name => "Foxes 2013")
+Cohort.create(:name => "Otters 2013")
 
 # Create a Administration
 Administration.create(:name => "Administration")

@@ -1,0 +1,13 @@
+
+<div class="connections-title">Your Connections</div>
+  <div class="connections-list">
+  <div class="user-filtered">
+  <% current_user.interests.each do |interest| %>
+    <div class="connections-person">
+    <%= gravatar_image_tag interest.email %><br>
+        <%= link_to "#{interest.first_name} #{interest.last_name}", user_path(interest.id) %><br>
+        <%=interest.created_at.strftime("Connected on %m/%d/%Y")%>
+    </div>
+  <% end %>
+  </div>
+</div>
