@@ -97,6 +97,7 @@ class UsersController < ApplicationController
   def git_list
     p params
     @user = User.find(params[:user_id])
+    @user.git_hub_selections.each {|selections| selections.destroy }
     params[:selected].each do |repo|
       selection = GitHubSelection.create(:name => repo[1]['name'], :url => repo[1]['url'])
       @user.git_hub_selections << selection
