@@ -17,18 +17,54 @@ input{
 }
 
 .selected_repos{
-	float:left;
+	float:right;
 	width: 25%;
 	text-align: center;
-	border: solid thin black;
 	margin:5px;
 }
 
+#my_top_5{
+	box-shadow: 2px 1px 3px rgba(50, 50, 50, 0.75);
+	margin:auto;
+	width: 700px;
+}
+
+#github_list_showing{
+	border-top:black grey solid;
+	margin:auto;
+	margin-top:5px;
+	width:700px;
+}
+
+#github_list_showing td{
+	font-size: 15px;
+}
+
 .all_repos{
-	margin:5px;
-	float:left;
+	box-shadow: 2px 1px 3px rgba(50, 50, 50, 0.75);
+	background-color: white;
+	width:700px;
+	height:50px;
+	margin:auto;
+	margin-top: 5px;
 	text-align: center;
-	border: solid thin black;
+}
+
+.all_repos tr{
+	float:left;
+	margin:5px;
+}
+
+.all_repos td{
+	font-size:15px;
+}
+
+.all_repos td:hover{
+	background-color: rgba(245,81,60,0.9);
+}
+.git_save{
+	text-align: center;
+	margin:auto;
 }
 
 .edit{

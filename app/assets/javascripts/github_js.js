@@ -1,11 +1,19 @@
 test = [];
+
 $(document).ready(function(){
+  $('#git_error').hide();
+  $.each($( "#github_list_showing tr td"),function(index,value){
+    test.push($(value).data());
+  });
+
   $( ".all_repos tr" ).draggable({helper: 'clone'});
   $( "#github_list_showing" ).droppable({
     drop: function(event,ui) {
       if($(this).find('tr').length >= 6){
         $(this).draggable({ disabled: true });
-        $(this).parent().prepend("Sorry Brah Only 5 Top Repos Allowed").css('color','red');
+        $('#git_error').show();
+        $('#git_error').css({"color" : "red"});
+        setTimeout(function(){$('#git_error').hide();},5000);
       }
       else { $(this).append(ui.draggable);
         test.push($(this).find('td:last').data());
@@ -21,6 +29,7 @@ $(document).ready(function(){
   });
   $("form.git_save").submit(function(e){
     e.preventDefault();
+    test.shift();
     $.post("/users/"+this.id+"/edit/github", { selected: test });
   });
 });

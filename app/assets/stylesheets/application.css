@@ -339,7 +339,8 @@ float: right;
   background-color: #FFF;
   width: 700px;
   height: 360px;
-  margin: 0 auto;
+/*  float:left;*/
+  margin:auto;
   margin-top: 100px;
   -webkit-box-shadow: 2px 1px 3px rgba(50, 50, 50, 0.75);
   -moz-box-shadow:    2px 1px 3px rgba(50, 50, 50, 0.75);
