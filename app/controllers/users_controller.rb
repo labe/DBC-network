@@ -3,25 +3,25 @@ class UsersController < ApplicationController
   def index
     if params[:student]
       @users = User.where(:groupable_type => "Cohort", :status => "active").order("last_name")
-      @groupable = "Student"
+      @groupable = "Students"
     elsif params[:company]
       @users = User.where(:groupable_type => "Company").order("last_name")
-      @groupable = "Employer"
+      @groupable = "Employers"
     elsif params[:alumni]
       @users = User.where(:groupable_type => "Cohort").order("last_name")
       @groupable = "Alumni"
     elsif params[:mentor]
       @users = User.where(:groupable_type => "Mentorship").order("last_name")
-      @groupable = "Mentor"
+      @groupable = "Mentors"
     elsif params[:staff]
       @users = User.where(:groupable_type => "Faculty").order("last_name")
       @groupable = "Staff"
     elsif current_user.groupable_type == "Cohort"
       @users = User.where(:groupable_type => "Company").order("last_name")
-      @groupable = "Student"
+      @groupable = "Students"
     elsif current_user.groupable_type == "Company"
       @users = User.where(:groupable_type => "Cohort").order("last_name")
-      @groupable = "Employer"
+      @groupable = "Employers"
     else
       @users = User.all
     end
