@@ -10,6 +10,7 @@ Alumni::Application.routes.draw do
   resources :interests
   resources :cohorts
   resources :administrations
+  resources :company_contacts
 
   resources :users do
     resources :questions do

@@ -84,10 +84,13 @@ end
 
 # Create 20 interest relationships
 20.times do
-  employer_number = rand(11..20)
-  student_number = rand(1..10)
-  Interest.create(:pitcher_id => employer_number,
-                  :catcher_id => student_number)
+  Interest.create(:pitcher_id => rand(1..20),
+                  :catcher_id => rand(1..20))
+end
+
+20.times do
+  CompanyContact.create(:user_id => rand(1..10),
+                        :company_id => rand(1..11))
 end
 
 # Create 10 inactive students

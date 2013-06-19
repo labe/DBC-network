@@ -1,0 +1,35 @@
+<% if @company.status == "active" %>
+
+<div class="card_layout">
+  <div id="profile_gravatar">
+  <p><%= @company.name %></p>
+  <p><%= @company.location %></p>
+  <p><%= @company.website %></p>
+</div>
+
+  <div id="user_info">
+  </div>
+</div>
+
+<div class="connect-button">
+  <% if @no_contacts %>
+    <%= form_for :company_contact , :url => company_contacts_path, :method => 'post' do |f| %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :company_id, :value => @company.id %>
+        <% if current_user.groupable_type == 'Cohort' %>
+          <button>Connect<% f.submit %></button>
+        <% end %>
+    <% end %>
+  <% else %>
+<%= @contacted_on.strftime("You two connected on %m/%d/%Y") %>
+  <% end %>
+
+</div>
+
+
+
+<% elsif @user.status == "inactive" %>
+  <div class="card_layout">
+  <div class="inactive-user">This company is inactive.</div>
+  </div>
+<% end %>

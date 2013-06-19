@@ -1,0 +1,19 @@
+<span class="category-title">Employer-to-Student Interests</span><br>
+<table class="admin_table">
+  <thead>
+    <tr>
+      <th>Which employer showed interest?</th>
+      <th>Which student received interest?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% interests.each do |interest| %>
+      <% if interest.pitcher.groupable_type == "Company" && interest.catcher.groupable_type == "Cohort" %>
+      <tr>
+        <th><%= link_to "#{interest.pitcher.first_name} #{interest.pitcher.last_name}", user_path(interest.pitcher) %></th>
+        <th><%= link_to "#{interest.catcher.first_name} #{interest.catcher.last_name}", user_path(interest.catcher) %></th>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

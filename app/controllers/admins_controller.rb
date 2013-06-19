@@ -44,6 +44,7 @@ class AdminsController < ApplicationController
       @interests = Interest.all
       @questions = Question.all
       @answers = Answer.all
+      @company_contacts = CompanyContact.all
     else
       redirect_to root_path
     end
