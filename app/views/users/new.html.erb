@@ -1,7 +1,8 @@
 <div class="boot_background" style="background-image: url(<%= asset_path 'devbootcamp.png' %>); background-position:center; "></div>
 <div class="signup-buttons">
-<%= button_to "I'm a DBc Alumni", new_student_path, :method => 'get' %>
-<%= button_to "I'm a DBc Mentor", new_mentor_path, :method => 'get' %>
-<%= button_to "I'm a DBc Staff Member", new_staff_path, :method => 'get' %>
-<%= button_to "I'm an Employer", new_employer_path, :method => 'get' %>
+
+<button class="signup_button" id="alumni"><div class="signup_pic"><%= image_tag("devbootcamp.png", :size => "60x29") %></div><%= link_to "Alumni Signup", new_student_path %></button>
+<button class="signup_button" id="mentor"><div class="signup_pic"><%= image_tag("devbootcamp.png", :size => "60x29") %></div><%= link_to "Mentor Signup", new_mentor_path, :name =>"mentor" %></button>
+<button class="signup_button" id="staff"><div class="signup_pic"><%= image_tag("devbootcamp.png", :size => "60x29") %></div><%= link_to "Staff Signup", new_staff_path %></button>
+<button class="signup_button"  id="employer"><div class="signup_pic"><%= image_tag("devbootcamp.png", :size => "60x29") %></div><%= link_to "Employer Signup", new_employer_path %></button>
 </div>

@@ -119,3 +119,37 @@ button.edit{
 .bottom{
 	margin-top:100px;
 }
+
+#alumni{
+	position:absolute;
+	top:10;
+	left:0;
+}
+
+#mentor{
+	position:absolute;
+	top:0;
+	right:0;
+}
+
+#staff{
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+
+#employer{
+	position:absolute;
+	bottom:0;
+	right:0;
+}
+
+.signup_pic{
+	text-align: center;
+	margin-bottom:25px;
+}
+
+.signup_button{
+	width:150px;
+	height:150px;
+}
