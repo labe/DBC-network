@@ -409,9 +409,9 @@ float: right;
 .signup-buttons {
   position:relative;
   margin: 0 auto;
-  width:500px;
+  width:700px;
   height:400px;
-  margin-top: 100px;
+  margin-top: 60px;
 }
 
 .signup-buttons a{
@@ -429,3 +429,37 @@ float: right;
   font-size: 20px;
 }
 
+.close {
+  position: absolute;
+  top:15px;
+  right:15px;
+  background-color: #fff;
+  border: none;
+  font-size:20px;
+}
+
+.signup-popup {
+  margin-top: 50px;
+}
+
+.signup-popup input, .signup-popup textarea {
+  border:none;
+  font-size: 14px;
+  outline: 0;
+  resize: none;
+}
+
+
+
+.i_am {
+  margin:0 auto;
+  width:600px;
+  position:relative;
+  font-size: 65px;
+  margin-left:260px;
+  margin-top:150px;
+}
+
+.thank_you_message {
+  margin-top: 270px;
+}

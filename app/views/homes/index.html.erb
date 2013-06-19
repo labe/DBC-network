@@ -1,5 +1,5 @@
 <div class="boot_background" style="background-image: url(<%= asset_path 'devbootcamp.png' %>); background-position:center;"></div>
-<div>
+<div class="background-white"></div>
 <div class="login_button">Login</div>
 
 
@@ -7,15 +7,14 @@
     <%= text_field_tag :email, nil, :placeholder => "Email", :id => "target" %>
     <%= password_field_tag :password, nil, :placeholder => "Password" %>
     <%= submit_tag("Login") %>
-    <% end %>
-</div>
+<% end %>
 
 <div class="splash_title">
   <h1><%= pluralize(@user_count, 'person') %>. <%= pluralize(@company_count, 'company') %>. </h1>
-  <h2>And counting. Join the conversation.</h2>
+  <h2>Join the conversation.</h2>
 </div>
 
-<%= link_to "Sign up with e-mail", sign_up_path, :class => "splash_giant_button" %>
+<%= link_to "Join Now", sign_up_path, :class => "splash_giant_button" %>
 
 
 <div class="splash_users">
@@ -27,4 +26,10 @@
       <% end %>
     </ul>
   </div>
+</div>
+
+<div class="error_flash">
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
 </div>

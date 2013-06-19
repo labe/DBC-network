@@ -5,4 +5,12 @@ $(document).ready(function(){
     $('.login_button').hide();
     $('#target').focus();
   });
+  $('.signup_button').hover(
+    function() {
+      $(this).animate({"background-color":"#f5513c"}, 'fast');
+    }, 
+    function() {
+      $(this).animate({"background-color":"#C0C0C0"}, 'fast');
+    }
+  );
 });

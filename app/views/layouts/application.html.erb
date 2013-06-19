@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% unless current_page?(root_path) || current_page?(sign_up_path) || current_page?(new_student_path) %>
+<% unless current_page?(root_path) || current_page?(sign_up_path) || current_page?(new_student_path) || current_page?(thank_you_path) %>
   <%= render "layouts/navbar" %>
   <%= render "layouts/content_nav" %>
 <% end %>
