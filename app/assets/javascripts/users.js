@@ -13,6 +13,7 @@ $(document).ready(function(){
     $('.group_filters').prop('disabled', false);
     $('.user_list li').show();
     $('.location_filters').show();
+    $('.group_filters').show();
     group_filters = [];
     location_filters = [];
     status_filters = [];
@@ -39,25 +40,27 @@ $(document).ready(function(){
 
     for(i in selected_filters){
       if ($('.user_list li:visible').length == 0){
-         // $('*[data-' + selected_filters[i] +']').show();
          $('*[data-location="' + selected_filters[i] +'"]').show();
       }
       else {
         $('.user_list li:hidden').filter('*[data-location="' + selected_filters[i] +'"]').show();
+        console.log("turkey")
       };
+      hide_group_buttons();
     };
   };
 
   function apply_group_filters(selected_filters){
-    
+    $('.user_list li').hide();
     for(i in selected_filters){
       if ($('.user_list li:visible').length == 0){
          $('*[data-group="' + selected_filters[i] +'"]').show();
       }
       else {
-        $('.user_list li:visible').filter('*[data-group="' + selected_filters[i] +'"]').hide();
-        hide_location_buttons();
+        $('.user_list li:hidden').filter('*[data-group="' + selected_filters[i] +'"]').show();
+        
       };
+      hide_location_buttons();
     };
   };
 
@@ -68,20 +71,14 @@ $(document).ready(function(){
       $('.location_filters:hidden').filter('*[id=' + visible_city[i].getAttribute('data-location') +']').show();
     };
   };
+
+  function hide_group_buttons(){
+    var visible_group = $('.user_list li:visible').filter('*[data-group]');
+
+    $('.group_filters').hide();
+    for (var i=0; i < visible_group.length ; i++){
+      $('.group_filters:hidden').filter('*[id=' + visible_group[i].getAttribute('data-group') +']').show();
+    };
+  };
 });
-
-
-// if group button is clicked
-//   get button id
-//   hide all students without data attribute = button id
-//   hide all location buttons that don't have at least one data location id from visible user_list
-
-// var unique = $('.user_list li:visible').filter(function(itm,i,a){
-//     return i==a.indexOf(itm);
-// });
-
-// if location-button is clicked
-//   get button id
-//   hide any users on user_list without id
-
 
