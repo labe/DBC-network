@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    # MY EYES! Again, please find a way to simplify this long if/else
     if params[:student]
       @users = User.where(:groupable_type => "Cohort", :status => "active").order("last_name")
       @groupable = "Students"
@@ -65,6 +66,7 @@ class UsersController < ApplicationController
     if current_user.id != @user.id
       redirect_to users_path
     end
+
     if @user.groupable_type == "Cohort" && @user.github_handle
       @current_top_5 = @user.git_hub_selections
       github = Github.new(@user)
@@ -104,6 +106,7 @@ class UsersController < ApplicationController
    end
   end
 
+  # Custom actions are a signal you need to create additional controllers
   def connect_students
     @interest = Interest.create(params[:interest])
     @catcher = User.find(@interest.catcher_id)

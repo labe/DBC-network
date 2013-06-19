@@ -1,7 +1,8 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions = Question.where(:user_id => params[:user_id]) 
+    @questions = Question.where(:user_id => params[:user_id])
+    # @questions will never be nil. At 'worst' it will be an empty array. Try it out in your console 
     if @questions != nil
       @answers = []
       @questions.each do |q|
@@ -20,6 +21,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @answer = Answer.new 
+    # why the extra @answers ivar? You can just as easily access @question.answers in your view
     @answers = @question.answers
   end
 

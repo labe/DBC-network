@@ -42,6 +42,8 @@ describe InterestMailer do
   	end
 
   	it "sends an email to correct employer" do 
+       # Looks like @email is used repeatedly in all of these tests. This can be moved up
+       # to the before block.
   		 @email = InterestMailer.student_initiated_email(@employer,@student,[[@question,@answer],[@question,@answer]])
   		 @email.to.join.should == @employer.email
   	end	
@@ -76,7 +78,11 @@ describe InterestMailer do
   	end
 
   	it "sends an email to correct employer" do 
+       # Looks like @email is used repeatedly in all of these tests. This can be moved up
+       # to the before block.
   		 @email = InterestMailer.employer_initiated_email(@student,@employer)
+       # Assuming @email.to is an array? If so, why not test:
+       # @email.to.shold == [@student.email]
   		 @email.to.join.should == @student.email
   	end	
 

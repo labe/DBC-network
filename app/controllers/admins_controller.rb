@@ -1,7 +1,11 @@
 class AdminsController < ApplicationController
+  # This controller is full of custom actions that cover a number of resources.
+  # Instead, create a app/controllers/admin directory and namespace in your routes.rb
+  # Then, create individual controllers per resource, like app/admin/users_controller.rb
   def user_activation
     user = User.find(params[:user][:id])
     user.activated = params[:user][:activated]
+    # What if the .save fails?
     user.save
 
     UserMailer.delay.student_welcome_email(user) if user.activated == true
@@ -11,6 +15,7 @@ class AdminsController < ApplicationController
   def user_deny
     user = User.find(params[:user][:id])
     user.activated = params[:user][:activated]
+    # What if the .save fails?
     user.save
     # Send out denied email to this user
     redirect_to :back
@@ -19,6 +24,7 @@ class AdminsController < ApplicationController
   def company_activation
     company = Company.find(params[:company][:id])
     company.activated = params[:company][:activated]
+    # What if the .save fails?
     company.save
 
     # UserMailer.delay.student_welcome_email(user) if company.activated == true

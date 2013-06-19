@@ -10,6 +10,7 @@ class CompaniesController < ApplicationController
     redirect_to :back
   end
 
+  # Why the non-standard action? Isn't this just an #update action with a different name?
   def status
     @company = Company.find(params[:company][:id])
     @company.status = params[:company][:status]

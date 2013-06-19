@@ -2,10 +2,10 @@ require 'spec_helper'
 require 'sunspot/rails/spec_helper'
 describe "Student" do
 
+  # Fix indentation in this file
 	disconnect_sunspot
 
 	context "while signed in" do
-
 
   before do 
     @student = FactoryGirl.create(:user)
@@ -14,6 +14,9 @@ describe "Student" do
     @cohort = FactoryGirl.create(:cohort)
     @employer = FactoryGirl.create(:user, id: 4, groupable_type: "Company", 
     groupable_id: @company.id, email: "employer@employer.com")
+
+    # include a newline here to visually split the Factory usage and capybara
+    # calls
     visit root_path
     fill_in "email", with: @student.email
     fill_in "password", with: @student.password
@@ -25,6 +28,7 @@ describe "Student" do
 			page.should have_content("#{@student.first_name}")
 		end
 
+		# How is this testing "can view all DBC participants" ??
 		it "can view all DBC participants" do
 			visit users_path
 			page.should have_content('Students')
@@ -42,6 +46,7 @@ describe "Student" do
 
 		it "can contact via email other DBC alumni/students" do
 			visit user_path(@student2)
+			# This test is missing an assertion. No way you can ever see this fail.
 			click_button "Connect"
 		end
 

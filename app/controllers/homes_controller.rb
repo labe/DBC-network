@@ -7,6 +7,7 @@ class HomesController < ApplicationController
     @company_count = Company.all.count
   end
 
+  # Move this to a SearchController
   def results
     @user_search = User.search do 
       fulltext params[:search]

@@ -8,6 +8,7 @@ describe "Employer" do
 	context "while signed in" do 
 
 	  before do 
+	  	# Fix indentation
  	  	@student = FactoryGirl.create(:user)
  	  	@student2 = FactoryGirl.create(:user, id: 3, email: "student2@student2.com")
  	  	@employer = FactoryGirl.create(:user, id:4, :groupable_type => "Company", email: "employer@employer.com")
@@ -31,16 +32,19 @@ describe "Employer" do
   
 	  	it "can view DBC student/alumni contact info" do
 	  		visit user_path(@student)
+	  		# Weak test
 	  		page.should have_content('student@student.com')
 	  	end
   
 	  	it "can show interest in other users" do
 	  		visit user_path(@student)
+	  		# Weak test
 	  		page.should have_button 'Next-Step'
 	  	end
   
 	  	it "can contact via email other DBC alumni/students" do
 	  		visit user_path(@student)
+	  		# Weak test
 	  		click_button "Next-Step"
 	  	end
 	  end

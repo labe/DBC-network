@@ -1,9 +1,12 @@
 class UserMailer < ActionMailer::Base
 	default from: "DBCfinalproject@gmail.com"
-
+  # Fix the indentation in this file
 
 	def student_welcome_email(user)
 		@user = user
+		# Using _path helpers for emails won't work. The URLs will be relative, i.e. "/users"
+        # in the context of an email, the browser needs a full URL, including the hostname i.e.
+        # http://www.dbcalumni.com/users. You'll need to the use the _url helpers instead
 		@url  = log_in_path
 		mail(:to => user.email, :subject => "Welcome to DBConnect")
 	end

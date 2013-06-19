@@ -8,6 +8,9 @@ class SessionsController < ApplicationController
 
 
   def create
+    # Not even sure what's going on here, but this level of nested conditionals
+    # is more than I can handle. ;)
+    # Please find a way to clean this up. Happy to pair with you.
     @user = User.find_by_email(params[:email])
     if @user && @user.authenticate(params[:password])
       if @user.activated == true

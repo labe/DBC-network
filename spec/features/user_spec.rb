@@ -21,8 +21,11 @@ describe User do
 	  	fill_in 'password', with: @student.password
 	  	click_button 'Login'
 	  	page.should have_content("Logged In!")
+	  	# What page should the user be on after logging in? Test that as well.
 	  end
   
+  	  # How is this test different than the one above? Is logging in as a student
+  	  # really that different from logging in as an employer?
 	  it "can log in as employer" do
 	  	visit root_path
 	  	fill_in 'email', with: @employer.email	
@@ -45,6 +48,7 @@ describe User do
 	  	fill_in 'user_email', with: "fake@fake.com"
 	  	click_button 'Signup'
 	  	page.should have_content("Submitted! We'll get back to you soon.")
+	  	# What else should change here? The number of Employeers?
 	  end
   
 	  it "can signup as an alumni" do
@@ -57,6 +61,7 @@ describe User do
 	  	fill_in 'user_last_name', with: "user_last_name"
 	  	click_button 'Signup'
 	  	page.should have_content("Submitted! We'll get back to you soon.")
+	  	# What else should change here? The number of Students?
 	  end
 
   end
