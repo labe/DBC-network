@@ -1,3 +1,4 @@
+<h1 class="user_home">Edit Profile</h1>
 <div class="card_layout">
   <div id="profile_gravatar">
    <%= form_for(@user, :html => { :class => "edit" }) do |f| %>
@@ -6,13 +7,10 @@
    <p><%= gravatar_image_tag user.email %></p>
    <p><%= user.groupable.name if user.groupable %></p>
    <p>Graduated: <%= user.graduation_date %></p>
-   <% if current_user.id == @user.id %>
-   <p><%= link_to "Edit my profile", edit_user_path(current_user) %></p>
-   <% end %>
      <button><% f.submit %>Submit Changes</button>
  </div>
 
- <div id="user_info">
+ <div id="user_info_edit">
   <p><%= f.email_field :email, placeholder: "Email" %> Email</p>
   <p><%= f.text_field :phone, placeholder: "Phone" %> Phone</p>
   <p><%= f.text_field :github_handle, placeholder: "Github Handle" %> FaceBook URL</p>
