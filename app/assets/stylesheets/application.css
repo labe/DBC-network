@@ -35,6 +35,15 @@ body {
 
 a {
   text-decoration: none;
+  color: #0A76B7;
+}
+
+a:visited{
+  color:black;
+}
+
+a:hover{
+  color: #F5513C;
 }
 
 li {
