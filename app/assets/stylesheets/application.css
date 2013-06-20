@@ -78,6 +78,8 @@ span {
   position: absolute;
   right: 10px;
   top:15px;
+  border:none;
+  opacity:0.4;
 }
 
 .inner_login {
@@ -327,8 +329,15 @@ float: right;
 }
 
 .clear {
-  margin-left:50px;
+  margin-left:60px;
   margin-bottom: 20px;
+  width:80px;
+  height:80px;
+  border: none;
+  font-size:16px;
+  opacity:0.8;
+  margin-right:10px;
+  border-radius:100px;
 }
 
 .search_results {
@@ -442,7 +451,7 @@ float: right;
 }
 
 .signup-popup {
-  margin-top: 50px;
+  margin-top: 65px;
   padding-top: 20px;
 }
 
@@ -488,4 +497,18 @@ float: right;
 
 .question-submit {
   float: right;
+}
+
+.button_to input{
+  background-color: #ff6551;
+}
+
+.request-button {
+  display:block;
+  margin:0 auto;
+  margin-top: 20px;
+}
+
+.company_signup_form {
+  margin: 20px 0;
 }

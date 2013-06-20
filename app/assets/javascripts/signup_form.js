@@ -39,8 +39,15 @@ var employerSignup = ("<div class='signup-popup'>" + "<span>Employer Signup</spa
   <br><select id='user_groupable_id' name='user[groupable_id]'><option value='>Please select</option> \
   <option value='1'>Franecki-Lindgren</option></select> \
   <br><input name='commit' type='submit' value='Signup' /> \
-  </form><br> \
-  <form action='/companies/new' class='button_to' method='get'><div><input type='submit' value='Add my company' /></div></form>" + "</div>")
+  </form><br>") 
+var companySignup = ("<div class='signup-popup'>" + "<span>Request A Company Profile</span> \
+  <form accept-charset='UTF-8' action='/companies' class='company_signup_form' method='post'><div style='margin:0;padding:0;display:inline'></div> \
+  <input id='companies_name' name='companies[name]' placeholder='Company Name' required='required' size='30' type='text' /> \
+  <input id='companies_website' name='companies[website]' placeholder='Company Website' required='required' size='30' type='text' /> \
+  <input id='companies_location' name='companies[location]' placeholder='Company Location' required='required' size='30' type='text' /> \
+  <input id='companies_initial_email_contact' name='companies[initial_email_contact]' placeholder='Point of Contact (Email)' required='required' size='30' type='text' /> \
+  <input name='commit' type='submit' class='request-button' value='Request' /> \
+</form>" + "</div>")
 
 function overlay(whichSignup) {
 	var docHeight = $(document).height();
@@ -49,11 +56,11 @@ function overlay(whichSignup) {
    'background-color' : 'rgba(255, 255, 255, 100)',
    'position' :'absolute',
    'text-align' : 'center',
-   'top' : '20%',
+   'top' : '100px',
    'left' : '35%',
-   'width' : '37%',
-   'height' : '55%',
-   'border-radius' : '1000px',
+   'width' : '500px',
+   'height' : '500px',
+   'border-radius' : '2500px',
    'z-index' : 4999
  }).hide().show(('slow','fade'));
 
@@ -82,6 +89,6 @@ $(document).ready(function(){
    e.preventDefault();
    overlay(eval(this.id+"Signup"));
  });
-  
+
 
 });
