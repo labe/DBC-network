@@ -46,8 +46,8 @@ Alumni::Application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'example.com',
-    user_name:            'dbcfinalproject',
-    password:             'Whatsup11',
+    user_name:            ENV['ALUMNI_MAIL_USER'],
+    password:             ENV['ALUMNI_MAIL_PASS'],
     authentication:       'plain',
     enable_starttls_auto: true  }
     

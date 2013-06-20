@@ -41,10 +41,15 @@ Set Your ENV variables using
 
     export ENV_VAR_NAME=ENV_VAR_VAL
     
-Get These from github or whoever has them on your team.
+Get these from github or whoever has them on your team.
 
 * GITHUB_API_ID  - API ID from Github API
 * GITHUB_API_SECRET - API Secret from Github API
 * GITHUB_USER_AGENT - App you registered
 * GITHUB_AUTH_USER - Username
 * GITHUB_AUTH_PASS - User Password
+
+You will also need your email user and pass for gmail
+
+* ALUMNI_MAIL_USER
+* ALUMNI_MAIL_PASS
