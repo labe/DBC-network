@@ -66,4 +66,4 @@ gem 'debugger'
 
 gem 'best_in_place'
 gem 'sunspot_rails'
-
+gem 'thin'
