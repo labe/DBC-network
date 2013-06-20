@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
+ruby "1.9.3"
 
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-gem 'pg'
+
 
 
 # Gems used only for assets and not required
@@ -29,7 +29,12 @@ gem 'delayed_job_active_record'
 gem "daemons"
 gem "carrierwave"
 
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -61,3 +66,4 @@ gem 'debugger'
 
 gem 'best_in_place'
 gem 'sunspot_rails'
+gem 'thin'
