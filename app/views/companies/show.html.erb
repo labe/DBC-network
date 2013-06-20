@@ -1,16 +1,18 @@
 <% if @company.status == "active" %>
 
 <div class="card_layout">
+  <% if current_user.groupable.name == @company.name %>
   <div class="edit-questions">
       <%= link_to "Edit Questions",company_questions_path(@company) %>
   </div>
+  <% end %>
   <div class="company-card">
     <% if @company.logo.url %>
     <p><%= image_tag(@company.logo.url, :class => "logo" ) %></p>
     <% end %>
     <p id="name"><%= @company.name %></p>
-    <p><%= link_to "#{@company.website}", "http://#{@company.website}"  %></p>
-    <p><%= @company.location %></p>
+    <p class="company-info"><%= link_to "#{@company.website}", "#{@company.website}", :class => "company-info"  %></p>
+    <p class="company-info"><%= @company.location %></p>
   </div>
 </div>
 
@@ -19,7 +21,7 @@
     <%= form_for :company_contact , :url => connect_employers_path, :method => 'post' do |f| %>
         <%= f.hidden_field :company_id, :value => @company.id %>
         <% if current_user.groupable_type == 'Cohort' %>
-          <button>Connect<% f.submit %></button>
+          <button class="connect_button">Connect<% f.submit %></button>
         <% end %>
     <% end %>
   <% else %>

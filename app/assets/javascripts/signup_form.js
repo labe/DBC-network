@@ -39,7 +39,7 @@ var employerSignup = ("<div class='signup-popup'>" + "<span>Employer Signup</spa
   <br><select id='user_groupable_id' name='user[groupable_id]'><option value='>Please select</option> \
   <option value='1'>Franecki-Lindgren</option></select> \
   <br><input name='commit' type='submit' value='Signup' /> \
-  </form><br>") 
+  </form><br>")
 var companySignup = ("<div class='signup-popup'>" + "<span>Request A Company Profile</span> \
   <form accept-charset='UTF-8' action='/companies' class='company_signup_form' method='post'><div style='margin:0;padding:0;display:inline'></div> \
   <input id='companies_name' name='companies[name]' placeholder='Company Name' required='required' size='30' type='text' /> \
@@ -60,7 +60,7 @@ function overlay(whichSignup) {
    'left' : '35%',
    'width' : '500px',
    'height' : '500px',
-   'border-radius' : '2500px',
+   'border-radius' : '200px',
    'z-index' : 4999
  }).hide().show(('slow','fade'));
 

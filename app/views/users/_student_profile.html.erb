@@ -32,7 +32,7 @@
     <% if @current_top_5 %>
       <% @current_top_5.each do |repo| %>
     <tr>
-      <td data-url=<%=repo.url %> data-name=<%=repo.name%>><%= link_to "#{repo.name}", repo.url %></td> 
+      <td data-url=<%=repo.url %> data-name=<%=repo.name%>><%= link_to "#{repo.name}", repo.url %></td>
      </tr>
      <% end %>
      <% end %>
@@ -40,7 +40,7 @@
   <% if user == current_user %>
     <%= form_for @user, :url => user_github_path(@user), method: 'post', html: { :class => 'git_save', :id=>current_user.id } do |f| %>
       <%= f.submit "Submit", :disable_with => 'Top 5 Saved' %>
-      <p id='git_error'>Sorry Brah Only 5 Top Repos Allowed</p>
+      <p id='git_error'>Choose your top five repos.</p>
       <% end %>
   <% end %>
   </div>
@@ -54,7 +54,7 @@
 				<%= f.hidden_field :pitcher_id, :value => current_user.id %>
 				<%= f.hidden_field :catcher_id, :value => user.id %>
 				<% if current_user.groupable_type == 'Cohort' %>
-					<button>Connect<% f.submit %></button>
+					<button class="connect_button">Connect<% f.submit %></button>
 				<% elsif current_user.groupable_type == 'Company'  %>
 					<button class="lettuce-intro">Let us introduce you<% f.submit %></button>
 				<% end %>
