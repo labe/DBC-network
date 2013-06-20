@@ -347,12 +347,18 @@ float: right;
 
 .user-div {
   height:50px;
+  width:400px;
+  margin: 0 auto;
 }
 
 .user-div-text {
   display:inline;
   height: 35px;
   line-height: 35px;
+}
+
+.user-div-text a {
+  font-size: 20px;
 }
 
 .nav-descriptor {
@@ -428,26 +434,23 @@ float: right;
 .signup-buttons a{
   color:black !important;
 }
- 
+
 .company-card {
   margin: 0 auto;
-  width:350px;
+  width:500px;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 150px;
 }
 .company-card #name{
-  font-size: 35px;
-  text-shadow: 1px 0px #eee, 0px 1px #ccc,
-               2px 1px #eee, 1px 2px #ccc,
-               3px 2px #eee, 2px 3px #ccc,
-               4px 3px #eee, 3px 4px #ccc,
-               5px 4px #eee, 4px 5px #ccc,
-               6px 5px #eee
-              
+  font-size: 45px;
+  width:100%;
 }
-.company-card p {
-  font-size: 20px;
+
+.company-info, .company-info a,.company-info a:link,.company-info a:visited {
+  font-size: 16px;
+  color:grey;
 }
+
 
 .close {
   position: absolute;
@@ -521,7 +524,69 @@ float: right;
   margin: 20px 0;
 }
 
+.company-card a {
+  color:black;
+}
+
 .company-card .edit{
   text-align: right;
   width:500px;
+}
+
+.edit-questions {
+  float:left;
+  margin-left:20px;
+}
+
+.new-questions-background {
+  width:535px;
+  height:30px;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding:20px;
+}
+
+.question_form {
+  margin: 0 auto;
+}
+
+.question_form input {
+  margin-right:10px;
+  border: none;
+  outline: none;
+  font-size:20px;
+  background-color: transparent;
+}
+
+.question_form input[type="text"] {
+  border-bottom: 1px solid black;
+}
+
+.no_connections {
+  width:150px;
+  margin:0 auto;
+  padding:30px;
+}
+
+button.lettuce-intro {
+  width:170px;
+  padding:0;
+  margin-left:50px;
+  margin-top: 20px;
+}
+
+.user_nav_center {
+  display: table;
+  margin: 0 auto;
+}
+
+.connect_button {
+  color:white;
+  font-size: 20px;
+  background-color: #f5513c;
+  border: none;
+  -webkit-box-shadow: 2px 1px 3px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    2px 1px 3px rgba(50, 50, 50, 0.75);
+  box-shadow:         2px 1px 3px rgba(50, 50, 50, 0.75);
 }

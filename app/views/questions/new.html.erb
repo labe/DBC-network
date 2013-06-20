@@ -1,7 +1,7 @@
-<div class="question_form">
-  <%= form_for @question, :url => company_questions_path  do |f| %>
-    <%= f.label :text, "Enter a Question" %>
-    <%= f.text_field :text, :placeholder => "Question", :autofocus => true %><br>
-    <%= f.submit %>
-  <% end %>
+<div class="new-questions-background">
+  <div class="question_form">
+    <%= form_for @question, :url => company_questions_path  do |f| %>
+      <%= f.text_field :text, :placeholder => "Enter a Question", :autofocus => true %><%= f.submit %>
+    <% end %>
+  </div>
 </div>

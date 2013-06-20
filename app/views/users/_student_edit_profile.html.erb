@@ -13,13 +13,13 @@
  <div id="user_info_edit">
   <p><%= f.email_field :email, placeholder: "Email" %> Email</p>
   <p><%= f.text_field :phone, placeholder: "Phone" %> Phone</p>
-  <p><%= f.text_field :github_handle, placeholder: "Github Handle" %> FaceBook URL</p>
+  <p><%= f.text_field :facebook_url, placeholder: "Facebook URL" %> FaceBook URL</p>
   <p><%= f.text_field :github_handle, placeholder: "Github Handle" %> Github Handle</p>
-  <p><%= f.text_field :github_handle, placeholder: "Github Handle" %> LinkedIn URL</p>
-  <p><%= f.text_field :github_handle, placeholder: "Github Handle" %> Tumblr URL</p>
-  <p><%= f.text_field :github_handle, placeholder: "Github Handle" %> Twitter URL</p>
+  <p><%= f.text_field :linkedin_url, placeholder: "LinkedIn URL" %> LinkedIn URL</p>
+  <p><%= f.text_field :tumblr_url, placeholder: "Tumblr URL" %> Tumblr URL</p>
+  <p><%= f.text_field :twitter_url, placeholder: "Twitter URL" %> Twitter URL</p>
   <div class="user_intro">
-    <p>Bio: </p><p><%= f.text_area :intro, :size => "30x3", placeholder: "Write a short intro for employers and alumnis to see." %></p>
+    <p>Bio: </p><p><%= f.text_area :intro, :size => "30x3", placeholder: "Write a short intro for employers and alumni to see." %></p>
    <% end %>
  </div>
 </div>

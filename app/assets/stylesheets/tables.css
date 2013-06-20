@@ -125,6 +125,10 @@ button.edit{
 	font-size: 14px;
 }
 
+#user_info img {
+	width:15px;
+}
+
 .admin_table {
 	font-family: Sans-Serif;
 	margin: 0 45px;

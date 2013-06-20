@@ -23,24 +23,28 @@
 		</div>
 	</div>
 </div>
-<div id='my_top_5'>
+<% if user.git_hub_selections.length > 0 %>
+  <div id='my_top_5'>
   <table id="github_list_showing" class="selected_repos">
     <tr>
-      <td>Links to this grads work on<%= image_tag("github_logo.png")%> GitHub are listed below</td>
+      <td>Links to this grad's work on<%= image_tag("github_logo.png")%> GitHub are listed below</td>
     </tr>
     <% if @current_top_5 %>
       <% @current_top_5.each do |repo| %>
     <tr>
-      <td data-url=<%=repo.url %> data-name=<%=repo.name%>><%= link_to "#{repo.name}", repo.url %></td> 
+      <td data-url=<%=repo.url %> data-name=<%=repo.name%>><%= link_to "#{repo.name}", repo.url %></td>
      </tr>
      <% end %>
      <% end %>
   </table>
-  <%= form_for @user, :url => user_github_path(@user), method: 'post', html: { :class => 'git_save', :id=>current_user.id } do |f| %>
-<%= f.submit "Submit", :disable_with => 'Top 5 Saved' %>
-<p id='git_error'>Sorry Brah Only 5 Top Repos Allowed</p>
-</div>
-<%end%>
+  <% if user == current_user %>
+    <%= form_for @user, :url => user_github_path(@user), method: 'post', html: { :class => 'git_save', :id=>current_user.id } do |f| %>
+      <%= f.submit "Submit", :disable_with => 'Top 5 Saved' %>
+      <p id='git_error'>Choose your top five repos.</p>
+      <% end %>
+  <% end %>
+  </div>
+<% end %>
 
 
 <div class="connect-button">
@@ -50,9 +54,9 @@
 				<%= f.hidden_field :pitcher_id, :value => current_user.id %>
 				<%= f.hidden_field :catcher_id, :value => user.id %>
 				<% if current_user.groupable_type == 'Cohort' %>
-					<button>Connect<% f.submit %></button>
+					<button class="connect_button">Connect<% f.submit %></button>
 				<% elsif current_user.groupable_type == 'Company'  %>
-					<button>Let us introduce you<% f.submit %></button>
+					<button class="lettuce-intro">Let us introduce you<% f.submit %></button>
 				<% end %>
 			<% end %>
 		<% end %>

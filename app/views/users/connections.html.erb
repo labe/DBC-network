@@ -2,6 +2,7 @@
 <div class="connections-title">Your Connections</div>
   <div class="connections-list">
   <div class="user-filtered">
+  <% if current_user.interests.length > 0 %>
   <% current_user.interests.each do |interest| %>
     <div class="connections-person">
     <%= gravatar_image_tag interest.email %><br>
@@ -11,3 +12,8 @@
   <% end %>
   </div>
 </div>
+<% else %>
+<div class="no_connections">
+No connections yet! 
+</div>
+<% end %>
