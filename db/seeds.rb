@@ -16,9 +16,20 @@ Company.create(:activated => true,
 end
 
 # Create a cohort
-Cohort.create(:name => "Squirrels 2013")
-Cohort.create(:name => "Foxes 2013")
-Cohort.create(:name => "Otters 2013")
+Cohort.create(:name => "2013-Banana Slugs")
+Cohort.create(:name => "2013-Fence Lizards")
+Cohort.create(:name => "2013-Fiery Skippers")
+Cohort.create(:name => "2013-Foxes")
+Cohort.create(:name => "2013-Golden Bears")
+Cohort.create(:name => "2013-Grasshoppers")
+Cohort.create(:name => "2013-Island Foxes")
+Cohort.create(:name => "2013-Melt")
+Cohort.create(:name => "2013-Otters")
+Cohort.create(:name => "2013-Pocket Gophers")
+Cohort.create(:name => "2013-Red Admirals")
+Cohort.create(:name => "2013-Sea Lions")
+Cohort.create(:name => "2013-Squirrels")
+Faculty.create(:name => "Faculty")
 
 # Create a Administration
 Administration.create(:name => "Administration")
