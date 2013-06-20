@@ -1,6 +1,6 @@
 <div class="card_layout">
 	<div id="profile_gravatar">
-		<p><%= user.first_name %> <g%= user.last_name %></p>
+		<p><%= user.first_name %> <%= user.last_name %></p>
 		<p><%= user.location %></p>
 		<p><%= gravatar_image_tag user.email %></p>
 		<p><%= user.groupable.name if user.groupable %></p>
