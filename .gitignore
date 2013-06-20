@@ -24,7 +24,7 @@ pickle-email-*.html
 /solr/pids/*
 /solr/pids/development/sunspot-solr-development.pid
 /public/uploads/*
-/db/migrate/boot_seeds.rb
 /app/.DS_Store
 /app/assets/.DS_Store
 .DS_Store
+/db/migrate/boot_seeds.rb
