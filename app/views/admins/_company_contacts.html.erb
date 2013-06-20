@@ -1,0 +1,17 @@
+<span class="category-title">Student-to-Company Contact</span><br>
+<table class="admin_table">
+  <thead>
+    <tr>
+      <th>Which student reached out?</th>
+      <th>Which company was contacted?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% company_contacts.each do |contact| %>
+    <tr>
+      <th><%= link_to "#{contact.user.first_name} #{contact.user.last_name}", user_path(contact.user) %></th>
+      <th><%= link_to "#{contact.company.name}", company_path(contact.company) %></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

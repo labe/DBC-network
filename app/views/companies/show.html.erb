@@ -1,0 +1,31 @@
+<% if @company.status == "active" %>
+
+<div class="card_layout">
+  <div class="company-card">
+    <p><%= @company.name %></p>
+    <p><%= @company.website %></p>
+    <p><%= @company.location %></p>
+  </div>
+</div>
+
+<div class="connect-button">
+  <% if @no_contacts %>
+    <%= form_for :company_contact , :url => connect_employers_path, :method => 'post' do |f| %>
+        <%= f.hidden_field :company_id, :value => @company.id %>
+        <% if current_user.groupable_type == 'Cohort' %>
+          <button>Connect<% f.submit %></button>
+        <% end %>
+    <% end %>
+  <% else %>
+<%= @contacted_on.strftime("You two connected on %m/%d/%Y") %>
+  <% end %>
+
+</div>
+
+
+
+<% elsif @user.status == "inactive" %>
+  <div class="card_layout">
+  <div class="inactive-user">This company is inactive.</div>
+  </div>
+<% end %>

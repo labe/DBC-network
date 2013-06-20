@@ -16,14 +16,20 @@ class AnswersController < ApplicationController
     end
 
     if @answers.any?{|a| !a.valid? }
-      render "questions/index", :flash => { :error => "Answer invalid" }
+      flash[:error] = "Please answer every question."
+      render 'questions/index'
     else
       @answers.each{ |a| a.save }
-      redirect_to users_path, :flash => { :success => "Answer Posted" }
+      @company = @answers.last.question.company
+      @new_contact = CompanyContact.new(:user_id => current_user.id,
+                            :company_id => @company.id)
+      if @new_contact.save
+        redirect_to companies_path, :flash => { :success => "Answers posted. Good luck!" }
+        @response = @answers.zip(@questions)
+        InterestMailer.delay.student_initiated_email(@company, current_user, @response)
+      end
     end
-    @catcher = @answers.last.question.user_id
-    @responses = @answers.zip(@questions)
-    InterestMailer.delay.student_initiated_email(@catcher, current_user, @responses)
+   
   end
 
   def show

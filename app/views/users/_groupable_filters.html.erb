@@ -2,6 +2,6 @@
   <h3>Groups</h3>
   <button class="clear" >Clear Filters</button>
   <% @users.group('groupable_type, groupable_id').each do |user| %>
-    <button class="group_filters" id="<%= user.groupable.name %>"><%= user.groupable.name %></button>
+    <button class="group_filters" id="<%= user.groupable.name.gsub(/\s+/, "") %>"><%= user.groupable.name %></button>
   <% end %>
 </div>

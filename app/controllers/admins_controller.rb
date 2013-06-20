@@ -44,6 +44,7 @@ class AdminsController < ApplicationController
       @interests = Interest.all
       @questions = Question.all
       @answers = Answer.all
+      @company_contacts = CompanyContact.all
     else
       redirect_to root_path
     end
@@ -72,11 +73,11 @@ class AdminsController < ApplicationController
                      :twitter_url => params[:user][:twitter_url]
                      )
     if @user.save
-      flash[:success] = "Student created successfully!"
+      flash[:success] = "Alumni profile created!"
     else
       flash[:error] = "Student was not saved correctly. Please try again."
     end
-    redirect_to :back
+    redirect_to thank_you_path
   end
 
   def create_employer

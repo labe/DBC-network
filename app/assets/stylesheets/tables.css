@@ -123,7 +123,7 @@ button.edit{
 .admin_table {
 	font-family: Sans-Serif;
 	margin: 0 45px;
-	width: 100%;
+	width: 1050px;
 	text-align: left;
 	border-collapse: collapse;
 }
@@ -157,27 +157,15 @@ button.edit{
 }
 
 #alumni{
-	position:absolute;
-	top:10;
-	left:0;
 }
 
 #mentor{
-	position:absolute;
-	top:0;
-	right:0;
 }
 
 #staff{
-	position:absolute;
-	bottom:0;
-	left:0;
 }
 
 #employer{
-	position:absolute;
-	bottom:0;
-	right:0;
 }
 
 .signup_pic{
@@ -188,4 +176,9 @@ button.edit{
 .signup_button{
 	width:150px;
 	height:150px;
+	border: none;
+	font-size:20px;
+	opacity:0.8;
+	margin-right:10px;
+	border-radius:100px;
 }

@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_many :interests, :through => :user_interests, :source => :catcher
   has_many :followers, :through => :following_interests, :source => :pitcher
 
+  has_many :company_contacts
+
   has_many :questions
   has_many :answers
 

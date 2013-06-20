@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -328,7 +327,7 @@
 								<table border="0" cellpadding="0" cellspacing="0" width="600">
 									<tr>
 										<td valign="top" class="upperBodyContent" style="border-collapse: collapse;color: #FFFFFF;font-family: Verdana;font-size: 12px;line-height: 150%;text-align: center;"><h1 style="text-align: center;color: #FFFFFF;display: block;font-family: Helvetica;font-size: 36px;font-weight: normal;line-height: 100%;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;">
-											<%= "#{@pitcher.first_name} #{@pitcher.last_name}" %>,a DBC graduate, is interested in <%= @catcher.groupable.name %>.<br>
+											<%= "#{@pitcher.first_name} #{@pitcher.last_name}" %>,a DBC graduate, is interested in <%= @catcher.name %>.<br>
 											<br>
 											Check out their answers to the questions below.<br>
 											<br>
@@ -384,14 +383,13 @@
 										<td align="center" valign="top" style="padding-top: 20px;padding-bottom: 20px;border-collapse: collapse;">
 											<table border="0" cellpadding="0" cellspacing="0" width="100%" id="schedule">
 												<tr>
-													<td colspan="3" class="lowerBodyContent" style="padding-bottom: 20px;border-collapse: collapse;color: #707070;font-family: Verdana;font-size: 15px;line-height: 150%;text-align: left;"><h3 style="color: #909090;display: block;font-family: Verdana;font-size: 14px;font-weight: bold;line-height: 100%;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;">
-														company.question</h3>
+													<td colspan="3" class="lowerBodyContent" style="padding-bottom: 20px;border-collapse: collapse;color: #707070;font-family: Verdana;font-size: 15px;line-height: 150%;text-align: left;">
 													</td>
 												</tr>
 												<tr mc:hideable="hideable_2" mchideable="hideable_2">
 													<td valign="top" width="40" class="scheduleDay" style="padding-right: 20px;padding-bottom: 10px;border-collapse: collapse;border-bottom: 1px solid #CCCCCC;color: #505050;font-family: Verdana;font-size: 13px;font-weight: bold;line-height: 100%;text-align: left;"></td>
-													<td valign="top" class="scheduleTime" style="padding-right: 20px;padding-bottom: 10px;border-collapse: collapse;border-bottom: 1px solid #CCCCCC;color: #505050;font-family: Verdana;font-size: 13px;font-weight: bold;line-height: 100%;text-align: left;">Graduates Description<%= @pitcher.intro %></td>
-													<td valign="top" class="scheduleTitle" style="padding-bottom: 10px;border-collapse: collapse;border-bottom: 1px solid #CCCCCC;color: #B30F0F;font-family: Verdana;font-size: 13px;font-weight: bold;line-height: 100%;text-align: left;">student.company.question</td>
+													<td valign="top" class="scheduleTime" style="padding-right: 20px;padding-bottom: 10px;border-collapse: collapse;border-bottom: 1px solid #CCCCCC;color: #505050;font-family: Verdana;font-size: 13px;font-weight: bold;line-height: 100%;text-align: left;"></td>
+													<td valign="top" class="scheduleTitle" style="padding-bottom: 10px;border-collapse: collapse;border-bottom: 1px solid #CCCCCC;color: #B30F0F;font-family: Verdana;font-size: 13px;font-weight: bold;line-height: 100%;text-align: left;"></td>
 												</tr>
 												<tr mc:repeatable="repeat_2" mc:repeatindex="0" mc:hideable="hideable_repeat_2_1" mchideable="hideable_repeat_2_1">
 													<td valign="top" class="scheduleDay" style="padding-top: 10px;padding-right: 20px;padding-bottom: 10px;border-collapse: collapse;border-bottom: 1px solid #CCCCCC;color: #505050;font-family: Verdana;font-size: 13px;font-weight: bold;line-height: 100%;text-align: left;">

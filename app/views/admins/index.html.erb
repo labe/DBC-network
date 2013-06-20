@@ -7,7 +7,8 @@
   <li><%= link_to "To-do", "#to-do" %></li>
   <li><%= link_to "Students", "#students"%></li>
   <li><%= link_to "Employers", "#employers"%></li>
-  <li><%= link_to "Interests", "#interests"%></li>
+  <li><%= link_to "Employer-to-Student Interests", "#employer_to_student_interests"%></li>
+  <li><%= link_to "Student-to-Company Contact", "#company_contacts"%></li>
   <li><%= link_to "Companies", "#companies"%></li>
   <li><%= link_to "Cohorts", "#cohorts"%></li>
   <li><%= link_to "Questions", "#questions"%></li>
@@ -15,8 +16,10 @@
 </ul>
 </div>
 
+<div class="admin-tables">
+
 <a name="to-do">
-<div class="admin-portion">
+<div class="admin-portion to-do">
 <%= render partial: 'admins/todo', locals: { users: @users, companies: @companies } %>
 </div>
 
@@ -30,9 +33,14 @@
 <%= render partial: 'admins/employers', locals: { employers: @employers } %>
 </div>
 
-<a name="interests">
+<a name="employer_to_student_interests">
 <div class="admin-portion">
-<%= render partial: 'admins/interests', locals: { interests: @interests } %>
+<%= render partial: 'admins/employer_to_student_interests', locals: { interests: @interests } %>
+</div>
+
+<a name="company_contacts">
+<div class="admin-portion">
+<%= render partial: 'admins/company_contacts', locals: { company_contacts: @company_contacts } %>
 </div>
 
 <a name="companies">
@@ -53,4 +61,6 @@
 <a name="create">
 <div class="admin-portion">
 <%= render partial: 'admins/create_users_and_groupables' %>
+</div>
+
 </div>

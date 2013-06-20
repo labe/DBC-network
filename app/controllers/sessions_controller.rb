@@ -28,8 +28,8 @@ class SessionsController < ApplicationController
         render "new"
       end
     else
-      flash.now.alert = "Invalid email or password"
-      render "new"
+      flash[:error] = "Your credentials were off. Give it another shot."
+      redirect_to root_path
     end
   end
 

@@ -1,5 +1,5 @@
 <div class="question_form">
-  <%= form_for @question, :url => user_questions_path  do |f| %>
+  <%= form_for @question, :url => company_questions_path  do |f| %>
     <%= f.label :text, "Enter a Question" %>
     <%= f.text_field :text, :placeholder => "Question", :autofocus => true %><br>
     <%= f.submit %>

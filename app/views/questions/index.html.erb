@@ -1,33 +1,33 @@
-<% if @logged_in == true %>
-  <%= link_to "New Question", new_user_question_path(current_user) %> <br/><br/>
+<% if @works_at_company == true %>
+  <%= link_to "New Question", new_company_question_path(params[:company_id]) %> <br/><br/>
 <% end %>
 
-<% if !@answers.nil? %>
+<% if @answers.length > 0 %>
 
   <%= form_for :answers, :url => answers_path do |f| %>
     <% @answers.each do |answer| %>
       <% @answer = answer %>
-      <% if answer.question.status == "active" %>
+      <% if answer.question.status == "active"%>
         <%= answer.question.text %>
       <% end %>
-
-    <% if @logged_in == true %> 
-      <%= button_to "Delete", {:controller => :questions,
-          :action => 'update', :id => answer.question.id }, :method => :post %>
-    <% end %>
+      <% if @works_at_company == true && answer.question.status == "active" %>  
+        <%= button_to "Delete", company_question_path(params[:company_id], answer.question.id), :method => :put %>
+      <% end %>
     
-    <br><br>
-    <% unless current_user.groupable_type == "Company" %>
-      <%= fields_for "answer[]" do |answer| %>
-        <%= answer.label :content, "Answer" %>
-        <%= answer.text_field :text, :rows => 10%>
-        <%= answer.hidden_field :question_id %> 
-        <br><br>
+      <br><br>
+      <% if answer.question.status == "active"%>
+        <% unless current_user.groupable_type == "Company" %>
+          <%= fields_for "answer[]" do |answer| %>
+            <%= answer.label :content, "Answer" %>
+            <%= answer.text_field :text, :rows => 10%>
+            <%= answer.hidden_field :question_id %> 
+            <br><br>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
-    <% end %>
     <% unless current_user.groupable_type == "Company" %>
-    <%= f.submit "Submit" %>
+      <%= f.submit "Submit" %>
     <% end %>
     
   <% end %>

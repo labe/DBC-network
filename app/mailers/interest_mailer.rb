@@ -10,7 +10,7 @@ class InterestMailer < ActionMailer::Base
     @pitcher = pitcher
     @response = responses
     @url = log_in_path
-    mail(:to => catcher.email, :reply_to => pitcher.email, :subject => "Someone's Interested")
+    mail(:to => catcher.initial_email_contact, :reply_to => pitcher.email, :subject => "Someone's Interested")
   end
 
   def employer_initiated_email(catcher,pitcher)
