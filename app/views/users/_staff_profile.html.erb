@@ -34,7 +34,7 @@
         <% if current_user.groupable_type == 'Cohort' %>
           <button>Connect<% f.submit %></button>
         <% elsif current_user.groupable_type == 'Company'  %>
-          <button>Let us introduce you<% f.submit %></button>
+          <button class="lettuce-intro">Let us introduce you<% f.submit %></button>
         <% end %>
       <% end %>
     <% end %>

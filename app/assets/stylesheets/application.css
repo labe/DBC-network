@@ -525,3 +525,51 @@ float: right;
   text-align: right;
   width:500px;
 }
+
+.edit-questions {
+  float:left;
+  margin-left:20px;
+}
+
+.new-questions-background {
+  width:535px;
+  height:30px;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding:20px;
+}
+
+.question_form {
+  margin: 0 auto;
+}
+
+.question_form input {
+  margin-right:10px;
+  border: none;
+  outline: none;
+  font-size:20px;
+  background-color: transparent;
+}
+
+.question_form input[type="text"] {
+  border-bottom: 1px solid black;
+}
+
+.no_connections {
+  width:150px;
+  margin:0 auto;
+  padding:30px;
+}
+
+button.lettuce-intro {
+  width:170px;
+  padding:0;
+  margin-left:50px;
+  margin-top: 20px;
+}
+
+.user_nav_center {
+  display: table;
+  margin: 0 auto;
+}

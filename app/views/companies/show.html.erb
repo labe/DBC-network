@@ -1,6 +1,9 @@
 <% if @company.status == "active" %>
 
 <div class="card_layout">
+  <div class="edit-questions">
+      <%= link_to "Edit Questions",company_questions_path(@company) %>
+  </div>
   <div class="company-card">
     <% if @company.logo.url %>
     <p><%= image_tag(@company.logo.url, :class => "logo" ) %></p>
@@ -22,10 +25,7 @@
   <% else %>
 <%= @contacted_on.strftime("You two connected on %m/%d/%Y") %>
   <% end %>
-
 </div>
-
-
 
 <% elsif @user.status == "inactive" %>
   <div class="card_layout">
