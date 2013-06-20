@@ -7,8 +7,6 @@ class CompaniesController < ApplicationController
                    :name => params[:companies][:name],
                    :location => params[:companies][:location],
                    :initial_email_contact => params[:companies][:initial_email_contact])
-    company.logo = params[:companies][:file]
-    company.save!
     flash[:success] = "Company request form sent. We'll be in touch."
     redirect_to :back
   end
@@ -33,4 +31,25 @@ class CompaniesController < ApplicationController
       @contacted_on = current_user.company_contacts.where(:company_id => @company.id).first.created_at
     end
   end
+
+  def edit 
+    @company = Company.find(params[:id])
+    @logo = @company.logo.url
+    @no_contacts = current_user.company_contacts.select{|contact| contact.company_id == @company.id }.empty?
+    unless @no_contacts
+      @contacted_on = current_user.company_contacts.where(:company_id => @company.id).first.created_at
+    end
+  end
+
+  def update
+     @company = Company.find(params[:id])
+     @company.update_attributes(:website => params[:company][:website],
+                   :name => params[:company][:name],
+                   :location => params[:company][:location],
+                   :initial_email_contact => params[:company][:initial_email_contact])
+     @company.logo = params[:company][:file]
+     @company.save!
+     redirect_to :back
+  end
+
 end

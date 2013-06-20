@@ -521,3 +521,8 @@ float: right;
 .company_signup_form {
   margin: 20px 0;
 }
+
+.company-card .edit{
+  text-align: right;
+  width:500px;
+}
