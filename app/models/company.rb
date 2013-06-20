@@ -6,8 +6,4 @@ class Company < ActiveRecord::Base
 
   # mount_uploader :logo, LogoUploader
 
-  searchable do
-    text :location, :name, :website
-  end
-
 end
