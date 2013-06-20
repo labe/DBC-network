@@ -1,9 +1,9 @@
 class AnswersController < ApplicationController
-  
+
   def new
     @question = Question.new
   end
-  
+
   def create
     @answers = []
     @questions = []
@@ -26,10 +26,10 @@ class AnswersController < ApplicationController
       if @new_contact.save
         redirect_to companies_path, :flash => { :success => "Answers posted. Good luck!" }
         @response = @answers.zip(@questions)
-        InterestMailer.delay.student_initiated_email(@company, current_user, @response)
+        InterestMailer.student_initiated_email(@company, current_user, @response).deliver
       end
     end
-   
+
   end
 
   def show
