@@ -4,5 +4,6 @@
   <%= f.text_field :website, :placeholder => "Company Website", :required => true %>
   <%= f.text_field :location, :placeholder => "Company Location", :required => true %>
   <%= f.text_field :initial_email_contact, :placeholder => "Point of Contact (Email)", :required => true %>
+  <%= f.file_field :file %>
   <%= f.submit "Request" %>
 <% end %>
