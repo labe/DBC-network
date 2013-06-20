@@ -33,7 +33,7 @@ describe InterestMailer do
 
   	before do
   		@student = FactoryGirl.create(:user)
-  	  @company = FactoryGirl.create(:company, activated: false)
+  	  @company = FactoryGirl.create(:company, activated: true)
       @cohort = FactoryGirl.create(:cohort)
       @employer = FactoryGirl.create(:user, id: 4, groupable_type: "Company", 
       															groupable_id: @company.id, email: "employer@employer.com")
@@ -42,22 +42,22 @@ describe InterestMailer do
   	end
 
   	it "sends an email to correct employer" do 
-  		 @email = InterestMailer.student_initiated_email(@employer,@student,[[@question,@answer],[@question,@answer]])
-  		 @email.to.join.should == @employer.email
+  		 @email = InterestMailer.student_initiated_email(@company,@student,[[@question,@answer],[@question,@answer]])
+  		 @email.to.join.should == @company.initial_email_contact
   	end	
 
   	it "sends an email with reply-to correct student" do 
-  		 @email = InterestMailer.student_initiated_email(@employer,@student,[[@question,@answer],[@question,@answer]])
+  		 @email = InterestMailer.student_initiated_email(@company,@student,[[@question,@answer],[@question,@answer]])
   		 @email.reply.to.join.should == @student.email
   	end	
 
   	it "sends an email with from field of dbcfinalproject@gmail.com" do 
-  		 @email = InterestMailer.student_initiated_email(@employer,@student,[[@question,@answer],[@question,@answer]])
+  		 @email = InterestMailer.student_initiated_email(@company,@student,[[@question,@answer],[@question,@answer]])
   		 @email.from.join.should == "dbcfinalproject@gmail.com"
   	end
 
   	it "sends email with correct subject" do 
-  		 @email = InterestMailer.student_initiated_email(@employer,@student,[[@question,@answer],[@question,@answer]])
+  		 @email = InterestMailer.student_initiated_email(@company,@student,[[@question,@answer],[@question,@answer]])
   		 @email.subject.should == "Someone's Interested"
   	end		
 

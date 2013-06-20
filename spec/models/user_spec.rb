@@ -31,7 +31,7 @@ disconnect_sunspot
 		it { should be_instance_of(User) }
 		it { should belong_to(:groupable) }
 		it { should have_many(:user_interests) }
-		it { should have_many(:following) }
+		it { should have_many(:following_interests) }
 		it { should have_many(:interests) }
 		it { should have_many(:followers) }
 		it { should have_many(:questions) }
