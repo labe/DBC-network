@@ -26,7 +26,7 @@ User.create(:activated => true, :groupable_id => '1', :groupable_type => 'Cohort
 User.create(:activated => true, :groupable_id => '1', :groupable_type => 'Cohort', :email => 'me@juliantai.com', :first_name => 'Julian', :github_handle => 'juliantai', :location => 'San Francisco', :last_name => 'Tai', :password => 'password', :status => 'active', :twitter_url => 'https://twitter.com/juliantai', :tumblr_url => 'http://juliantai.tumblr.com/')
 User.create(:activated => true, :groupable_id => '1', :groupable_type => 'Cohort', :email => 'kbasye@gmail.com', :first_name => 'Katey', :github_handle => 'kbasye', :location => 'San Francisco', :last_name => 'Basye', :password => 'password', :status => 'active', :twitter_url => 'https://twitter.com/kteybsye', :tumblr_url => 'http://www.kateybasye.com/')
 User.create(:activated => true, :groupable_id => '1', :groupable_type => 'Cohort', :email => 'enhasa@gmail.com', :first_name => 'Kevin', :github_handle => 'heyimkko', :location => 'San Francisco', :last_name => 'Ko', :password => 'password', :status => 'active', :twitter_url => 'https://twitter.com/kokev', :tumblr_url => 'http://saintsintosea.tumblr.com')
-User.create(:activated => true, :groupable_id => '1', :groupable_type => 'Cohort', :email => 'matthewhaguemh@gmail.com', :first_name => 'Matthew', :github_handle => 'matthewhaguemh', :location => 'San Francisco', :last_name => 'Hague', :password => 'password', :status => 'active', :twitter_url => 'http://iammorallyopposedtotwitter', :tumblr_url => 'http://jonny-utah.tumblr.com')
+User.create(:activated => true, :groupable_id => '1', :groupable_type => 'Cohort', :email => 'matthewhaguemh@gmail.com', :first_name => 'Matthew', :github_handle => 'matthewhaguemh', :location => 'San Francisco', :last_name => 'Hague', :password => 'password', :status => 'active', :tumblr_url => 'http://jonny-utah.tumblr.com')
 User.create(:activated => true, :groupable_id => '1', :groupable_type => 'Cohort', :email => 'jhw1202@gmail.com', :first_name => 'Phillip', :github_handle => 'jhw1202', :location => 'San Francisco', :last_name => 'Woo', :password => 'password', :status => 'active', :twitter_url => 'http://twitter.com/helpthebored', :tumblr_url => 'http://helpthebored.tumblr.com')
 User.create(:activated => true, :groupable_id => '1', :groupable_type => 'Cohort', :email => 'rguerrettaz@yahoo.com', :first_name => 'Ryan', :github_handle => 'rguerrettaz', :location => 'San Francisco', :last_name => 'Guerrettaz', :password => 'password', :status => 'active', :twitter_url => 'https://twitter.com/CodingAdventure', :tumblr_url => 'http://adventuresincoding.tumblr.com/')
 User.create(:activated => true, :groupable_id => '1', :groupable_type => 'Cohort', :email => 'sarahjbland@gmail.com', :first_name => 'Sarah', :github_handle => 'sarahjanebland', :location => 'San Francisco', :last_name => 'Bland', :password => 'password', :status => 'active', :twitter_url => 'https://twitter.com/sweetaroll', :tumblr_url => 'http://sarahjanebland.tumblr.com/')
@@ -205,7 +205,7 @@ User.create(:activated => true, :groupable_id => '13', :groupable_type => 'Cohor
 User.create(:activated => true, :groupable_id => '13', :groupable_type => 'Cohort', :email => 'dhouk24@gmail.com', :first_name => 'Danny', :github_handle => 'dhouk24', :location => 'Chicago', :last_name => 'Houk', :password => 'password', :status => 'active', :twitter_url => 'https://twitter.com/themiddledan', :tumblr_url => 'http://programmingdan.tumblr.com/')
 User.create(:activated => true, :groupable_id => '13', :groupable_type => 'Cohort', :email => 'innovateworld@gmail.com', :first_name => 'Earl', :github_handle => 'innovateworld', :location => 'Chicago', :last_name => 'Wagner', :password => 'password', :status => 'active', :twitter_url => 'https://twitter.com/Earl_Wagner', :tumblr_url => 'http://earlwagner.tumblr.com/')
 User.create(:activated => true, :groupable_id => '13', :groupable_type => 'Cohort', :email => 'allareri@gmail.com', :first_name => 'Erik', :github_handle => 'ezy023', :location => 'Chicago', :last_name => 'Allar', :password => 'password', :status => 'active', :twitter_url => 'https://twitter.com/allareri', :tumblr_url => 'http://www.tumblr.com/blog/allareri')
-User.create(:activated => true, :groupable_id => '13', :groupable_type => 'Cohort', :email => 'garrettaustinboone@gmail.com', :first_name => 'Garrett', :github_handle => 'BooneTeam', :location => 'Chicago', :last_name => 'Boone', :password => 'password', :status => 'active', :twitter_url => 'http://www.twitter.com/GarrettB00NE', :tumblr_url => 'http://Booneteam.tumblr.com')
+User.create(:activated => true, :groupable_id => '13', :groupable_type => 'Cohort', :email => 'garrettaustinboone@gmail.com', :first_name => 'Garrett', :github_handle => 'BooneTeam', :location => 'Chicago', :last_name => 'Boone', :password => 'password', :status => 'active', :twitter_url => 'http://twitter.com/GarrettB00NE', :tumblr_url => 'http://Booneteam.tumblr.com')
 User.create(:activated => true, :groupable_id => '13', :groupable_type => 'Cohort', :email => 'henry.t.wang@gmail.com', :first_name => 'Henry', :github_handle => 'henrytwang', :location => 'Chicago', :last_name => 'Wang', :password => 'password', :status => 'active', :twitter_url => 'https://twitter.com/henrytwang', :tumblr_url => 'http://www.henrywang.me/')
 User.create(:activated => true, :groupable_id => '13', :groupable_type => 'Cohort', :email => 'jackzhou999@gmail.com', :first_name => 'Jack', :github_handle => 'generalzhou', :location => 'Chicago', :last_name => 'Zhou', :password => 'password', :status => 'active', :twitter_url => 'http://twitter.com/generalzhou', :tumblr_url => 'http://generalzhou.tumblr.com/')
 User.create(:activated => true, :groupable_id => '13', :groupable_type => 'Cohort', :email => 'lora.abe@gmail.com', :first_name => 'Lora', :github_handle => 'labe', :location => 'Chicago', :last_name => 'Abe', :password => 'password', :status => 'active', :twitter_url => 'http://twitter.com/dottedlinegirl', :tumblr_url => 'http://dottedlinegirl-dbc.tumblr.com')
@@ -237,8 +237,18 @@ companies.length.times do |count|
                  :name => companies[count],
                  :logo => logos[count],
                  :location => "Chicago",
-                 :status => "active")
+                 :status => "active",
+                 :initial_email_contact => "hwang89@gmail.com")
 end
+
+## Create DBC General Company
+Company.create(:activated => true,
+                 :website => "www.devbootcamp.com",
+                 :name => "DevBootcamp",
+                 :logo => "devbootcamp-logo.png",
+                 :location => "Chicago",
+                 :status => "active",
+                 :initial_email_contact => "hwang89@gmail.com")
 
 # Create an admin
 User.create(:activated => true,
@@ -263,7 +273,7 @@ User.create(:activated => true,
 
 # Create Default Employer
 User.create(  :activated => true,
-              :groupable_id => 1,
+              :groupable_id => 16,
               :groupable_type => "Company",
               :email => "employer@employer.com",
               :first_name => Faker::Name.first_name,

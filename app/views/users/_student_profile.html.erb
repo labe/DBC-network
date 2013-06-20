@@ -11,7 +11,6 @@
 	</div>
 
 	<div id="user_info">
-	<% if user.email %><p>Email: <%=  mail_to(user.email) %></p><% end %>
 	<% if user.phone %><p>Phone: <%= user.phone %></p><% end %>
 	<% if user.facebook_url %><p>Facebook: <%= link_to "#{user.facebook_url}", "http://#{user.facebook_url}" %></p><% end %>
 	<% if user.github_handle %><p><%= image_tag('github_logo.png') %> Github: <%= link_to "#{user.github_handle}", "http://github.com/#{user.github_handle}" %></p><% end %>
@@ -62,10 +61,10 @@
 		<% end %>
 		<% else %>
 			<% if pitcher_interest %>
-				<%= pitcher_interest.created_at.strftime("You two connected on %m/%d/%Y") %>
+				<%= pitcher_interest.created_at.strftime("You two connected on %m/%d/%Y. Their e-mail is #{mail_to(user.email)}") %>
 			<% end %>
 			<% if catcher_interest %>
-				<%= catcher_interest.created_at.strftime("You two connected on %m/%d/%Y") %>
+				<%= catcher_interest.created_at.strftime("You two connected on %m/%d/%Y. Their e-mail is #{mail_to(user.email)}") %>
 			<% end %>
 	<%end%>
 </div>
