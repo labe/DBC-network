@@ -34,11 +34,16 @@ class CompaniesController < ApplicationController
 
   def edit 
     @company = Company.find(params[:id])
+    if @company.id == current_user.groupable.id
     @logo = @company.logo.url
     @no_contacts = current_user.company_contacts.select{|contact| contact.company_id == @company.id }.empty?
     unless @no_contacts
       @contacted_on = current_user.company_contacts.where(:company_id => @company.id).first.created_at
     end
+    else
+      redirect_to :back
+    end
+
   end
 
   def update
