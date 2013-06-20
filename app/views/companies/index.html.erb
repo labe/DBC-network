@@ -6,9 +6,9 @@
       <% @companies.each do |company| %>
         <li id="<%=company.id%>" data-location="<%= company.location %>" data-status="<%= company.status %>">
           <div class="user-div">
-            <%= gravatar_image_tag company.initial_email_contact, :gravatar => { :size => 35 } %>
+            <%= image_tag(company.logo, :width => 35 ) %>
             <div class="user-div-text">
-              <%= link_to "#{company.name}", company_path(company.id) %> 
+              <%= link_to "#{company.name}", company_path(company.id) %>
             </div>
           </div>
         </li>

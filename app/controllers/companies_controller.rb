@@ -19,7 +19,7 @@ class CompaniesController < ApplicationController
   end
 
   def index
-    @companies = Company.where(:status => "active")
+    @companies = Company.where(:status => "active").order("name")
     @groupable = "Companies"
   end
 
