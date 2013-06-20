@@ -3,7 +3,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    Company.create(:website => params[:companies][:website],
+    company = Company.create(:website => params[:companies][:website],
                    :name => params[:companies][:name],
                    :location => params[:companies][:location],
                    :initial_email_contact => params[:companies][:initial_email_contact])
@@ -27,6 +27,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    @logo = @company.logo.url
     @no_contacts = current_user.company_contacts.select{|contact| contact.company_id == @company.id }.empty?
     unless @no_contacts
       @contacted_on = current_user.company_contacts.where(:company_id => @company.id).first.created_at
