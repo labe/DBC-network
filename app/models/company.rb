@@ -4,8 +4,8 @@ class Company < ActiveRecord::Base
   has_many :users, :as => :groupable
   has_many :questions
 
-  mount_uploader :logo, LogoUploader
-  
+  # mount_uploader :logo, LogoUploader
+
   searchable do
     text :location, :name, :website
   end
