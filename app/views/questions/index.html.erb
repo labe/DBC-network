@@ -1,3 +1,4 @@
+<div class="questions-grouped">
 <% if @works_at_company == true %>
   <%= link_to "New Question", new_company_question_path(params[:company_id]) %> <br/><br/>
 <% end %>
@@ -6,6 +7,7 @@
 
   <%= form_for :answers, :url => answers_path do |f| %>
     <% @answers.each do |answer| %>
+      <div class="question-answer">
       <% @answer = answer %>
       <% if answer.question.status == "active"%>
         <%= answer.question.text %>
@@ -18,18 +20,20 @@
       <% if answer.question.status == "active"%>
         <% unless current_user.groupable_type == "Company" %>
           <%= fields_for "answer[]" do |answer| %>
-            <%= answer.label :content, "Answer" %>
             <%= answer.text_field :text, :rows => 10%>
             <%= answer.hidden_field :question_id %> 
             <br><br>
           <% end %>
         <% end %>
       <% end %>
+    </div>
     <% end %>
-    <% unless current_user.groupable_type == "Company" %>
-      <%= f.submit "Submit" %>
-    <% end %>
-    
+    <div class="question-submit">
+      <% unless current_user.groupable_type == "Company" %>
+        <%= f.submit "Submit" %>
+      <% end %>
+    </div>
   <% end %>
   
 <% end %>
+</div>

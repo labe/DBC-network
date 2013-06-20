@@ -52,23 +52,25 @@ span {
 
 .login input[type="text"], .login input[type="password"] {
   height:24px;
-  width:9em;
   font-size:16px;
   font-family:'AvenirNext';
   border:none;
   padding: 0 10px;
+  background-color: transparent;
 }
 
 .login input[type="text"]{
   position:absolute;
   top:15px;
-  right:230px;
+  right:200px;
+  width:9em;
 }
 
 .login input[type="password"]{
   position:absolute;
-  right:60px;
+  right:70px;
   top:15px;
+  width:6em;
 }
 
 .login input[type="submit"] {
@@ -76,6 +78,8 @@ span {
   position: absolute;
   right: 10px;
   top:15px;
+  border:none;
+  opacity:0.4;
 }
 
 .inner_login {
@@ -325,8 +329,15 @@ float: right;
 }
 
 .clear {
-  margin-left:50px;
+  margin-left:60px;
   margin-bottom: 20px;
+  width:80px;
+  height:80px;
+  border: none;
+  font-size:16px;
+  opacity:0.8;
+  margin-right:10px;
+  border-radius:100px;
 }
 
 .search_results {
@@ -442,14 +453,15 @@ float: right;
 .close {
   position: absolute;
   top:15px;
-  right:15px;
+  margin:0 auto;
   background-color: #fff;
   border: none;
   font-size:20px;
 }
 
 .signup-popup {
-  margin-top: 50px;
+  margin-top: 65px;
+  padding-top: 20px;
 }
 
 .signup-popup input, .signup-popup textarea {
@@ -458,8 +470,6 @@ float: right;
   outline: 0;
   resize: none;
 }
-
-
 
 .i_am {
   margin:0 auto;
@@ -472,4 +482,42 @@ float: right;
 
 .thank_you_message {
   margin-top: 270px;
+}
+
+.questions-grouped {
+  width:500px;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 60px;
+  padding:30px;
+}
+
+.question-answer {
+  padding:20px 10px;
+  text-align: center;
+}
+
+.question-answer input {
+  font-size: 20px;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+}
+
+.question-submit {
+  float: right;
+}
+
+.button_to input{
+  background-color: #ff6551;
+}
+
+.request-button {
+  display:block;
+  margin:0 auto;
+  margin-top: 20px;
+}
+
+.company_signup_form {
+  margin: 20px 0;
 }
