@@ -1,7 +1,14 @@
 <div>
   <h3>Groups</h3>
   <button class="clear" >Clear Filters</button>
-  <% @users.group('groupable_type, groupable_id').each do |user| %>
-    <button class="group_filters" id="<%= user.groupable.name.gsub(/\s+/, "") %>"><%= user.groupable.name %></button>
-  <% end %>
+  <% @users.group_by{ |x| x.groupable_type && x.groupable_id }.each do |user| %>
+        <% if user[1].first.groupable_type == "Cohort" %>
+            <% type = Cohort %>
+        <% elsif user[1].first.groupable_type == "Company" %>
+            <% type = Company %>
+        <% elsif user[1].first.groupable_type == "Faculty" %>
+            <% type = Faculty %>
+                        <% end %>
+    <button class="group_filters" id="<%= type.where(:id => user[1].first.groupable_id ).limit(1).first.name.to_s.gsub(/\s+/, "") %>"><%= type.where(:id => user[1].first.groupable_id ).limit(1).first.name %></button>
+    <% end %>
 </div>

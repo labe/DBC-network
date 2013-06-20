@@ -39,7 +39,7 @@ class UsersController < ApplicationController
      :groupable_type => params[:user][:groupable_type],
      :groupable_id => params[:user][:groupable_id])
     if @user.save
-      UserMailer.delay.pending_email(@user)
+      UserMailer.pending_email(@user).deliver
       redirect_to thank_you_path, :notice => "Submitted! We'll get back to you soon."
     else
       flash.now.alert = "This email already exists."
@@ -111,11 +111,11 @@ class UsersController < ApplicationController
     @catcher = User.find(@interest.catcher_id)
     @pitcher = User.find(@interest.pitcher_id)
     if current_user.groupable_type == "Company"
-      InterestMailer.delay.employer_initiated_email(@catcher, @pitcher)
+      InterestMailer.employer_initiated_email(@catcher, @pitcher).deliver
       @interest.email_sent_on = DateTime.now
       @interest.save
     else
-      InterestMailer.delay.s2s_pending_connection(@catcher, @pitcher)
+      InterestMailer.s2s_pending_connection(@catcher, @pitcher).deliver
       @interest.email_sent_on = DateTime.now
       @interest.save
     end
@@ -129,7 +129,7 @@ class UsersController < ApplicationController
   end
 
   def connections
-    
+
   end
 
   private
