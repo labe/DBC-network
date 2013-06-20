@@ -48,12 +48,3 @@ Get These from github or whoever has them on your team.
 * GITHUB_USER_AGENT - App you registered
 * GITHUB_AUTH_USER - Username
 * GITHUB_AUTH_PASS - User Password
- 
-
-###Enable Boots Data
-
-Run the rake command:
-
-    bundle exec rake import
-
-
