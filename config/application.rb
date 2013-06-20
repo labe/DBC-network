@@ -66,6 +66,6 @@ module Alumni
     config.assets.version = '1.0'
 
     # Prevent rake assets:precompile error in Heroku
-    config.assets.initialize_on_precompile = false
+    # config.assets.initialize_on_precompile = false
   end
 end
