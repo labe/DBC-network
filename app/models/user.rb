@@ -24,13 +24,4 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  searchable do
-    text :first_name,   :boost => 5
-    text :last_name,    :boost => 5
-    text :email,        :boost => 5
-    text :location,     :boost => 4
-    text :company_name, :boost => 4
-    text :github_handle, :graduation_date, :groupable_type, :phone
-  end
-
 end
