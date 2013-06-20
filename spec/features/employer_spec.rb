@@ -36,12 +36,12 @@ describe "Employer" do
   
 	  	it "can show interest in other users" do
 	  		visit user_path(@student)
-	  		page.should have_button 'Next-Step'
+	  		page.should have_button 'Let us introduce you'
 	  	end
   
 	  	it "can contact via email other DBC alumni/students" do
 	  		visit user_path(@student)
-	  		click_button "Next-Step"
+	  		click_button "Let us introduce you"
 	  	end
 	  end
   

@@ -1,0 +1,21 @@
+<h1 class="user_home">Edit Profile</h1>
+<div class="card_layout">
+  <div id="profile_gravatar">
+   <%= form_for(@user, :html => { :class => "edit" }) do |f| %>
+   <p><%= user.first_name %> <%= user.last_name %></p>
+   <p><%= f.text_field :location, placeholder: "Location",:size =>12, :maxlength =>25,:style => "text-align:center" %></p>
+   <p><%= gravatar_image_tag user.email %></p>
+   <p><%= user.groupable.name if user.groupable %></p>
+   <p>Graduated: <%= user.graduation_date %></p>
+     <button><% f.submit %>Submit Changes</button>
+ </div>
+
+ <div id="user_info_edit">
+  <p><%= f.email_field :email, placeholder: "Email" %> Email</p>
+  <div class="user_intro">
+    <p>Bio: </p><p><%= f.text_area :intro, :size => "30x3", placeholder: "Write a short intro for employers and alumni to see." %></p>
+   <% end %>
+ </div>
+</div>
+</div>
+
