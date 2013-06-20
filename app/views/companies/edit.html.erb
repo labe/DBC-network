@@ -6,9 +6,11 @@
     <p id="name"><%= @company.name %></p>
     <%= form_for(@company, :html => { :class => "edit" }) do |f| %>
     <p>Logo:  <%= f.file_field :file%></p>
+    <%= f.text_field :name, :hidden => true, :placeholder => "Company Website", :required => true %>
     <p>Website:<%= f.text_field :website, :placeholder => "Company Website", :required => true %></p>
     <p>Location: <%= f.text_field :location, :placeholder => "Company Location", :required => true %></p>
     <p>Email Contact: <%= f.text_field :initial_email_contact, :placeholder => "Point of Contact (Email)", :required => true %></p>
+    <p><%= f.submit :value => "Submit Changes" %><p>
     <% end %>
   </div>
 </div>

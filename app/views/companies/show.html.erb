@@ -3,7 +3,8 @@
 <div class="card_layout">
   <% if current_user.groupable.name == @company.name %>
   <div class="edit-questions">
-      <%= link_to "Edit Questions",company_questions_path(@company) %>
+      <p><%= link_to "Edit Questions",company_questions_path(@company) %></p>
+      <p><%= link_to "Edit Company Profile", edit_company_path(@company) %></p>
   </div>
   <% end %>
   <div class="company-card">
