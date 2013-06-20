@@ -7,10 +7,9 @@ class CompaniesController < ApplicationController
                    :name => params[:companies][:name],
                    :location => params[:companies][:location],
                    :initial_email_contact => params[:companies][:initial_email_contact])
-    p params[:companies][:file]
     company.logo = params[:companies][:file]
     company.save!
-    p company.logo
+    flash[:success] = "Company request form sent. We'll be in touch."
     redirect_to :back
   end
 
