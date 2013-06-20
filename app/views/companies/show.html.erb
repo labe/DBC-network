@@ -7,8 +7,8 @@
   </div>
   <% end %>
   <div class="company-card">
-    <% if @company.logo.url %>
-    <p><%= image_tag(@company.logo.url, :class => "logo" ) %></p>
+    <% if @company.logo %>
+    <p><%= image_tag(@company.logo, :class => "logo" ) %></p>
     <% end %>
     <p id="name"><%= @company.name %></p>
     <p class="company-info"><%= link_to "#{@company.website}", "#{@company.website}", :class => "company-info"  %></p>
