@@ -11,18 +11,36 @@
 	</div>
 
 	<div id="user_info">
-	<% if user.email %><p>Email: <%= user.email %></p><% end %>
+	<% if user.email %><p>Email: <%=  mail_to(user.email) %></p><% end %>
 	<% if user.phone %><p>Phone: <%= user.phone %></p><% end %>
 	<% if user.facebook_url %><p>Facebook: <%= user.facebook_url %></p><% end %>
-	<% if user.github_handle %><p>Github: <%= user.github_handle %></p><% end %>
-	<% if user.linkedin_url %><p>LinkedIn: <%= user.linkedin_url %></p><% end %>
-	<% if user.tumblr_url %><p>Tumblr: <%= user.tumblr_url %></p><% end %>
-	<% if user.twitter_url %><p>Twitter: <%= user.twitter_url %></p><% end %>
+	<% if user.github_handle %><p><%= image_tag('github_logo.png') %> Github: <%= user.github_handle %></p><% end %>
+	<% if user.linkedin_url %><p><%= image_tag('linked_in.png') %> LinkedIn: <%= user.linkedin_url %></p><% end %>
+	<% if user.tumblr_url %><p><%= image_tag('tumblr.png') %> Tumblr: <%= user.tumblr_url %></p><% end %>
+	<% if user.twitter_url %><p><%= image_tag('twitter.png') %> Twitter: <%= user.twitter_url %></p><% end %>
 		<div class="user_intro">
 		<% if user.intro %><p>Bio: <%= user.intro %></p><% end %>
 		</div>
 	</div>
 </div>
+<div id='my_top_5'>
+  <table id="github_list_showing" class="selected_repos">
+    <tr>
+      <td>Links to this grads work on<%= image_tag("github_logo.png")%> GitHub are listed below</td>
+    </tr>
+    <% if @current_top_5 %>
+      <% @current_top_5.each do |repo| %>
+    <tr>
+      <td data-url=<%=repo.url %> data-name=<%=repo.name%>><%= link_to "#{repo.name}", repo.url %></td> 
+     </tr>
+     <% end %>
+     <% end %>
+  </table>
+  <%= form_for @user, :url => user_github_path(@user), method: 'post', html: { :class => 'git_save', :id=>current_user.id } do |f| %>
+<%= f.submit "Submit", :disable_with => 'Top 5 Saved' %>
+<p id='git_error'>Sorry Brah Only 5 Top Repos Allowed</p>
+</div>
+<%end%>
 
 
 <div class="connect-button">
