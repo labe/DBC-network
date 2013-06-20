@@ -1,13 +1,13 @@
 <div class="card_layout">
 	<div id="profile_gravatar">
-	<p><%= user.first_name %> <%= user.last_name %></p>
-	<p><%= user.location %></p>
-	<p><%= gravatar_image_tag user.email %></p>
-	<p><%= user.groupable.name if user.groupable %></p>
-	<p>Graduated: <%= user.graduation_date %></p>
-	<% if current_user.id == @user.id %>
-	    <p><%= link_to "Edit my profile", edit_user_path(current_user) %></p>
-	<% end %>
+		<p><%= user.first_name %> <%= user.last_name %></p>
+		<p><%= user.location %></p>
+		<p><%= gravatar_image_tag user.email %></p>
+		<p><%= user.groupable.name if user.groupable %></p>
+		<p>Graduated: <%= user.graduation_date %></p>
+		<% if current_user.id == @user.id %>
+		<p><%= link_to "Edit my profile", edit_user_path(current_user) %></p>
+		<% end %>
 	</div>
 
 	<div id="user_info">
