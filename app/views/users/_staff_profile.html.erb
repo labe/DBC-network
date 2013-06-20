@@ -40,10 +40,10 @@
     <% end %>
     <% else %>
       <% if pitcher_interest %>
-        <%= pitcher_interest.created_at.strftime("You two connected on %m/%d/%Y") %>
+        <%= pitcher_interest.created_at.strftime("You two connected on %m/%d/%Y. Their e-mail is #{mail_to(user.email)}") %>
       <% end %>
       <% if catcher_interest %>
-        <%= catcher_interest.created_at.strftime("You two connected on %m/%d/%Y") %>
+        <%= catcher_interest.created_at.strftime("You two connected on %m/%d/%Y. Their e-mail is #{mail_to(user.email)}") %>
       <% end %>
   <%end%>
 </div>
