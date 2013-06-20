@@ -23,3 +23,4 @@ pickle-email-*.html
 /config/api_keys.txt
 /solr/pids/*
 /solr/pids/development/sunspot-solr-development.pid
+/public/uploads/*
