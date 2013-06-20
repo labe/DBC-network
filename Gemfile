@@ -27,6 +27,7 @@ gem 'httparty'
 gem 'gravatar_image_tag'
 gem 'delayed_job_active_record'
 gem "daemons"
+gem "carrierwave"
 
 group :development, :test do
   gem 'rspec-rails'

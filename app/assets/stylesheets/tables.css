@@ -111,6 +111,11 @@ button.edit{
 	font-size:16px;
 }
 
+#profile_gravatar form p{
+	font-size:16px;
+	margin:10px;
+}
+
 #user_info{
 	float:left;
 	margin-top:20px;
@@ -181,4 +186,14 @@ button.edit{
 	opacity:0.8;
 	margin-right:10px;
 	border-radius:100px;
+}
+
+#user_info_edit{
+	float:right;
+	margin-right:50px;
+}
+
+.logo{
+	height:100px;
+	width:100px;
 }

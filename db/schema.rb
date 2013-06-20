@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130619001052) do
+ActiveRecord::Schema.define(:version => 20130619140519) do
 
   create_table "administrations", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,18 @@ ActiveRecord::Schema.define(:version => 20130619001052) do
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
   end
+
+  create_table "company_contacts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "company_id"
+    t.boolean  "approved"
+    t.datetime "email_sent_on"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "company_contacts", ["company_id"], :name => "index_company_contacts_on_company_id"
+  add_index "company_contacts", ["user_id"], :name => "index_company_contacts_on_user_id"
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -95,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20130619001052) do
 
   create_table "questions", :force => true do |t|
     t.integer  "user_id"
+    t.integer  "company_id"
     t.string   "text"
     t.string   "status",     :default => "active"
     t.datetime "created_at",                       :null => false
