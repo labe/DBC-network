@@ -39,11 +39,11 @@ a {
 }
 
 a:visited{
-  color:black;
+  color:#0A76B7;
 }
 
 a:hover{
-  color: #F5513C;
+  opacity:0.7;
 }
 
 li {
@@ -317,6 +317,10 @@ float: right;
   width:450px;
   padding:10px;
   float:left;
+  -webkit-box-shadow: 0px 0px 3px rgba(50, 50, 50, 0.9);
+  -moz-box-shadow:    0px 0px 3px rgba(50, 50, 50, 0.9);
+  box-shadow:         0px 0px 3px rgba(50, 50, 50, 0.9);
+  border-radius: 3px;
 }
 
 .user_home {
@@ -586,7 +590,7 @@ float: right;
 }
 
 button.lettuce-intro {
-  width:170px;
+  width:220px;
   padding:0;
   margin-left:50px;
   margin-top: 20px;

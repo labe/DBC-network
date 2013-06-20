@@ -4,7 +4,7 @@
 
 .splash_title h1, .splash_title h2 {
   margin:0 auto;
-  font-family: 'AvenirNext';  
+  font-family: 'AvenirNext';
   text-align: center;
 }
 
@@ -46,7 +46,7 @@
   border-style: solid;
   font-family: 'AvenirNext';
   font-size: 20px;
-  color: #ffffff;
+  color: #ffffff !important;
   font-weight: bold;
   width: 160px;
   display: block;
