@@ -49,11 +49,11 @@ function overlay(whichSignup) {
    'background-color' : 'rgba(255, 255, 255, 100)',
    'position' :'absolute',
    'text-align' : 'center',
-   'top' : '25%',
+   'top' : '20%',
    'left' : '35%',
-   'width' : '30%',
+   'width' : '37%',
    'height' : '55%',
-   'border-radius' : '25px',
+   'border-radius' : '1000px',
    'z-index' : 4999
  }).hide().show(('slow','fade'));
 
@@ -82,5 +82,6 @@ $(document).ready(function(){
    e.preventDefault();
    overlay(eval(this.id+"Signup"));
  });
+  
 
 });

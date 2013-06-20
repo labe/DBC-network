@@ -52,23 +52,25 @@ span {
 
 .login input[type="text"], .login input[type="password"] {
   height:24px;
-  width:9em;
   font-size:16px;
   font-family:'AvenirNext';
   border:none;
   padding: 0 10px;
+  background-color: transparent;
 }
 
 .login input[type="text"]{
   position:absolute;
   top:15px;
-  right:230px;
+  right:200px;
+  width:9em;
 }
 
 .login input[type="password"]{
   position:absolute;
-  right:60px;
+  right:70px;
   top:15px;
+  width:6em;
 }
 
 .login input[type="submit"] {
@@ -433,7 +435,7 @@ float: right;
 .close {
   position: absolute;
   top:15px;
-  right:15px;
+  margin:0 auto;
   background-color: #fff;
   border: none;
   font-size:20px;
@@ -441,6 +443,7 @@ float: right;
 
 .signup-popup {
   margin-top: 50px;
+  padding-top: 20px;
 }
 
 .signup-popup input, .signup-popup textarea {
@@ -449,8 +452,6 @@ float: right;
   outline: 0;
   resize: none;
 }
-
-
 
 .i_am {
   margin:0 auto;
@@ -463,4 +464,28 @@ float: right;
 
 .thank_you_message {
   margin-top: 270px;
+}
+
+.questions-grouped {
+  width:500px;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 60px;
+  padding:30px;
+}
+
+.question-answer {
+  padding:20px 10px;
+  text-align: center;
+}
+
+.question-answer input {
+  font-size: 20px;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+}
+
+.question-submit {
+  float: right;
 }
