@@ -2,7 +2,9 @@
 
 <div class="card_layout">
   <div class="company-card">
+    <% if @company.logo.url %>
     <p><%= image_tag(@company.logo.url, :class => "logo" ) %></p>
+    <% end %>
     <p id="name"><%= @company.name %></p>
     <p><%= link_to "#{@company.website}", "http://#{@company.website}"  %></p>
     <p><%= @company.location %></p>

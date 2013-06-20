@@ -50,6 +50,7 @@ class UsersController < ApplicationController
   def show
     @interest = Interest.new
     @user = User.find(params[:id])
+    @current_top_5 = @user.git_hub_selections
     if @user.groupable_type == "Cohort" && @user.github_handle
       github = Github.new(@user)
       @repos = github.zip_repo_url_names
