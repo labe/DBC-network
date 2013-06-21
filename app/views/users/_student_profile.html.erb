@@ -18,7 +18,7 @@
 	<% if user.tumblr_url %><p><%= image_tag('tumblr.png') %> Tumblr: <%= link_to "#{user.tumblr_url}", "#{user.tumblr_url}" %></p><% end %>
 	<% if user.twitter_url %><p><%= image_tag('twitter.png') %> Twitter: <%= link_to "#{user.twitter_url}", "#{user.twitter_url}" %></p><% end %>
 		<div class="user_intro">
-		<% if user.intro %><p>Bio: <%= user.intro %></p><% end %>
+	<% if user.intro %><p>Bio: <%= user.intro %></p><% end %>
 		</div>
 	</div>
 </div>

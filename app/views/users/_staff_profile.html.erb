@@ -3,8 +3,6 @@
   <p><%= user.first_name %> <%= user.last_name %></p>
   <p><%= user.location %></p>
   <p><%= gravatar_image_tag user.email %></p>
-  <p><%= user.groupable.name if user.groupable %></p>
-  <p>Graduated: <%= user.graduation_date %></p>
   <% if current_user.id == @user.id %>
       <p><%= link_to "Edit my profile", edit_user_path(current_user) %></p>
   <% end %>
@@ -13,11 +11,11 @@
   <div id="user_info">
   <% if user.email %><p>Email: <%= user.email %></p><% end %>
   <% if user.phone %><p>Phone: <%= user.phone %></p><% end %>
-  <% if user.facebook_url %><p>Facebook: <%= user.facebook_url %></p><% end %>
-  <% if user.github_handle %><p>Github: <%= user.github_handle %></p><% end %>
-  <% if user.linkedin_url %><p>LinkedIn: <%= user.linkedin_url %></p><% end %>
-  <% if user.tumblr_url %><p>Tumblr: <%= user.tumblr_url %></p><% end %>
-  <% if user.twitter_url %><p>Twitter: <%= user.twitter_url %></p><% end %>
+  <% if user.facebook_url %><p>Facebook: <%= link_to "#{user.facebook_url}", "#{user.facebook_url}" %></p><% end %>
+  <% if user.github_handle %><p>Github: <%= link_to "#{user.github_handle}", "http://github.com/#{user.github_handle}" %></p><% end %>
+  <% if user.linkedin_url %><p>LinkedIn: <%= link_to "#{user.linkedin_url}", "#{user.linkedin_url}"  %></p><% end %>
+  <% if user.tumblr_url %><p>Tumblr: <%= link_to "#{user.tumblr_url}", "#{user.tumblr_url}" %></p><% end %>
+  <% if user.twitter_url %><p>Twitter: <%= link_to "#{user.twitter_url}", "#{user.twitter_url}" %></p><% end %>
     <div class="user_intro">
     <% if user.intro %><p>Bio: <%= user.intro %></p><% end %>
     </div>
