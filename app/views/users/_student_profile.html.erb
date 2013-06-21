@@ -12,11 +12,11 @@
 
 	<div id="user_info">
 	<% if user.phone %><p>Phone: <%= user.phone %></p><% end %>
-	<% if user.facebook_url %><p>Facebook: <%= link_to "#{user.facebook_url}", "http://#{user.facebook_url}" %></p><% end %>
+	<% if user.facebook_url %><p>Facebook: <%= link_to "#{user.facebook_url}", "#{user.facebook_url}" %></p><% end %>
 	<% if user.github_handle %><p><%= image_tag('github_logo.png') %> Github: <%= link_to "#{user.github_handle}", "http://github.com/#{user.github_handle}" %></p><% end %>
-	<% if user.linkedin_url %><p><%= image_tag('linked_in.png') %> LinkedIn: <%= link_to "#{user.linkedin_url}", "http://#{user.linkedin_url}"  %></p><% end %>
-	<% if user.tumblr_url %><p><%= image_tag('tumblr.png') %> Tumblr: <%= link_to "#{user.tumblr_url}", "http://#{user.tumblr_url}" %></p><% end %>
-	<% if user.twitter_url %><p><%= image_tag('twitter.png') %> Twitter: <%= link_to "#{user.twitter_url}", "http://#{user.twitter_url}" %></p><% end %>
+	<% if user.linkedin_url %><p><%= image_tag('linked_in.png') %> LinkedIn: <%= link_to "#{user.linkedin_url}", "#{user.linkedin_url}"  %></p><% end %>
+	<% if user.tumblr_url %><p><%= image_tag('tumblr.png') %> Tumblr: <%= link_to "#{user.tumblr_url}", "#{user.tumblr_url}" %></p><% end %>
+	<% if user.twitter_url %><p><%= image_tag('twitter.png') %> Twitter: <%= link_to "#{user.twitter_url}", "#{user.twitter_url}" %></p><% end %>
 		<div class="user_intro">
 		<% if user.intro %><p>Bio: <%= user.intro %></p><% end %>
 		</div>
