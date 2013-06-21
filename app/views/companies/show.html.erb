@@ -26,7 +26,7 @@
         <% end %>
     <% end %>
   <% else %>
-<%= @contacted_on.strftime("You two connected on %m/%d/%Y. Their e-mail is #{user.email}") %>
+<%= @contacted_on.strftime("You two connected on %m/%d/%Y. #{user.email}") %>
   <% end %>
 </div>
 
