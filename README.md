@@ -1,5 +1,6 @@
 # DBConnect : 
 
+![ScreenShot](http://www.henrywang.me/assets/DBConnect-97a40bc3175ab3f120e22ed36f220d86.png)
 
 ##Overview:
 **DBConnect** connects DBC Alumni with each other and prospective employers.
