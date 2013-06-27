@@ -24,4 +24,20 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  def find_homepage(group)
+    case group
+    when "Cohort"
+      "companies"
+    when "Company"
+      {:path => "users", :options => "(:student => 'student')" }
+    when "Administration"
+      "admins"
+    end
+
+  end
+
+  def path_options
+
+  end
+
 end

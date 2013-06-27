@@ -13,14 +13,18 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       if @user.activated == true
         session[:user_id] = @user.id
-        if @user.groupable_type == "Cohort"
-          redirect_to companies_path, :notice => "Logged In!"
-        elsif @user.groupable_type == "Company"
-          redirect_to users_path(:student => "student"), :notice => "Logged In!"
-          @users = User.where(:groupable_type => "Company")
-        elsif @user.groupable_type == "Administration"
-          redirect_to admins_path
-        end
+        path = @user.find_homepage(@user.groupable_type)
+        path_options = path[:options]
+        path_direction = path[:path]
+        redirect_to eval("#{path_direction}_path#{path_options}")
+        # if @user.groupable_type == "Cohort"
+        #   redirect_to companies_path, :notice => "Logged In!"
+        # elsif @user.groupable_type == "Company"
+        #   redirect_to users_path(:student => "student"), :notice => "Logged In!"
+        #   @users = User.where(:groupable_type => "Company")
+        # elsif @user.groupable_type == "Administration"
+        #   redirect_to admins_path
+        # end
       elsif @user.activated == false
         flash.now.alert = "Sorry. Your account has been denied."
         render "new"
