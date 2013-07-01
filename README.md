@@ -5,6 +5,9 @@
 ##Overview:
 **DBConnect** connects DBC Alumni with each other and prospective employers.
 
+Some of this code could use refactoring and was finished with a team of three DBC students in 8 days. 
+This is a application but we are continuing to work on features.
+
 ##Getting Started:
 
 ###Solr 
