@@ -127,11 +127,7 @@ class UsersController < ApplicationController
     @company_id = params[:company_contact][:company_id]
     redirect_to company_questions_path(@company_id)
   end
-
-  def connections
-
-  end
-
+  
   private
   def find_votable
     params.each do |name, value|
