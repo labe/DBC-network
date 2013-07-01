@@ -1,8 +1,8 @@
 require 'spec_helper'
-require 'sunspot/rails/spec_helper'
+#require 'sunspot/rails/spec_helper'
 describe "Student" do
 
-	disconnect_sunspot
+	#disconnect_sunspot
 
 	context "while signed in" do
 
@@ -33,11 +33,6 @@ describe "Student" do
 		it "can view other DBC student/alumni profiles" do
 			visit user_path(@student2)
 			page.should have_content("#{@student2.first_name}")
-		end
-
-		it "can view other DBC student/alumni contact info" do
-			visit user_path(@student2)
-			page.should have_content("#{@student2.email}")
 		end
 
 		it "can contact via email other DBC alumni/students" do

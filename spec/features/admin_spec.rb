@@ -1,9 +1,9 @@
 require 'spec_helper'
-require 'sunspot/rails/spec_helper'
+#require 'sunspot/rails/spec_helper'
 
 describe "Admin" do
 
-	disconnect_sunspot
+	#disconnect_sunspot
 
 	context "while signed in" do 
 		before do

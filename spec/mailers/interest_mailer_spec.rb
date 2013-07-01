@@ -1,9 +1,9 @@
 require "spec_helper"
-require "sunspot/rails/spec_helper"
+#require "sunspot/rails/spec_helper"
 
 describe InterestMailer do
  
- 	disconnect_sunspot
+ 	#disconnect_sunspot
 
  	context "student to student contact" do
 

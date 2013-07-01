@@ -21,11 +21,11 @@
 #
 
 require 'spec_helper'
-require 'sunspot/rails/spec_helper'
+#require 'sunspot/rails/spec_helper'
 
 describe User do
 
-disconnect_sunspot
+#disconnect_sunspot
 
 	context "has the relation to" do
 		it { should be_instance_of(User) }
