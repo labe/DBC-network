@@ -1,9 +1,9 @@
 require 'spec_helper'
-require 'sunspot/rails/spec_helper'
+#require 'sunspot/rails/spec_helper'
 
 describe "Employer" do
 
-	disconnect_sunspot
+	#disconnect_sunspot
 
 	context "while signed in" do 
 
@@ -27,11 +27,6 @@ describe "Employer" do
 	  		pending "need to create cohort factory model"
 	  		# visit users_path
 	  		# page.should have_content('Student List')
-	  	end
-  
-	  	it "can view DBC student/alumni contact info" do
-	  		visit user_path(@student)
-	  		page.should have_content('student@student.com')
 	  	end
   
 	  	it "can show interest in other users" do

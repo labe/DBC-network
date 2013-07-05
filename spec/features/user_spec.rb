@@ -1,9 +1,9 @@
 require 'spec_helper'
-require 'sunspot/rails/spec_helper'
+#require 'sunspot/rails/spec_helper'
 
 describe User do
 	
-	disconnect_sunspot 
+	#disconnect_sunspot 
 	
 	context "while not signed in" do 
 	  
@@ -20,7 +20,7 @@ describe User do
 	  	fill_in 'email', with: @student.email	
 	  	fill_in 'password', with: @student.password
 	  	click_button "Login"
-	  	page.should have_content("Logged In!")
+	  	page.should have_content("Mentors")
 	  end
   
 	  it "can log in as employer" do
@@ -28,7 +28,7 @@ describe User do
 	  	fill_in 'email', with: @employer.email	
 	  	fill_in 'password', with: @employer.password
 	  	click_button 'Login'
-	  	page.should have_content("Logged In!")
+	  	page.should have_content("Squirrels")
 	  end
   
 	  it "can log in as company admin" do
